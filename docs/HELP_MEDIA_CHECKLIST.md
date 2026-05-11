@@ -1,83 +1,64 @@
-# Help-media upload checklist
+# Help-media filename checklist
 
-Every `<HelpMedia>` reference across the StemCounts help site, listed by article. **50 files total** — 34 images + 16 short videos.
+A list of every screenshot and short video the StemCounts help site is set up for. **50 files in total** — 34 screenshots + 16 short videos.
 
-## How to upload
+## How to use this list
 
-Every file goes into one S3 bucket, at the root level — no folders.
+1. Open this page and <https://app.stemcounts.com> side by side.
+2. Work through the list below, article by article.
+3. For each entry, capture the screenshot or short video the description points at.
+4. Save it with the **exact filename** in the code block — click the copy icon on the code block and paste it into your Save-as dialog.
+5. Drop everything you capture into one folder on your desktop.
+6. Hand the folder over — uploading is somebody else's job (see the bottom of this page).
 
-**Bucket name:**
-
-```
-help-media.stemcounts.com
-```
-
-### Step-by-step
-
-1. Sign in to the AWS Console at <https://console.aws.amazon.com>.
-2. In the top search bar, type **S3** and click the S3 service.
-3. From the bucket list, click into **`help-media.stemcounts.com`**.
-4. Click the orange **Upload** button (top-right).
-5. Drag your captured files into the drop zone (or click **Add files** and pick them).
-6. Leave all the default options as they are. Don't create folders.
-7. Click **Upload** at the bottom.
-
-Once a batch is uploaded, the images will appear on the live help site after the next docs rebuild (usually within a few hours, or sooner if you ping the dev team to trigger one).
-
-### Filename rules
-
-- Use the **exact filename** shown in each section below. Copy the code block — don't retype it.
-- Extensions matter: `.png` for screenshots, `.mp4` for short videos.
-- No spaces, no capitals, no folder paths.
+Don't rename files, add prefixes, or change extensions. The filenames in this list are the links the help site already expects — get them wrong and the image won't appear.
 
 ### Capture guidelines
 
-- **Screenshots**: capture at 2× (Retina) for crispness; aim for around 2400px wide max.
-- **Videos**: MP4, H.264, max 1080p, ideally under 20 MB and under 30 seconds.
-- **Redact**: blur or replace any real florist names, customer names, real prices, or addresses before saving.
+- **Screenshots**: capture at 2× (Retina) for crispness; aim for roughly 2400px wide max.
+- **Short videos**: MP4 (H.264), 1080p max, under 30 seconds where possible, ideally under 20 MB.
+- **Redact**: blur or replace real florist names, customer names, real prices, and addresses before saving.
 
-If you don't have AWS access, send the captured files to whoever does — the upload step is just drag-and-drop and takes seconds.
+Click any article title to open the live page so you can see exactly where the image will sit.
 
-## What to capture
-
-Each section below is one article on the help site. The article link opens the live page so you can see the context the image / video sits in. The code block is the **exact filename** to save the captured file as — click the copy icon in the top-right of the block.
+## Files to capture, by article
 
 ### [Creating your account](/getting-started/creating-your-account/)
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   signup-flow-overview.mp4
   ```
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   signup-role-selection.png
   ```
 
-  *Shows:* Florist vs Wholesaler role picker
+  *Show:* Florist vs Wholesaler role picker
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   signup-otp-screen.png
   ```
 
-  *Shows:* OTP entry — the code arrives by SMS to the phone you registered with
+  *Show:* OTP entry — the code arrives by SMS to the phone you registered with
 
 
 ### [Finding your way around](/getting-started/finding-your-way-around/)
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   app-shell-overview.mp4
   ```
 
-  *Shows:* A quick tour of the StemCounts header and navigation
+  *Show:* A quick tour of the StemCounts header and navigation
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   user-menu-open.png
@@ -86,13 +67,13 @@ Each section below is one article on the help site. The article link opens the l
 
 ### [Forgot your password](/getting-started/forgot-password/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   login-forgot-password-link.png
   ```
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   reset-password-form.png
@@ -101,7 +82,7 @@ Each section below is one article on the help site. The article link opens the l
 
 ### [Welcome to StemCounts](/getting-started/welcome/)
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   welcome-platform-overview.mp4
@@ -110,25 +91,25 @@ Each section below is one article on the help site. The article link opens the l
 
 ### [Your first 10 minutes](/getting-started/your-first-10-minutes/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   florist-landing-new-order-cta.png
   ```
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   event-add-arrangement.png
   ```
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   flower-picker-quantity.mp4
   ```
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   order-send-confirmation.png
@@ -137,26 +118,26 @@ Each section below is one article on the help site. The article link opens the l
 
 ### [Browsing the flower catalog](/florists/browsing-the-catalog/)
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   flower-library-grid.mp4
   ```
 
-  *Shows:* Browsing the Flower Library
+  *Show:* Browsing the Flower Library
 
 
 ### [Building an arrangement](/florists/building-an-arrangement/)
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   event-details-with-arrangements.mp4
   ```
 
-  *Shows:* An event with three arrangements
+  *Show:* An event with three arrangements
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   add-arrangement-button.png
@@ -165,15 +146,15 @@ Each section below is one article on the help site. The article link opens the l
 
 ### [Cloning arrangements](/florists/cloning-arrangements/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   arrangement-3-dot-menu.png
   ```
 
-  *Shows:* The 3-dot menu on an arrangement card
+  *Show:* The 3-dot menu on an arrangement card
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   arrangement-clone-action.mp4
@@ -182,15 +163,15 @@ Each section below is one article on the help site. The article link opens the l
 
 ### [Creating your first event](/florists/creating-your-first-event/)
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   event-creation-overview.mp4
   ```
 
-  *Shows:* An event being added to a weekly order
+  *Show:* An event being added to a weekly order
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   add-event-modal.png
@@ -199,15 +180,15 @@ Each section below is one article on the help site. The article link opens the l
 
 ### [Event details & printing](/florists/event-details-and-printing/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   event-printable-page.png
   ```
 
-  *Shows:* A printable event sheet, ready to send to a printer or PDF
+  *Show:* A printable event sheet, ready to send to a printer or PDF
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   event-print-dialog.png
@@ -216,15 +197,15 @@ Each section below is one article on the help site. The article link opens the l
 
 ### [The florist landing page](/florists/florist-landing/)
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   florist-landing-overview.mp4
   ```
 
-  *Shows:* A quick look at the florist home screen
+  *Show:* A quick look at the florist home screen
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   florist-landing-primary-ctas.png
@@ -233,26 +214,26 @@ Each section below is one article on the help site. The article link opens the l
 
 ### [Pricing and budgets](/florists/pricing-and-budgets/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   pricing-overview.png
   ```
 
-  *Shows:* The cost-vs-customer-price relationship
+  *Show:* The cost-vs-customer-price relationship
 
 
 ### [Sending your order](/florists/sending-your-order/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   send-order-button.png
   ```
 
-  *Shows:* The Send Order action on a weekly order
+  *Show:* The Send Order action on a weekly order
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   order-status-sent.png
@@ -261,15 +242,15 @@ Each section below is one article on the help site. The article link opens the l
 
 ### [The Flower Picker](/florists/the-flower-picker/)
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   flower-picker-overview.mp4
   ```
 
-  *Shows:* Walking through the Flower Picker
+  *Show:* Walking through the Flower Picker
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   flower-picker-card-expanded.png
@@ -278,122 +259,122 @@ Each section below is one article on the help site. The article link opens the l
 
 ### [The Spares Bucket](/florists/the-spares-bucket/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   spares-bucket-on-event.png
   ```
 
-  *Shows:* The Spares Bucket sits alongside arrangements on the event page
+  *Show:* The Spares Bucket sits alongside arrangements on the event page
 
 
 ### [Tracking your order](/florists/tracking-your-order/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   order-status-flow.png
   ```
 
-  *Shows:* The five stages florists see
+  *Show:* The five stages florists see
 
 
 ### [Assign & Send](/wholesalers/assign-and-send/)
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   assign-and-send-overview.mp4
   ```
 
-  *Shows:* Walking through Assign & Send end to end
+  *Show:* Walking through Assign & Send end to end
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   assign-supplier-dropdown.png
   ```
 
-  *Shows:* Selecting a supplier for an aggregated flower row
+  *Show:* Selecting a supplier for an aggregated flower row
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   confirm-supplier-order.png
   ```
 
-  *Shows:* Confirming a supplier order moves it to Confirmed & Ready
+  *Show:* Confirming a supplier order moves it to Confirmed & Ready
 
 
 ### [Confirmed & Ready](/wholesalers/confirmed-and-ready/)
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   confirmed-and-ready-overview.mp4
   ```
 
-  *Shows:* Marking supplier-fulfilled items and then ready for florist
+  *Show:* Marking supplier-fulfilled items and then ready for florist
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   mark-supplier-fulfilled.png
   ```
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   ready-florist-view-toggle.png
   ```
 
-  *Shows:* Toggle between List view and Florist view
+  *Show:* Toggle between List view and Florist view
 
 
 ### [Daily pick-lists](/wholesalers/daily-pick-lists/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   pick-list-printable.png
   ```
 
-  *Shows:* A printable pick-list for one florist's order
+  *Show:* A printable pick-list for one florist's order
 
 
 ### [Managing your inventory](/wholesalers/managing-inventory/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   inventory-management-page.png
   ```
 
-  *Shows:* Inventory Management with selected flowers + price overrides
+  *Show:* Inventory Management with selected flowers + price overrides
 
 
 ### [Multi-supplier orders](/wholesalers/multi-supplier-orders/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   multi-supplier-diagram.png
   ```
 
-  *Shows:* One florist order → multiple supplier orders → reconstituted at handover
+  *Show:* One florist order → multiple supplier orders → reconstituted at handover
 
 
 ### [Receive & Accept](/wholesalers/receive-and-accept/)
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   receive-and-accept-view.mp4
   ```
 
-  *Shows:* Reviewing an incoming order in Receive & Accept
+  *Show:* Reviewing an incoming order in Receive & Accept
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   accept-order-button.png
@@ -402,67 +383,67 @@ Each section below is one article on the help site. The article link opens the l
 
 ### [The Order Board](/wholesalers/the-order-board/)
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   order-board-overview.mp4
   ```
 
-  *Shows:* The Order Board in action
+  *Show:* The Order Board in action
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   order-board-drag.mp4
   ```
 
-  *Shows:* Dragging an order from Sent to Accepted
+  *Show:* Dragging an order from Sent to Accepted
 
 
 ### [The wholesaler landing page](/wholesalers/wholesaler-landing/)
 
-- [ ] **🎥 video**
+- [ ] 🎥 **short video**
 
   ```
   wholesaler-landing-overview.mp4
   ```
 
-  *Shows:* A quick look at the wholesaler home screen
+  *Show:* A quick look at the wholesaler home screen
 
 
 ### [Managing your subscription](/billing/managing-subscription/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   manage-subscription-button.png
   ```
 
-  *Shows:* The Manage subscription button opens the Stripe portal
+  *Show:* The Manage subscription button opens the Stripe portal
 
 
 ### [Profile and notifications](/billing/profile-and-notifications/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   settings-personal-tab.png
   ```
 
-  *Shows:* Personal settings tab
+  *Show:* Personal settings tab
 
 
 ### [Your StemCounts subscription](/billing/subscription/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   account-subscription-card.png
   ```
 
-  *Shows:* The Subscription card on the Account page
+  *Show:* The Subscription card on the Account page
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   subscribe-button.png
@@ -471,24 +452,24 @@ Each section below is one article on the help site. The article link opens the l
 
 ### [Trial and blocked access](/billing/trial-and-blocked-access/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   subscription-blocked-screen.png
   ```
 
-  *Shows:* The Subscription Access Blocked screen
+  *Show:* The Subscription Access Blocked screen
 
 
 ### [Your organisation](/billing/your-organisation/)
 
-- [ ] image
+- [ ] 📷 screenshot
 
   ```
   settings-organization-tab.png
   ```
 
-  *Shows:* Organisation settings
+  *Show:* Organisation settings
 
 
 ---
@@ -547,3 +528,25 @@ If you need to find a specific filename fast:
 - `user-menu-open.png` → [Finding your way around](/getting-started/finding-your-way-around/)
 - `welcome-platform-overview.mp4` → [Welcome to StemCounts](/getting-started/welcome/)
 - `wholesaler-landing-overview.mp4` → [The wholesaler landing page](/wholesalers/wholesaler-landing/)
+
+---
+
+## For whoever's uploading the folder
+
+Files go into a single S3 bucket, at the root level — no folders.
+
+**Bucket name:**
+
+```
+help-media.stemcounts.com
+```
+
+Steps:
+
+1. AWS Console → S3 → click into `help-media.stemcounts.com`.
+2. **Upload** → drag the captured-files folder contents in (not the folder itself — just the loose files).
+3. Leave the default options, click **Upload** at the bottom.
+4. Trigger a docs site rebuild in Amplify (or wait — they'll appear on the next push to `main`).
+
+If a file's filename doesn't match a slug, it'll sit silently in the bucket without showing up on the help site. Match the list above exactly.
+
