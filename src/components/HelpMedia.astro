@@ -1,153 +1,141 @@
 ---
 /**
- * <HelpMedia id="slug" /> — resolves a stable media slug against the
- * help-media manifest at build time and emits the right <img> /
- * <video> tag with alt text + caption.
+ * <HelpMedia id="slug" /> — emits an <img> or <video> pointing at
+ * `help-media.stemcounts.com/{slug}.{ext}` directly.
  *
- * Source of truth (planned) lives in a StemCounts-side data store;
- * an upstream Lambda writes a flat manifest.json to a CDN. This
- * component consumes that manifest. See src/lib/manifest.ts for the
- * fetch + caching logic and the pipeline-status caveat.
+ * No manifest, no DB. The S3 bucket is the source of truth — Kate
+ * drops a file with the matching name and it appears on the next
+ * build. If the file doesn't exist, the browser fires `onerror`
+ * which adds a `missing` class to the wrapper, surfacing a visible
+ * "Missing media" placeholder via CSS.
  *
  * Usage in any .mdx file:
  *
  *   import HelpMedia from "../../../components/HelpMedia.astro";
  *
- *   <HelpMedia id="catalog-browse" />
+ *   <HelpMedia id="dashboard-overview" />
  *
- *   {/ * Override default alt or caption per article: * /}
- *   <HelpMedia id="catalog-browse" alt="Catalog grid with 12 stems" />
- *   <HelpMedia id="catalog-browse" caption="Tap a tile to add to cart." />
+ *   {/ * Override the auto-derived alt text * /}
+ *   <HelpMedia id="dashboard-overview" alt="Dashboard with three projects" />
  *
- *   {/ * Wider on full-bleed pages: * /}
- *   <HelpMedia id="order-modal" width="100%" />
+ *   {/ * Add a caption (renders as <figcaption> below the media) * /}
+ *   <HelpMedia id="dashboard-overview" caption="Click + New project to start." />
  *
- * If the slug isn't in the manifest, a clearly-visible placeholder
- * renders instead of failing the build — broken refs are easy to
- * spot in the live site without blocking deploy.
+ *   {/ * Video instead of image (resolves to .mp4 instead of .png) * /}
+ *   <HelpMedia id="platform-walkthrough" kind="video" />
  */
 
-import { getHelpMedia } from "../lib/manifest";
+import { helpMediaUrl, humanizeSlug, type HelpMediaKind } from "../lib/helpMedia";
 
 interface Props {
-  /** Media slug. Matches `slug` on the help_media manifest entry. */
+  /** Media slug. Must match the file name in the S3 bucket (without extension). */
   id: string;
-  /** Override the manifest's alt text. */
+  /** Override the auto-derived humanised alt text. Pass an explicit value for any
+   *  shot whose meaning isn't obvious from the slug. */
   alt?: string;
-  /** Override the manifest's caption. */
+  /** Optional caption rendered below the media. */
   caption?: string;
-  /** CSS width on the rendered media. Defaults to 100% of the
-   *  article column. */
+  /** `image` (default, .png) or `video` (.mp4). */
+  kind?: HelpMediaKind;
+  /** Override the file extension (rare — defaults are png/mp4). */
+  ext?: string;
+  /** CSS width on the rendered media. Defaults to 100% of the article column. */
   width?: string;
-  /** Wrap in <figure> + render caption as <figcaption>. Default true;
-   *  pass `false` for decorative shots. */
+  /** Wrap in <figure>. Default true; pass false for purely decorative shots. */
   figure?: boolean;
 }
 
-const { id, alt, caption, width = "100%", figure = true } = Astro.props;
-const item = await getHelpMedia(id);
+const {
+  id,
+  alt,
+  caption,
+  kind = "image",
+  ext,
+  width = "100%",
+  figure = true,
+} = Astro.props;
 
-const resolvedAlt = (alt ?? item?.alt ?? "").toString();
-const resolvedCaption = caption ?? item?.caption ?? null;
+const url = helpMediaUrl(id, kind, ext);
+const resolvedAlt = (alt ?? humanizeSlug(id)).toString();
 ---
 
-{
-  item ? (
-    figure && resolvedCaption ? (
-      <figure class="help-media">
-        {item.kind === "video" ? (
-          <video controls preload="metadata" style={`width: ${width}; height: auto;`}>
-            <source src={item.url} type={item.content_type} />
-            Your browser doesn't support inline video.
-            <a href={item.url}>Download {item.slug}</a>
-          </video>
-        ) : (
-          <img
-            src={item.url}
-            alt={resolvedAlt}
-            loading="lazy"
-            decoding="async"
-            style={`width: ${width}; height: auto;`}
-          />
-        )}
-        <figcaption>{resolvedCaption}</figcaption>
-      </figure>
-    ) : item.kind === "video" ? (
-      <video controls preload="metadata" class="help-media" style={`width: ${width}; height: auto;`}>
-        <source src={item.url} type={item.content_type} />
-        Your browser doesn't support inline video.
-        <a href={item.url}>Download {item.slug}</a>
-      </video>
-    ) : (
-      <img
-        src={item.url}
-        alt={resolvedAlt}
-        loading="lazy"
-        decoding="async"
-        class="help-media"
-        style={`width: ${width}; height: auto;`}
-      />
-    )
+<figure class="help-media" data-help-media-id={id}>
+  {kind === "video" ? (
+    <video
+      controls
+      preload="metadata"
+      style={`width: ${width}; height: auto;`}
+      onerror="this.closest('.help-media').classList.add('missing')"
+    >
+      <source src={url} type="video/mp4" />
+      Your browser doesn't support inline video.
+      <a href={url}>Download {id}.mp4</a>
+    </video>
   ) : (
-    <div class="help-media-missing" role="status">
-      <strong>Missing media:</strong> <code>{id}</code>
-      <p>This slug isn't in the help-media manifest yet. Either it was
-        deleted, or the article references a slug that hasn't been
-        uploaded.</p>
-    </div>
-  )
-}
+    <img
+      src={url}
+      alt={resolvedAlt}
+      loading="lazy"
+      decoding="async"
+      style={`width: ${width}; height: auto;`}
+      onerror="this.closest('.help-media').classList.add('missing')"
+    />
+  )}
+  {figure && caption && <figcaption>{caption}</figcaption>}
+</figure>
 
 <style>
   .help-media {
     display: block;
     margin: 1.5rem auto;
-    border-radius: 8px;
-    border: 1px solid var(--sl-color-hairline);
-    background: var(--sl-color-bg-sidebar);
     max-width: 100%;
-  }
-  figure.help-media {
+    padding: 0;
     border: none;
     background: none;
-    padding: 0;
   }
-  figure.help-media img,
-  figure.help-media video {
+  .help-media img,
+  .help-media video {
+    display: block;
+    width: 100%;
+    height: auto;
     border-radius: 8px;
     border: 1px solid var(--sl-color-hairline);
     background: var(--sl-color-bg-sidebar);
-    max-width: 100%;
   }
-  figure.help-media figcaption {
+  .help-media figcaption {
     margin-top: 0.5rem;
     font-size: 0.85rem;
     color: var(--sl-color-text-accent);
     text-align: center;
     font-style: italic;
   }
-  .help-media-missing {
-    /* Brand coral — `--sl-color-orange-*` vars are remapped at the
-       top of custom.css to StemCounts coral. Hex fallbacks below
-       match the same colour so the warning stays on-brand even if
-       Starlight ever reflows its orange tokens. */
-    margin: 1.5rem 0;
+
+  /* Missing-media placeholder — appears when img/video onerror fires.
+     Hides the broken tag, shows a labelled box in its place using the
+     wrapper's data-help-media-id attribute. Coral, matches brand. */
+  .help-media.missing img,
+  .help-media.missing video {
+    display: none;
+  }
+  .help-media.missing::before {
+    content: "Missing media";
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--sl-color-orange-high, hsl(5 70% 38%));
+    margin-bottom: 0.25rem;
+  }
+  .help-media.missing::after {
+    content: attr(data-help-media-id);
+    display: block;
+    background: var(--sl-color-orange-low, hsl(5 100% 96%));
+    border: 1px dashed var(--sl-color-orange, #FF6F61);
+    color: var(--sl-color-orange-high, hsl(5 70% 38%));
     padding: 0.75rem 1rem;
     border-radius: 8px;
-    background: var(--sl-color-orange-low, hsl(5 100% 96%));
-    border: 1px solid var(--sl-color-orange, #FF6F61);
-    color: var(--sl-color-orange-high, hsl(5 70% 38%));
-    font-size: 0.9rem;
-  }
-  .help-media-missing code {
-    background: rgba(0, 0, 0, 0.06);
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-    font-size: 0.85em;
-  }
-  .help-media-missing p {
-    margin: 0.4rem 0 0;
+    font-family: var(--__sl-font-mono, ui-monospace, monospace);
     font-size: 0.85rem;
-    opacity: 0.85;
   }
 </style>

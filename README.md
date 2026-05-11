@@ -126,15 +126,46 @@ CSS vars or the `--cta-*` tokens.
 
 ## Help-media pipeline
 
-The `<HelpMedia>` component reads a flat `manifest.json` listing every
-screenshot and video by slug. The default URL is set in
-[`src/lib/manifest.ts`](src/lib/manifest.ts) and can be overridden per
-build via `PUBLIC_HELP_MEDIA_MANIFEST_URL`.
+Each `<HelpMedia id="slug" />` reference in an article resolves directly
+to a file in S3 — no manifest, no database. Convention:
 
-**Current status:** The StemCounts help-media pipeline (CDN bucket +
-manifest-writer) does not exist yet. The default URL is a placeholder.
-Until it's wired up, `<HelpMedia>` renders a clearly visible
-"Missing media" warning instead of failing the build.
+```
+https://help-media.stemcounts.com/{slug}.{ext}
+```
+
+where `ext` is `png` for images (default) and `mp4` for videos
+(`kind="video"`). The bucket is flat — no folders.
+
+**Adding new screenshots / video:** see
+[`docs/HELP_MEDIA_CHECKLIST.md`](docs/HELP_MEDIA_CHECKLIST.md) for the
+full list of slugs referenced in current articles, with article context
+and any captions. The intended workflow is:
+
+1. Capture the screenshot or short video.
+2. Save with the exact slug filename (e.g. `florist-landing-overview.png`).
+3. Upload to the `help-media.stemcounts.com` S3 bucket via the AWS
+   console (flat at root, no folders).
+4. Trigger a docs site rebuild (Amplify → `main` branch → "Redeploy
+   this version") or wait for the next push to `main` to pick it up.
+
+Re-generate the checklist any time articles change:
+
+```bash
+python scripts/list-help-media.py
+```
+
+If a referenced file doesn't exist in the bucket, the browser's
+`onerror` fires and `<HelpMedia>` shows a clearly visible "Missing
+media" placeholder with the slug — so broken refs are easy to spot on
+the live site without breaking the build.
+
+**Later (admin-UI phase):** when a non-technical content-management
+UI is built into the main StemCounts app, the source of truth moves to
+DynamoDB and a Lambda regenerates a `manifest.json`. At that point
+[`src/lib/helpMedia.ts`](src/lib/helpMedia.ts) is the one file to
+swap — replace the URL-convention call with a manifest lookup.
+[`src/components/HelpMedia.astro`](src/components/HelpMedia.astro)
+stays the same.
 
 ## Deploy
 
