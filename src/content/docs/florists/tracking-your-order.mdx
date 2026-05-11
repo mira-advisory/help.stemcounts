@@ -1,0 +1,77 @@
+---
+title: Tracking your order
+description: The florist-side statuses — Sent, Accepted, Supply Confirmed, Ready, Complete.
+sidebar:
+  order: 10
+---
+
+import { Aside, Badge } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+Once sent, your order moves through a small number of clearly named
+status stages. Florists see a simplified view — wholesalers see more
+detail behind the scenes.
+
+<HelpMedia id="order-status-flow" caption="The five statuses florists see" />
+
+## The status sequence
+
+| Status | What it means | Who advances it |
+|---|---|---|
+| **Draft** | You're still editing | You |
+| **Sent** | Order with wholesaler, not yet accepted | — |
+| **Accepted** | Wholesaler has accepted; they're sourcing | Wholesaler |
+| **Supply Confirmed** | All flowers confirmed by suppliers | Wholesaler |
+| **Ready** | Flowers ready for pickup or delivery | Wholesaler |
+| **Complete** | Delivered / picked up | Wholesaler |
+
+## Where you see status
+
+- **Orders list** — each row shows a status pill
+- **Order detail page** — overview banner shows the order's overall
+  status
+- **Per-arrangement** — each individual flower line tracks its own
+  status; when most are *Ready*, the order is *Ready*
+
+## Per-flower-line status
+
+A wholesaler doesn't always source every flower from the same supplier.
+This means individual flower lines can be in **different states** within
+the same order. The Order Detail page surfaces this per-line.
+
+Example: an order might have **Supply Confirmed** overall, but one
+specific stem is still **Sent** because it's coming from a slow supplier.
+
+<Aside type="note">
+The overall order status is the *least advanced* status across its
+lines. So an order with 9 confirmed lines and 1 sent line shows as
+**Sent** until the last line catches up.
+</Aside>
+
+## Notifications
+
+StemCounts sends an email when:
+
+- Your order is **Accepted** by the wholesaler
+- Your order is **Ready** for pickup/delivery
+- A line is **rejected** (rare; usually means a supplier can't source
+  something)
+
+You can adjust notification preferences in **Settings → Personal** (the
+"Email notifications enabled" toggle).
+
+## What to do at each stage
+
+| Status | Your action |
+|---|---|
+| **Sent** | Wait for accept. If still sent after 24h, ping the wholesaler. |
+| **Accepted** | No action. Track the per-line statuses on the Order Detail page if you want detail. |
+| **Supply Confirmed** | Plan your studio time — you know what's actually arriving. |
+| **Ready** | Pick up (or expect delivery) according to your wholesaler's schedule. |
+| **Complete** | Done. Invoice / payment captured per your billing arrangement. |
+
+## Rejected orders
+
+If a wholesaler rejects your order (capacity, sourcing, dispute), it
+goes back to **Draft** in your Orders list with a rejection note.
+Edit and re-send, or contact the wholesaler to discuss.

@@ -1,0 +1,82 @@
+---
+title: Sending your order
+description: What 'sent' means, when the cut-off lands, what wholesalers see next.
+sidebar:
+  order: 9
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+A **draft order** is still yours to edit. Once you **send** it, the
+order goes to your wholesaler and editing is locked.
+
+<HelpMedia id="send-order-button" caption="The Send Order action on a weekly order" />
+
+## Before you send: a quick checklist
+
+- All events for the week added
+- Each event has at least one arrangement
+- Each arrangement has flowers (or you've intentionally left it empty for later)
+- Budgets and quantities look right
+- The Spares Bucket has cover if you want any
+- Notes / special instructions filled in where needed
+
+## Sending
+
+<Steps>
+
+1. Open the weekly order (from the Orders list or the landing page).
+
+2. Review the **Weekly Totals Overview** card — total stems, total
+   wholesale cost, total customer revenue.
+
+3. Click **Send Order** at the bottom of the page.
+
+4. Confirm the action. The order status flips from **Draft** to
+   **Sent** and lands on your wholesaler's *Receive & Accept* board
+   instantly.
+
+   <HelpMedia id="order-status-sent" />
+
+</Steps>
+
+## What happens server-side
+
+- The order is locked from edits (other than notes — see below)
+- Your wholesaler is notified
+- A draft acknowledgement appears in your Orders list under **Sent**
+- Status will move through fulfilment over the next few days — see
+  [Tracking your order](/florists/tracking-your-order/)
+
+## After sending — what you can still change
+
+| Field | Editable after send? |
+|---|---|
+| Adding events | No |
+| Adding arrangements to existing events | No |
+| Changing flower quantities | No |
+| Order **note** (free-text field) | Yes |
+| Per-arrangement notes for the wholesaler | Yes |
+
+If you need to change anything else after sending, contact your
+wholesaler directly. They can reject the order, which sends it back to
+draft for you to edit.
+
+## Cut-offs
+
+Each wholesaler has a **cut-off time** — usually a fixed day-of-week
+and time. Orders sent before the cut-off land on the standard sourcing
+window; orders sent after may miss it and need to be confirmed manually.
+
+<Aside type="caution">
+Check your wholesaler's cut-off in their welcome email or directly with
+them. StemCounts doesn't enforce the cut-off but missing it can mean a
+delayed delivery.
+</Aside>
+
+## Sending vs rejecting
+
+If a wholesaler rejects your order, it returns to **Draft**. You can
+edit and re-send. You'll see a status badge on the order indicating it
+was rejected.

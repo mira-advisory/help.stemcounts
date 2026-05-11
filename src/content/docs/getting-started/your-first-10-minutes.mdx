@@ -1,0 +1,90 @@
+---
+title: Your first 10 minutes
+description: A florist-side quickstart from logging in to sending your first order.
+sidebar:
+  order: 5
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+Brand new to StemCounts? Here's the shortest path from logging in to a
+sent order. About 10 minutes start to finish.
+
+<Aside type="tip">
+This walkthrough is florist-focused. If you signed up as a wholesaler,
+read [The wholesaler landing page](/wholesalers/wholesaler-landing/) instead.
+</Aside>
+
+## The shortest happy path
+
+<Steps>
+
+1. **Log in** at [app.stemcounts.com](https://app.stemcounts.com).
+
+   You'll land on the florist dashboard. Three metrics at the top:
+   *Open Drafts*, *Events This Week*, *Revenue This Week*.
+
+2. Click **New Order**.
+
+   <HelpMedia id="florist-landing-new-order-cta" />
+
+   This opens the Add Event modal.
+
+3. Fill in:
+
+   - **Event Name** — e.g. "Smith Wedding"
+   - **Event Date** — the day of the actual event (not the delivery date)
+   - **Event Location** — venue or address
+
+   Click **Save**. StemCounts will either add this event to an existing
+   weekly order (if you have a draft for that week) or create a new
+   draft.
+
+4. Click **Add Arrangement** on the event detail page.
+
+   <HelpMedia id="event-add-arrangement" />
+
+   Give the arrangement a **name** (e.g. "Bridal bouquet") and a
+   **budget** in customer price excluding GST.
+
+5. Click **Pick Flowers** inside your new arrangement.
+
+   The Flower Picker opens. Use the **Category**, **Colour**, **Season**
+   filters or search. For each flower you want, choose a colour variant
+   and set the quantity in **stems**.
+
+   <HelpMedia id="flower-picker-quantity" />
+
+   Click **Done** when you've finished.
+
+6. (Optional) Repeat steps 4–5 for any additional arrangements in the
+   same event — ceremony, reception, cake florals, etc.
+
+7. (Optional) Add another event to the same weekly order with **Add
+   another event** on the order details page.
+
+8. Send the order.
+
+   When everything looks right, send the weekly order to your wholesaler.
+   The order transitions from **Draft** to **Sent** and lands on their
+   Receive & Accept board.
+
+   <HelpMedia id="order-send-confirmation" />
+
+</Steps>
+
+## What happens next
+
+Once sent, your order moves through fulfilment. You'll see the status
+change in the Orders list:
+
+| Status | Means |
+|---|---|
+| **Sent** | Your wholesaler has the order; not yet accepted |
+| **Accepted** | They've accepted; they're sourcing the stems |
+| **Supply Confirmed** | All flowers confirmed by suppliers |
+| **Ready** | Flowers are ready for pickup or delivery |
+| **Complete** | Delivered. Payment captured. |
+
+Full detail on tracking is in [Tracking your order](/florists/tracking-your-order/).

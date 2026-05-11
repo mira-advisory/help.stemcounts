@@ -1,0 +1,91 @@
+---
+title: Profile and notifications
+description: Your name, email, phone, password, and notification toggles.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+Personal settings live in **Settings → Personal**. This covers your
+identity on the platform and how StemCounts contacts you.
+
+<HelpMedia id="settings-personal-tab" caption="Personal settings tab" />
+
+## What's editable
+
+| Field | Notes |
+|---|---|
+| First name | |
+| Last name | |
+| Email | Used for login and notifications |
+| Phone number | Used for OTP and account recovery; format with country code |
+| Password | See [Change your password](#change-your-password) below |
+| Email notifications | Toggle on/off |
+
+## Change your password
+
+<Steps>
+
+1. Go to **Settings → Personal**.
+
+2. Scroll to the **Password change** section.
+
+3. Enter:
+   - Current password
+   - New password (minimum 6 characters)
+   - Confirm new password (must match)
+
+4. Click **Save**.
+
+5. On success: **"Password updated successfully!"** toast. The session
+   stays logged in.
+
+</Steps>
+
+<Aside type="caution">
+The password change form requires your **current password** for
+security. If you've forgotten it, use [Forgot your
+password](/getting-started/forgot-password/) instead.
+</Aside>
+
+## Email notifications
+
+A single toggle controls all email notifications from StemCounts.
+
+When **on**, you receive emails for:
+
+- **Florists**: order accepted, supply confirmed, order ready,
+  subscription / billing events
+- **Wholesalers**: new incoming order, supplier confirmation, system
+  alerts
+
+When **off**, no transactional emails are sent. Critical billing
+emails (failed payment, cancellation notices) may still arrive because
+they're required by Stripe.
+
+<Aside type="note">
+Per-channel notification controls (e.g. mute specific notification types)
+aren't available today — it's a single on/off toggle.
+</Aside>
+
+## What's not on this tab
+
+- **Organisation** info (company name, ABN, address) → Settings →
+  Organization. See [Your organisation](/billing/your-organisation/).
+- **Subscription** → Account page. See [Your StemCounts
+  subscription](/billing/subscription/).
+- **Team members / sub-users** → not yet supported in the UI; contact
+  support to add.
+
+## Saving and errors
+
+| State | What you see |
+|---|---|
+| Save success | "Settings saved successfully!" toast |
+| Save error | "Failed to save settings. Please try again." toast |
+| Missing user data | "No user data available" error |
+
+If saves consistently fail, try a hard refresh (Ctrl+Shift+R / Cmd+Shift+R)
+to reload your session.

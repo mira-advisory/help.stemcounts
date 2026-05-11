@@ -1,0 +1,98 @@
+---
+title: Building an arrangement
+description: Inside an event — add an arrangement, set a budget, start picking flowers.
+sidebar:
+  order: 4
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+An **arrangement** is one design within an event. A wedding might
+have four: ceremony, bridal bouquet, reception centerpieces, cake
+florals. Each arrangement is built separately with its own name,
+budget, and flower list.
+
+<HelpMedia id="event-details-with-arrangements" caption="An event with three arrangements; each is its own bucket" />
+
+## Add an arrangement
+
+<Steps>
+
+1. Open the event (from the landing page or the Orders list).
+
+2. Click **Add Arrangement** on the event details page.
+
+   <HelpMedia id="add-arrangement-button" />
+
+3. Fill in the arrangement form:
+
+   - **Name** — short and specific, e.g. "Ceremony arch", "Bridal
+     bouquet", "Centerpiece x 12"
+   - **Quantity** — how many of this design you need (e.g. 12
+     centerpieces). Defaults to 1.
+   - **Budget** — your **customer price** for this arrangement,
+     excluding GST. StemCounts calculates the cost-side flower budget
+     from your retail markup.
+
+4. Click **Save**. The arrangement appears as a card on the event
+   details page.
+
+5. Click **Pick Flowers** inside the new arrangement card to start
+   adding stems. See [The Flower Picker](/florists/the-flower-picker/).
+
+</Steps>
+
+## Two ways to add flowers
+
+There are **two Pick Flowers buttons** on the event page. They do
+different things:
+
+| Button location | Adds flowers to |
+|---|---|
+| Inside a specific arrangement card | Just that arrangement |
+| Next to **Add Arrangement** at the top of the event | **All arrangements in the event** (bulk mode) |
+
+<Aside type="tip">
+Bulk mode is useful when many arrangements share a flower — e.g. all
+your centerpieces use the same roses. Add them once, distributed
+proportionally across arrangements.
+</Aside>
+
+## Budget tracking
+
+The arrangement card shows a live budget meter:
+
+- **Budget** — what you set when you created the arrangement
+- **Spent** — running total based on stem prices × quantities
+- **Remaining** — budget minus spent
+
+The colour of the meter shifts as you approach the limit. You can
+exceed your budget — StemCounts won't stop you — but you'll see it
+called out in red.
+
+## Editing or removing an arrangement
+
+Each arrangement card has a **3-dot menu** in the top-right:
+
+- **Clone** — duplicate this arrangement. See [Cloning
+  arrangements](/florists/cloning-arrangements/).
+- **Delete** — remove it. Confirmation required.
+- **Rename** — edit name and budget.
+
+## Quantity vs stems
+
+Two different "quantities" in StemCounts:
+
+- **Arrangement quantity** — how many of *this design* you need. 12
+  centerpieces = quantity 12.
+- **Stem quantity** — how many stems of *each flower* you need *per
+  arrangement*. 5 roses per centerpiece = 5 stems.
+
+The total stem count = arrangement quantity × stem quantity. For 12
+centerpieces with 5 roses each, you need 60 stems of roses.
+
+## Next
+
+Now [pick the flowers](/florists/the-flower-picker/) for this
+arrangement.

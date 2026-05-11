@@ -1,0 +1,78 @@
+---
+title: Creating your first event
+description: Events are the unit of work in StemCounts. Pick a date, name it, set a venue.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+In StemCounts, an **event** is one piece of work — a wedding, a
+corporate gig, a funeral — for a specific date. Events live inside
+**weekly orders**, which are containers for everything happening in
+that calendar week.
+
+<HelpMedia id="event-creation-overview" caption="An event being added to a weekly order" />
+
+## Create an event
+
+<Steps>
+
+1. Click **New Order** on the landing page (or **Add another event** if
+   you're already on an open weekly order).
+
+2. The Add Event modal opens with three fields:
+
+   - **Event Name** — short and descriptive, e.g. "Smith wedding",
+     "ANZ Q3 boardroom"
+   - **Event Date** — the day the event actually happens. **Not** the
+     delivery date.
+   - **Event Location** — venue or address. Used on the printable event
+     sheet.
+
+   <HelpMedia id="add-event-modal" />
+
+3. Click **Save**.
+
+   StemCounts looks at the event date and decides where the event lives:
+
+   - If you already have a **draft weekly order** for that week → event
+     is added to it
+   - If not → a new weekly order is created and your event becomes the
+     first one inside it
+
+4. You land on the **Event Details** page. The event is empty until you
+   add arrangements — that's the next step.
+
+</Steps>
+
+## Event date vs delivery date
+
+These are different. The **event date** is when the event happens. The
+**delivery date** is calculated separately — usually one or two days
+before — and is when the flowers arrive with you to prepare.
+
+<Aside type="caution">
+Always enter the **event date**, not the delivery date. StemCounts
+calculates delivery from the event date based on your settings and the
+wholesaler's lead time.
+</Aside>
+
+## Event types: event vs retail
+
+Events default to **event type**, used for one-off occasions. There's
+also **retail** — for regular weekly inventory you keep in-store. Most
+florists use *event* the majority of the time.
+
+| Type | When to use |
+|---|---|
+| **Event** | Specific occasion: wedding, corporate gig, funeral, party |
+| **Retail** | Standing weekly inventory for walk-ins and daily sales |
+
+You can mix both types in the same week.
+
+## Next
+
+Now that the event exists, [build an arrangement](/florists/building-an-arrangement/)
+inside it.

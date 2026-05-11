@@ -1,0 +1,73 @@
+---
+title: Finding your way around
+description: A quick tour of the StemCounts app shell — header, navigation, user menu.
+sidebar:
+  order: 4
+---
+
+import { Aside, Card, CardGrid } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+The same chrome wraps every page in StemCounts. Once you know what each
+piece does, the app stops feeling new.
+
+<HelpMedia id="app-shell-overview" caption="The shared header — logo, navigation, user menu" />
+
+## The header
+
+The sticky header at the top of every page has three parts:
+
+- **Left** — the StemCounts logo (clicking it sends you to your
+  landing page) and the **Orders** dropdown
+- **Middle** — search (planned)
+- **Right** — your user avatar and menu
+
+## The Orders dropdown
+
+Both roles see an **Orders** dropdown in the header, but the items
+differ a little. Both have three workflow stages:
+
+- **Receive and Accept** — florists see incoming confirmations, wholesalers see new orders
+- **Assign and Send** — florists see orders being processed, wholesalers see supplier assignment
+- **Confirmed and Ready** — items ready for the next step
+
+For full detail on these stages, see [Tracking your order](/florists/tracking-your-order/)
+(florist view) or [The Order Board](/wholesalers/the-order-board/)
+(wholesaler view).
+
+## Your user menu
+
+Click your **avatar circle** in the top-right to open the user menu.
+
+<HelpMedia id="user-menu-open" />
+
+Every user sees:
+
+- **Settings** — your profile, organisation, notifications
+- **Sign out**
+
+Florists also see:
+
+- **Account** — your subscription and billing
+
+## Trial banner (florists only)
+
+While you're on the free trial, a banner stays pinned at the top of the
+page showing **"X days left in your trial"** with a **Subscribe to
+StemCounts** button. The countdown updates daily. After the trial ends,
+the banner is replaced by a hard block until you subscribe — see
+[Trial and blocked access](/billing/trial-and-blocked-access/).
+
+## What's next
+
+<CardGrid>
+  <Card title="If you're a florist">
+    Start with [Your first 10 minutes](/getting-started/your-first-10-minutes/),
+    a quick walkthrough from logging in to sending your first order.
+  </Card>
+  <Card title="If you're a wholesaler">
+    Read [The wholesaler landing page](/wholesalers/wholesaler-landing/)
+    next — it covers the Order Board, the Order Summary, and how to switch
+    between calendar and Kanban views.
+  </Card>
+</CardGrid>

@@ -1,0 +1,112 @@
+---
+title: Managing your inventory
+description: Select which flowers you carry, set custom prices, and bulk-upload your list.
+sidebar:
+  order: 6
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+Your **inventory** is the list of flowers you make available to
+florists ordering on StemCounts. Florists only see flowers you've
+**selected** in your library — everything else stays hidden.
+
+<HelpMedia id="inventory-management-page" caption="Inventory Management with selected flowers + price overrides" />
+
+## Selecting flowers
+
+By default no flowers are selected. To make a flower visible to
+florists:
+
+<Steps>
+
+1. Go to **Settings → Wholesaler Inventory** (or the **Inventory
+   Management** link from your landing page).
+
+2. Filter or search to find the flower.
+
+3. Tick the checkbox or **Selected** indicator.
+
+4. The flower is now visible to florists in their Flower Library and
+   Flower Picker.
+
+</Steps>
+
+## Setting a custom price
+
+Each flower has a default wholesale price (set by StemCounts). You can
+override it per flower:
+
+<Steps>
+
+1. In the inventory row, click the **price field**.
+
+2. Enter your custom price (numeric, no `$` sign).
+
+3. Click out of the field — the value saves automatically.
+
+</Steps>
+
+If a save fails (e.g., session expired), you'll see **"Please log in to
+save prices"**. Log out and back in to refresh.
+
+## Variants (colours)
+
+For flowers with multiple colour variants, tick the colour variants
+you carry. Florists won't see colours you haven't selected — even if
+the flower itself is selected.
+
+## Bulk upload
+
+For wholesalers with hundreds of stems, the **Bulk Upload** button
+opens a CSV upload modal. Format:
+
+| Column | Required? | Notes |
+|---|---|---|
+| Flower name | Yes | Must match a known catalog entry |
+| Colour variant | Optional | Multiple rows per flower for multiple colours |
+| Price | Optional | Numeric; leave blank to use the default |
+| Selected | Optional | TRUE/FALSE; defaults TRUE on upload |
+
+<Aside type="caution">
+Bulk upload **adds or updates** rows; it doesn't deselect anything. To
+remove flowers, deselect them manually in the UI.
+</Aside>
+
+## What you can't edit
+
+A few things are read-only from the wholesaler view:
+
+- **Photos** — the catalog photo is the photo, shared across all
+  wholesalers
+- **Seasonality** — the catalog defines which seasons a flower is
+  available; you can carry it out of season but it'll be flagged
+- **Stems per bunch** — fixed at the catalog level
+
+If you spot a catalog error (wrong photo, missing variant, wrong pack
+size), email **support@stemcounts.com**.
+
+## Filters and search
+
+The inventory page has filters by:
+
+- **Category** — roses, dahlias, foliage, etc.
+- **Colour** — multi-select
+- **Season** — current season / out-of-season
+- **Selected only** — quickly see your current list
+
+The fuzzy search toggle lets you find flowers despite minor typos.
+
+## Why selection matters
+
+Florists place orders based on **what they can see**. A flower not in
+your library = a missed sale. Conversely, leaving every flower
+selected with no price overrides means you've effectively accepted
+default platform pricing for everything.
+
+<Aside type="tip">
+Most wholesalers maintain a *core list* of staple stems they always
+carry and override prices on, plus an opportunistic *seasonal list*
+they enable for short windows.
+</Aside>

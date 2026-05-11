@@ -1,0 +1,109 @@
+---
+title: Confirmed & Ready
+description: Track supplier confirmations, then mark individual flowers ready for the florist.
+sidebar:
+  order: 5
+---
+
+import { Steps, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+**Confirmed & Ready** is the final wholesaler-managed stage. Two
+sub-sections:
+
+1. **Confirmed by Supplier** — suppliers have confirmed but haven't
+   fulfilled yet
+2. **Ready for Florist** — flowers are with you, ready to hand over
+
+<HelpMedia id="confirmed-and-ready-overview" caption="Both sub-sections visible on the same page" />
+
+## Confirmed by Supplier
+
+Supplier orders with status **Confirmed**. Grouped by supplier, then by
+delivery date.
+
+| Column | What it shows |
+|---|---|
+| Flower name, colour, pack size, bunches, stems | Standard line detail |
+| **Status** | "Confirmed" (yellow badge) |
+
+### Marking supplier-fulfilled
+
+When the supplier delivers a line to your warehouse:
+
+<Steps>
+
+1. Find the supplier order row.
+
+2. Click **Mark as Supplier Fulfilled**.
+
+   <HelpMedia id="mark-supplier-fulfilled" />
+
+3. The lines move to **Ready for Florist** below.
+
+</Steps>
+
+## Ready for Florist
+
+Two view modes here — choose whichever fits your workflow.
+
+<Tabs>
+  <TabItem label="List view">
+    Flat table of every flower with status **Fulfilled**. Columns: name,
+    colour, pack size, bunches/stems, delivery date, status, supplier, and
+    a per-row checkbox.
+
+    Use the **checkbox** to mark a single flower as **delivered** to the
+    florist. This moves the line to *Delivered* on the board.
+  </TabItem>
+  <TabItem label="Florist view">
+    Same data, **grouped by florist**. Best for day-end pick lists and
+    handovers — "here's everything for Smith Florist this week".
+
+    Use the floral header buttons to quickly mark all of one florist's
+    fulfilled flowers as delivered.
+  </TabItem>
+</Tabs>
+
+<HelpMedia id="ready-florist-view-toggle" caption="Toggle between List view and Florist view" />
+
+## Per-flower ready toggle
+
+Marking ready is **per flower line**, not per order. This means a
+florist's order can be **partially Ready** — some flowers are ready
+for pickup while others are still confirmed but not fulfilled.
+
+The florist's order status updates as each line transitions:
+
+| Florist-side status | When it appears |
+|---|---|
+| **Supply Confirmed** | All lines are at least *Confirmed* |
+| **Ready** | All lines are *Delivered* (handed to the florist) |
+
+## Sharing a status update with the florist
+
+The florist sees status changes automatically — no manual action needed.
+Email notifications go out when:
+
+- Their order is fully accepted
+- Their order is fully ready
+
+For mid-week updates outside those triggers, message or call the florist
+directly (in-platform messaging not yet shipped).
+
+## Empty states
+
+If both sub-sections are empty, you've worked through everything for
+the current visible timeframe. Switch the filter to a different week to
+check upcoming work.
+
+## What "delivered" means
+
+**Delivered** = the flowers have left your warehouse and are with the
+florist. Whether that's pickup or delivery is determined by the
+florist's preference and your local policy.
+
+<Aside type="note">
+Once an order is fully Delivered, it can't be reverted. Make sure you've
+ticked the right florist's lines before marking ready.
+</Aside>

@@ -1,0 +1,62 @@
+---
+title: Browsing the flower catalog
+description: The Flower Library — a read-only browse of every flower available on StemCounts.
+sidebar:
+  order: 3
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+The **Flower Library** is your reference catalog. It shows every flower
+your wholesalers have listed, with photos, colour variants, and key
+details. It's read-only — you can't order from it directly; for that,
+use [the Flower Picker](/florists/the-flower-picker/) inside an
+arrangement.
+
+<HelpMedia id="flower-library-grid" caption="The Flower Library, default view" />
+
+## When to use the Library
+
+- **Inspiration** before building an arrangement — "what's in season,
+  what colours can I get for this?"
+- **Sanity-check** something you saw on the Picker that you want to look
+  at in more detail
+- **Brief a client** — pull up a photo of a specific stem to confirm
+  what they're picturing
+
+## How to find a flower
+
+- **Search bar** — type the flower name (e.g. "ranunculus")
+- **Pagination** — twenty flowers per page; use the page controls at the
+  bottom
+
+The library shows the flower's display name, available colour variants,
+and the photo. Click a flower to see more detail.
+
+## What you see per flower
+
+Each flower card shows:
+
+- Display name
+- Hero photo
+- Available colour variants (small swatches)
+- *(if logged in as a wholesaler with this flower in their library)*
+  custom pricing
+
+## Library vs Picker — what's the difference?
+
+This trips up new florists. Quick reference:
+
+| | Flower Library | Flower Picker |
+|---|---|---|
+| **Where** | `/flower-library` from the menu or landing page | Inside an arrangement, click **Pick Flowers** |
+| **What it's for** | Browse / lookup | Add stems to an order |
+| **Quantity controls** | None | Yes |
+| **Filters** | Search only | Category, Colour, Season, fuzzy search |
+| **Order context** | None | Tied to a specific arrangement |
+
+<Aside type="tip">
+For most florists, the Picker is where the actual work happens. The
+Library is best treated as a reference.
+</Aside>

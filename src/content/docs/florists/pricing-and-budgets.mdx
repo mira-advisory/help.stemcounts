@@ -1,0 +1,86 @@
+---
+title: Pricing and budgets
+description: Customer price, retail markup, and how the budget tracker stays accurate.
+sidebar:
+  order: 6
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+StemCounts tracks two prices for every stem: the **wholesale cost** you
+pay your wholesaler, and the **customer price** your client pays you.
+A few rules connect them.
+
+<HelpMedia id="pricing-overview" caption="The cost-vs-customer-price relationship" />
+
+## The two prices
+
+| Price | Who it's for | Where it's set |
+|---|---|---|
+| **Wholesale cost** | What you pay your wholesaler | Set by the wholesaler's price list — fixed |
+| **Customer price** | What your client pays you | Calculated as wholesale × retail markup |
+
+## Your retail markup
+
+Your **retail markup** is set once on your **Organisation** settings
+page. It's a percentage — e.g. 250% means a stem costing $2 wholesale
+is quoted at $5 customer.
+
+To change it: **Settings → Organization → Retail Markup (%)**. See
+[Your organisation](/billing/your-organisation/).
+
+<Aside type="caution">
+Changing your retail markup affects every open quote and budget.
+Existing sent orders aren't recalculated — they keep the markup that
+was in force when they were sent.
+</Aside>
+
+## How arrangement budgets work
+
+When you create an arrangement, you set a **budget in customer price,
+excluding GST**.
+
+- This is the figure you'd quote your client for that design
+- StemCounts works backwards using your retail markup to determine
+  how much wholesale cost the budget can support
+- As you add stems, the **Spent** number ticks up — using customer-price
+  math
+- The meter goes red when *Spent > Budget*
+
+## GST
+
+Budgets are entered **excluding GST**. The app calculates GST when
+generating invoices and reports. Quoting clients including GST? Multiply
+the budget by 1.10 (Australia) or your local rate.
+
+## What "Revenue This Week" means
+
+The metric on your landing page sums **customer-price totals** for all
+arrangements in events landing this week. It's the gross revenue you'd
+invoice the client(s), excluding GST.
+
+## Pricing visibility — what the wholesaler sees
+
+Wholesalers see only:
+
+- Your wholesale-cost-side flower list (qty, stem, colour)
+- Delivery date and venue
+
+They **don't see** your customer price, your retail markup, or your
+budget meter. That stays on your side.
+
+## Per-line price overrides
+
+Inside the Flower Picker, you can override the customer price for a
+specific stem in a specific arrangement. This only affects *your*
+customer-side math — what you'd quote and what shows on **Revenue This
+Week**. The wholesale cost is unchanged.
+
+Useful for rare or premium stems where your usual markup doesn't fit.
+
+## Bulk discounts and supplier pricing
+
+Wholesale prices are set by your wholesaler. If you order in volume and
+think a different price applies, contact your wholesaler directly —
+the platform doesn't negotiate prices automatically.

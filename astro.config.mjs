@@ -51,11 +51,10 @@ export default defineConfig({
       },
       sidebar: [
         { label: "Getting started", autogenerate: { directory: "getting-started" } },
-        { label: "Ordering", autogenerate: { directory: "ordering" } },
-        { label: "Inventory", autogenerate: { directory: "inventory" } },
-        { label: "Suppliers (wholesalers)", autogenerate: { directory: "suppliers" } },
-        { label: "Customers (florists)", autogenerate: { directory: "customers" } },
+        { label: "For florists", autogenerate: { directory: "florists" } },
+        { label: "For wholesalers", autogenerate: { directory: "wholesalers" } },
         { label: "Account & billing", autogenerate: { directory: "billing" } },
+        { label: "FAQs", autogenerate: { directory: "faqs" } },
         { label: "Release notes", autogenerate: { directory: "changelog" } },
       ],
       // Quick search built in via Pagefind — no extra setup needed.

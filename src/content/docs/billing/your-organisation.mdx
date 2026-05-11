@@ -1,0 +1,82 @@
+---
+title: Your organisation
+description: Company name, ABN, address, reference prefix, and retail markup.
+sidebar:
+  order: 2
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+Organisation settings live in **Settings → Organization**. These are
+the details about your business — separate from your personal profile.
+
+<HelpMedia id="settings-organization-tab" caption="Organisation settings" />
+
+## Fields
+
+| Field | What it's for | Editable by |
+|---|---|---|
+| **Company name** | Display on invoices, pick-lists, communications | Anyone in the org |
+| **ABN** | Tax identifier (Australia) | Anyone in the org |
+| **Address** | Billing and delivery; uses Google Places lookup | Anyone in the org |
+| **Reference prefix** | Customises your order reference numbers (e.g. `SMITH-1234` instead of `F-1234`) | Admin only |
+| **Retail markup (%)** | The % you mark up wholesale → customer price | Admin only |
+
+## Reference prefix
+
+By default, orders get a generic prefix. Setting your own makes references
+recognisable in correspondence and on printed sheets.
+
+Example:
+- Default: `F-1234`
+- With prefix `SMITH`: `SMITH-1234`
+
+The prefix only applies to **new** orders. Existing orders keep whatever
+reference they were created with.
+
+## Retail markup
+
+Florists only. Used to calculate customer-side pricing from wholesale
+cost.
+
+- A markup of **200%** means wholesale × 2 = customer price
+- A markup of **250%** means wholesale × 2.5 = customer price
+- Australian florists often use 240–300% depending on segment
+
+See [Pricing and budgets](/florists/pricing-and-budgets/) for how the
+math flows into arrangement budgets and the **Revenue This Week** metric.
+
+<Aside type="caution">
+Changing retail markup affects **all open quotes and budgets** in real
+time. Sent orders are not retroactively recalculated — they keep the
+markup that was in force when they were sent.
+</Aside>
+
+## Google Places address lookup
+
+The Address field uses Google Places to autocomplete. Start typing
+your street address and pick the right match — this ensures
+postcodes, suburbs, and coordinates are accurate.
+
+If Google Places isn't finding your address, manually type the full
+address. You can edit it freely after the auto-complete fills the field.
+
+## Roles and edit permissions
+
+Only **admin** and **organisationadmin** roles can edit reference prefix
+and retail markup. Other users see those fields as read-only.
+
+To promote a user to admin: **Settings → Admin** (requires existing
+admin access). The toast you'll see: **"User role updated to [role]
+successfully!"**
+
+## Multi-user organisations
+
+If multiple staff use the same StemCounts organisation, they all share
+this organisation record. Changes propagate immediately for all signed-in
+users.
+
+To add a team member, they sign up with **the same organisation name**
+during registration. Currently there's no admin invite flow — new
+users self-register and get matched to your org by name.

@@ -1,12 +1,40 @@
 ---
 title: Getting started
-description: Set up your StemCounts account and find your way around.
+description: Create your StemCounts account, find your way around, and place your first order.
 sidebar:
   order: 0
 ---
 
-This section will cover account setup, your first login, and the
-core flows you'll use every day on StemCounts.
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-Articles are being written. Use the sidebar (or [Release notes](/changelog/))
-in the meantime.
+New to StemCounts? Start here. These guides cover signing up, the
+basic mental model of the app, and what to do in your first ten
+minutes.
+
+<CardGrid>
+  <LinkCard
+    title="Welcome to StemCounts"
+    description="What the platform does, who it's for, and how florists and wholesalers fit together."
+    href="/getting-started/welcome/"
+  />
+  <LinkCard
+    title="Creating your account"
+    description="Sign up as a florist or a wholesaler. Verify your phone. Log in for the first time."
+    href="/getting-started/creating-your-account/"
+  />
+  <LinkCard
+    title="Forgot your password"
+    description="Request a reset link, choose a new password, and get back in."
+    href="/getting-started/forgot-password/"
+  />
+  <LinkCard
+    title="Finding your way around"
+    description="The header, the nav, your user menu — a quick tour of the app shell."
+    href="/getting-started/finding-your-way-around/"
+  />
+  <LinkCard
+    title="Your first 10 minutes"
+    description="A 10-minute walkthrough for florists: from logging in to sending your first order."
+    href="/getting-started/your-first-10-minutes/"
+  />
+</CardGrid>

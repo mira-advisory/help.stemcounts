@@ -1,0 +1,89 @@
+---
+title: The Order Board
+description: Kanban columns, drag-and-drop, and how the board layout changes with your tier.
+sidebar:
+  order: 2
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+The **Order Board** is the Kanban view of every order moving through
+fulfilment. Each column is a stage; orders flow left to right as work
+progresses.
+
+<HelpMedia id="order-board-overview" caption="The Order Board for an integrated wholesaler — five columns" />
+
+## Columns depend on your tier
+
+StemCounts has three wholesaler tiers, and each sees a different set
+of columns. This is intentional — the columns map to the workflow each
+tier actually runs.
+
+| Tier | Columns | Behaviour |
+|---|---|---|
+| **Integrated** | Sent · Accepted · Confirmed · Fulfilled · Delivered | Full workflow including supplier procurement |
+| **Non-integrated** | Sent · Accepted · Delivered | Skips the supplier procurement steps (you source stems directly) |
+| **Shadow** | Accepted · Delivered | Minimal — used for non-platform wholesalers being mirrored for tracking |
+
+<Aside type="note">
+If you're not sure which tier you're on, check the column count on your
+board. Your tier is set by StemCounts admin when your account is
+provisioned and doesn't change without a manual update.
+</Aside>
+
+## What each column means
+
+- **Sent** — order has arrived from the florist, awaiting your accept
+- **Accepted** — you've accepted; stems need to be assigned to suppliers
+- **Confirmed** — your supplier(s) have confirmed availability
+- **Fulfilled** — supplier has fulfilled; flowers are with you ready for
+  the florist
+- **Delivered** — flowers handed over to the florist; complete
+
+## Drag-and-drop
+
+Orders are dragged column to column. Each move triggers the
+appropriate status transition behind the scenes — same as if you'd
+clicked the explicit *Accept* / *Mark Ready* buttons.
+
+<HelpMedia id="order-board-drag" caption="Dragging an order from Sent to Accepted" />
+
+You can also drag **a whole week** (the week banner at the top of a
+column) to bulk-move every order in that week.
+
+<Aside type="caution">
+The board respects allowed transitions only. You can't drag an order
+from *Sent* directly to *Delivered* — it has to flow through the
+intermediate stages.
+</Aside>
+
+## Calendar view
+
+Switch from Board to **Calendar** in the Order Summary view. Calendar
+shows orders grouped by week, then by day. Useful for seeing daily
+volume and spotting capacity issues.
+
+## Filtering the board
+
+The top of the board has filters for:
+
+- **Week** — limit to specific weeks
+- **Florist** — single-florist view (useful for talking to one customer)
+- **Status** — hide columns you don't care about right now
+
+## Empty states
+
+- An empty **Sent** column means no new orders to process
+- An empty **Accepted** column means everything you've accepted has
+  moved on — congratulations
+- An empty board overall means no orders at all in the visible
+  timeframe
+
+## Next
+
+Now jump into each stage in turn:
+
+- [Receive & Accept](/wholesalers/receive-and-accept/)
+- [Assign & Send](/wholesalers/assign-and-send/)
+- [Confirmed & Ready](/wholesalers/confirmed-and-ready/)

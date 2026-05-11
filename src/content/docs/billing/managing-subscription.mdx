@@ -1,0 +1,98 @@
+---
+title: Managing your subscription
+description: The Stripe customer portal — change plan, update card, cancel.
+sidebar:
+  order: 4
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+Once you have an active subscription, day-to-day changes happen in the
+**Stripe customer portal** — not directly inside StemCounts. The
+portal is hosted by Stripe and opens in a new tab.
+
+<HelpMedia id="manage-subscription-button" caption="The Manage subscription button opens the Stripe portal" />
+
+## Open the portal
+
+<Steps>
+
+1. Go to **Account** (user menu → Account).
+
+2. Click **Manage subscription**.
+
+3. You're sent to the Stripe-hosted portal. The portal recognises your
+   StemCounts account automatically.
+
+</Steps>
+
+## What you can do in the portal
+
+| Action | Result |
+|---|---|
+| **Update payment method** | Swap your card. The new card is used for the next charge. |
+| **Change plan** | Upgrade or downgrade. Pro-rated immediately. |
+| **Cancel subscription** | Cancels at end of current billing period. Access continues until then. |
+| **Download invoices** | Tax invoices for every past charge. |
+| **Update billing details** | Name, address on invoice, etc. |
+| **Pause / resume** | (If enabled by StemCounts admin — not always available.) |
+
+## Cancelling
+
+Cancelling does **not** instantly terminate access. Your subscription
+stays active until the end of the current billing period — typically
+a month from your last charge.
+
+<Steps>
+
+1. Open the Stripe portal (see above).
+
+2. Click **Cancel subscription**.
+
+3. Stripe asks for a reason (optional, helpful feedback).
+
+4. Confirm. You see a cancellation date — that's when access ends.
+
+</Steps>
+
+After the cancellation date, you'll hit the [Trial and blocked
+access](/billing/trial-and-blocked-access/) screen on next login.
+
+## Restarting a cancelled subscription
+
+Before the cancellation date, you can **reactivate** in the same Stripe
+portal — one click and you're back on the same plan.
+
+After the cancellation date, you start fresh:
+
+1. Log back in to StemCounts (you'll see the Subscription Access
+   Blocked screen)
+2. Click **Subscribe** to go through Stripe Checkout again
+
+Your historical data (orders, events, settings) is preserved.
+
+## Failed payments
+
+Stripe attempts each charge multiple times if your card fails. You'll
+receive emails after the first failure. While in **Past Due** status:
+
+- Access continues for a short grace period (set by Stripe's smart
+  retry logic, typically a few days)
+- A banner in the app prompts you to update your card
+
+Update your card in the portal as soon as you can — if Stripe gives up
+retrying, the subscription cancels and you're blocked.
+
+## Changing plans mid-cycle
+
+In the portal, click **Change plan** and pick another tier. Stripe
+pro-rates:
+
+- Upgrade → you pay the difference for the rest of the period
+- Downgrade → unused credit applies to the next invoice
+
+<Aside type="note">
+For custom plans (enterprise, special pricing), Stripe portal options
+may not match. Email **support@stemcounts.com** to discuss.
+</Aside>

@@ -1,0 +1,81 @@
+---
+title: Creating your account
+description: Sign up as a florist or a wholesaler, verify your phone, and log in for the first time.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+Signing up is a three-step process: **pick your role**, **fill in your
+details**, **verify your phone**.
+
+<HelpMedia id="signup-flow-overview" />
+
+## Step-by-step
+
+<Steps>
+
+1. Go to **[app.stemcounts.com](https://app.stemcounts.com)** and click
+   **Sign up**.
+
+2. Choose your role:
+
+   - **Florist** — "Create and manage flower orders"
+   - **Wholesaler** — "Review and fulfil florist orders"
+
+   <HelpMedia id="signup-role-selection" caption="Florist vs Wholesaler role picker" />
+
+   <Aside type="caution">
+   You can't change this later without contacting support. Pick the role
+   that matches your business.
+   </Aside>
+
+3. Fill in the form:
+
+   - First name, last name
+   - **Organisation name** — your business or shop name
+   - Email and phone number (Australian numbers default to +61)
+   - Password — minimum 8 characters, must include an uppercase letter,
+     a lowercase letter, and a number
+
+4. Click **Create Account**. You'll see "Creating Account..." briefly,
+   then be redirected to the OTP verification screen.
+
+5. Check your phone for a **6-digit code** and enter it.
+
+   <HelpMedia id="signup-otp-screen" caption="OTP entry — the code arrives by SMS to the phone you registered with" />
+
+   - Didn't receive it? Click **Resend OTP**.
+   - The code is single-use and expires after a few minutes.
+
+6. On success you'll see **"Registration successful! Logging you in..."**
+   and be redirected to your landing page after about 2 seconds.
+
+</Steps>
+
+## What happens next
+
+<Tabs>
+  <TabItem label="Florist">
+    You land on the **florist dashboard** with your **14-day free trial**
+    activated. You'll see a trial countdown banner at the top of the app
+    until you subscribe. See [Your StemCounts subscription](/billing/subscription/)
+    for next steps.
+  </TabItem>
+  <TabItem label="Wholesaler">
+    You land on the **wholesaler dashboard** showing the Order Board and
+    Order Summary. The Order Board starts empty — orders arrive as
+    florists send them. See [The wholesaler landing page](/wholesalers/wholesaler-landing/).
+  </TabItem>
+</Tabs>
+
+## Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| "Account not verified. Please check your phone for OTP." | Go to OTP verify directly via the link in the error, or request a new code. |
+| OTP never arrives | Wait 60 seconds, then click **Resend OTP**. If still nothing, check your number is correct on the previous screen. |
+| "First name is required" / "Passwords do not match" | Inline form validation. The red message points at the field with the problem. |
+| Password rejected | Must be 8+ chars, with uppercase, lowercase, and a number. |

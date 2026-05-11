@@ -1,11 +1,41 @@
 ---
 title: Account & billing
-description: Manage your StemCounts profile, payment methods, invoices, and team access.
+description: Manage your StemCounts profile, organisation, and subscription.
 sidebar:
   order: 0
 ---
 
-This section will cover profile settings, payment methods, invoices,
-and adding teammates to your account.
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-Articles are being written.
+Your account is split into **Settings** (profile, organisation,
+notifications) and **Account** (subscription, payment, billing portal).
+Florists need an active subscription to use the platform; wholesalers
+don't.
+
+<CardGrid>
+  <LinkCard
+    title="Profile and notifications"
+    description="Your name, email, phone, password, and notification toggles."
+    href="/billing/profile-and-notifications/"
+  />
+  <LinkCard
+    title="Your organisation"
+    description="Company name, ABN, address, reference prefix, and retail markup."
+    href="/billing/your-organisation/"
+  />
+  <LinkCard
+    title="Your StemCounts subscription"
+    description="What the subscription unlocks, how the trial works, and how to subscribe."
+    href="/billing/subscription/"
+  />
+  <LinkCard
+    title="Managing your subscription"
+    description="The Stripe customer portal: change plan, update card, cancel."
+    href="/billing/managing-subscription/"
+  />
+  <LinkCard
+    title="Trial and blocked access"
+    description="When your trial ends, what you see, and how to restore access."
+    href="/billing/trial-and-blocked-access/"
+  />
+</CardGrid>

@@ -1,0 +1,68 @@
+---
+title: The wholesaler landing page
+description: The first page wholesalers see — Order Board, Order Summary, calendar and Kanban views.
+sidebar:
+  order: 1
+---
+
+import { Aside, Card, CardGrid } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+When you log in as a wholesaler, you land on the **wholesaler
+dashboard**. Two primary destinations dominate the page:
+
+- **Order Board** — the Kanban-style workflow view
+- **Order Summary** — calendar + board hybrid for week-level planning
+
+<HelpMedia id="wholesaler-landing-overview" caption="The wholesaler dashboard with both primary destinations" />
+
+## The two destinations
+
+<CardGrid>
+  <Card title="Order Board">
+    Drag-and-drop Kanban with columns for each stage of fulfilment.
+    Best for handling individual orders one at a time. See [The Order
+    Board](/wholesalers/the-order-board/).
+  </Card>
+  <Card title="Order Summary">
+    Switch between **Calendar view** (orders by week, then by day) and
+    **Board view**. Best for week-level planning and seeing total volume
+    across all florists.
+  </Card>
+</CardGrid>
+
+## Inventory at a glance
+
+The landing page surfaces an inventory indicator: how many flowers are
+**selected** in your library and available to florists. If it reads
+zero, you haven't picked any stems to sell yet — see [Managing your
+inventory](/wholesalers/managing-inventory/).
+
+## Florist count
+
+Beneath the Order Board card, you'll see a count of **florists with
+active orders this week**. Tap or click through to filter the board to
+a specific florist.
+
+## What's NOT on the landing page
+
+A few things the landing page intentionally leaves out, so you go to
+the right place for them:
+
+| Thing | Where it actually lives |
+|---|---|
+| Detailed financials / invoicing | **Settings → Wholesale Orders** (admin) |
+| Supplier price negotiation | Outside the platform — direct |
+| Subscription billing | Wholesalers don't need a StemCounts subscription |
+| Per-florist message thread | Not yet implemented |
+
+## What to do next
+
+If this is your first day on the platform, the order to read these is:
+
+1. [Managing your inventory](/wholesalers/managing-inventory/) — make
+   sure florists can actually order from you
+2. [The Order Board](/wholesalers/the-order-board/) — understand the
+   three-stage workflow
+3. [Receive & Accept](/wholesalers/receive-and-accept/) — what to do
+   when the first order lands

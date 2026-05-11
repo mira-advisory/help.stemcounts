@@ -1,0 +1,102 @@
+---
+title: Event details & printing
+description: The printable event sheet — flowers, arrangements, comments, ready to share with staff.
+sidebar:
+  order: 11
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+Every event has a **printable event sheet** that summarises the whole
+event — flower list, arrangements, comments — on one page. Use it as
+a brief for your studio team or as a checklist on the day.
+
+<HelpMedia id="event-printable-page" caption="A printable event sheet, ready to send to a printer or PDF" />
+
+## What's on the sheet
+
+The sheet has four blocks:
+
+### 1. Event details
+
+- Event name and date
+- Delivery date and week
+- Venue / location
+- General and style comments
+
+### 2. All flowers
+
+A single table listing every flower across every arrangement in the
+event:
+
+| Column | What it shows |
+|---|---|
+| Flower name | Display name |
+| Colour | Colour variant |
+| Total stems | Sum across all arrangements |
+| Total bunches | Sum rounded up to whole bunches |
+
+This is the **shopping list** for the day.
+
+### 3. Arrangements (one section per arrangement)
+
+For each arrangement:
+
+- Name and quantity (e.g. "Centerpiece × 12")
+- Per-arrangement flower table with **stems per arrangement** and
+  **total across all of this design**
+- Budget figure
+- Notes
+
+### 4. Spares
+
+If you added stems to the Spares Bucket, they appear in a separate
+section at the end.
+
+## Printing or saving as PDF
+
+<Steps>
+
+1. Open the event details page.
+
+2. Click **Print** (top-right) or use **Ctrl+P** / **Cmd+P**.
+
+3. Your browser's print dialog opens. From here:
+
+   - **Print to a physical printer** — pick your printer and hit print
+   - **Save as PDF** — pick "Save as PDF" in the destination dropdown
+   - **Email a PDF** — save as PDF first, then attach in your mail client
+
+   <HelpMedia id="event-print-dialog" />
+
+</Steps>
+
+## Sharing without printing
+
+The printable page has a stable URL: `/florist/events/{eventId}/print`.
+You can bookmark it or share it with team members who have a StemCounts
+login. Anyone signed in to your organisation can open it.
+
+<Aside type="tip">
+For sharing with someone who **doesn't** have a StemCounts login, save as
+PDF and email the file. There's no public share link for the print
+page itself.
+</Aside>
+
+## Mobile printing
+
+On phones, the print dialog and "save as PDF" both work as long as
+your browser supports them. The layout is tuned for paper sizing so
+it looks the same on every device.
+
+## What's NOT on the printable sheet
+
+Things kept off the sheet for clarity:
+
+- Wholesale prices (only your customer-side info is shown)
+- Internal status indicators
+- Per-line fulfilment status
+
+To check fulfilment status mid-week, use the Order Detail page in the
+app, not the printable sheet.

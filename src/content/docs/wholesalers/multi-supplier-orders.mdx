@@ -1,0 +1,94 @@
+---
+title: Multi-supplier orders
+description: When one florist order spans flowers from two or more suppliers.
+sidebar:
+  order: 7
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+A typical florist order spans multiple flower types. Each type can be
+sourced from a different supplier. StemCounts handles this naturally
+by tracking each flower line independently.
+
+<HelpMedia id="multi-supplier-diagram" caption="One florist order → multiple supplier orders → reconstituted at handover" />
+
+## How it works in practice
+
+Imagine a florist has placed an order containing:
+
+- 100 stems of red roses
+- 50 stems of white lilies
+- 200 stems of eucalyptus
+
+You source from three suppliers:
+
+- Roses → **Supplier A**
+- Lilies → **Supplier B**
+- Eucalyptus → **Supplier C**
+
+Behind the scenes:
+
+1. The florist order = **one** AssignedOrder in StemCounts
+2. Each flower aggregates across all your accepted florist orders (so
+   if two other florists also ordered red roses, those 100 stems
+   combine into a single supplier order line)
+3. Three supplier orders are created — one per supplier
+4. Each supplier order has its own status (sent → confirmed →
+   fulfilled)
+
+## What this means for status tracking
+
+Because each line is tracked independently, the florist order's
+**overall status is the least-advanced status of any of its lines**.
+
+Example: an order with 9 lines confirmed and 1 line still pending shows
+as **Sent** on the florist side until that last line catches up.
+
+<Aside type="note">
+This is also why the Order Board can show an order in *Confirmed* but a
+specific line is still moving through *Assign & Send* — the per-line
+view is the ground truth.
+</Aside>
+
+## Partial delivery to the florist
+
+You can mark **some** flowers as ready for the florist while others are
+still with suppliers. The florist sees per-line **Ready** badges and
+can come pick up early or wait for the whole order.
+
+This works well for:
+
+- Foliage and base stems available early (sent up front)
+- Specialty flowers with longer lead time (sent later)
+
+## When a supplier can't deliver
+
+If a supplier fails to deliver a line, you have three options:
+
+1. **Re-assign** to a different supplier (drag the line back to *Assign
+   & Send*)
+2. **Substitute** outside the platform — agreed with the florist by
+   phone or email; manually adjust the line in StemCounts to reflect
+   what's actually being delivered
+3. **Reject the line** — sends a notification to the florist that this
+   flower isn't available
+
+In-platform substitution UI is on the roadmap. For now, use options 1
+or 2.
+
+## Reporting
+
+The Order Summary view (calendar mode) shows aggregate stem counts
+across all suppliers for any selected week. Useful for forecasting
+volume.
+
+## Best practices
+
+- For volume stems (roses, eucalyptus), commit to one or two primary
+  suppliers per week
+- For unusual stems, lean on relationships outside the platform; assign
+  to the right supplier once you've confirmed by phone
+- Use the *Florist view* in **Confirmed & Ready** to spot when one
+  florist's order is mostly ready but one line is lagging

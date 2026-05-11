@@ -1,0 +1,56 @@
+---
+title: For wholesalers
+description: The Order Board, supplier assignment, inventory management, and pick-lists on StemCounts.
+sidebar:
+  order: 0
+---
+
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
+Everything you need as a wholesaler using StemCounts. The Order
+Board moves incoming florist orders through accept → supplier
+assignment → confirmation → ready-for-florist. These guides cover
+each stage plus the inventory and printable views.
+
+<CardGrid>
+  <LinkCard
+    title="The wholesaler landing page"
+    description="What you see when you log in: the Order Board and the Order Summary."
+    href="/wholesalers/wholesaler-landing/"
+  />
+  <LinkCard
+    title="The Order Board"
+    description="Kanban columns, drag-and-drop, and how the layout changes with your tier."
+    href="/wholesalers/the-order-board/"
+  />
+  <LinkCard
+    title="Receive & Accept"
+    description="Incoming orders from florists. Accept the whole order or reject it."
+    href="/wholesalers/receive-and-accept/"
+  />
+  <LinkCard
+    title="Assign & Send"
+    description="Aggregating stems across orders, picking a supplier, sending the supplier order."
+    href="/wholesalers/assign-and-send/"
+  />
+  <LinkCard
+    title="Confirmed & Ready"
+    description="Tracking supplier confirmations, then marking individual flowers ready for the florist."
+    href="/wholesalers/confirmed-and-ready/"
+  />
+  <LinkCard
+    title="Managing your inventory"
+    description="Selecting which flowers you carry, setting custom prices, bulk-uploading your list."
+    href="/wholesalers/managing-inventory/"
+  />
+  <LinkCard
+    title="Multi-supplier orders"
+    description="When one florist order spans flowers from two or three suppliers."
+    href="/wholesalers/multi-supplier-orders/"
+  />
+  <LinkCard
+    title="Daily pick-lists"
+    description="The printable order page for warehouse staff."
+    href="/wholesalers/daily-pick-lists/"
+  />
+</CardGrid>

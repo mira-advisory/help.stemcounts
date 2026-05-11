@@ -1,0 +1,123 @@
+---
+title: Assign & Send
+description: Aggregating stems across orders, picking a supplier, sending the supplier order.
+sidebar:
+  order: 4
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+**Assign & Send** is the middle stage of the board, and the most
+complex. Three things happen here:
+
+1. **Aggregate** — combine the same flower across all accepted orders
+2. **Assign** — pick a supplier for each aggregated flower
+3. **Send** — generate and send supplier orders, then track for
+   confirmation
+
+<HelpMedia id="assign-and-send-overview" caption="Assign & Send with three tables visible" />
+
+## The three tables
+
+The page is divided into three tables that you work through top to
+bottom:
+
+### 1. Combined Flower Requirements (unassigned)
+
+Every flower you need this week, aggregated across all florist orders
+into a single row per `(flower, colour)`. Columns:
+
+| Column | What it shows |
+|---|---|
+| Flower name | e.g. "David Austin Rose" |
+| Colour | e.g. "Blush" |
+| Stems per bunch | Pack size |
+| Total bunches | Rounded up from total stems |
+| Total stems | Sum across all florist orders |
+| Delivery date(s) | When you need it |
+| **Supplier** | Empty dropdown — click to select |
+
+When you pick a supplier, that flower moves out of this table and into
+the next one.
+
+<HelpMedia id="assign-supplier-dropdown" caption="Selecting a supplier for an aggregated flower row" />
+
+### 2. Send to Supplier (assigned, not yet sent)
+
+Flowers grouped by selected supplier. Each supplier-group has a **Send**
+button.
+
+<Steps>
+
+1. Review the lines under each supplier — quantities, dates, notes.
+
+2. Click **Send**. StemCounts generates a supplier order and emails it
+   (or files it via API for integrated suppliers).
+
+3. You'll see: **"Sent to Supplier"** confirmation.
+
+4. The lines move to the third table.
+
+</Steps>
+
+### 3. Sent to Supplier — Not Confirmed
+
+Supplier orders you've sent but the supplier hasn't yet confirmed.
+Wait for the supplier to confirm or click **Confirm** manually once
+they email you.
+
+| Status | What it means |
+|---|---|
+| **Pending** | Waiting on supplier |
+| **Confirmed** | Supplier acknowledged; flowers are now sourced |
+
+<HelpMedia id="confirm-supplier-order" caption="Confirming a supplier order moves it to Confirmed & Ready" />
+
+Once confirmed, the lines disappear from this table and land in the
+**Confirmed & Ready** column on the board.
+
+## Per-flower-type assignment
+
+Assignment is **per flower, per colour**, not per order. This means:
+
+- Five different florists ordering red roses = one aggregated row, one
+  supplier
+- One florist ordering red roses + white roses = two rows, potentially
+  two suppliers
+
+## Choosing a supplier
+
+The supplier dropdown shows everyone in your **Suppliers** list
+(configured in Settings). If a flower needs a specific supplier and
+they're missing, add them in **Settings → Suppliers**.
+
+<Aside type="tip">
+For staple stems, default to the same supplier every week. For
+special-occasion stems or hard-to-source colours, check who has it
+seasonally before assigning.
+</Aside>
+
+## Substitutions
+
+If a supplier can't fulfil a flower, today you have two options:
+
+1. Re-assign to a different supplier (move the row back to table 1)
+2. Talk to the florist about a substitution outside the platform
+
+In-platform substitution is in development. See [the substitution FAQ](/faqs/wholesalers/).
+
+## What the florist sees during this stage
+
+- **Accepted** — until at least one of their flowers is sent to a
+  supplier
+- Each line's per-line status reflects: assigned → sent → pending →
+  confirmed
+
+When *every* line is confirmed, the order overall becomes **Supply
+Confirmed** on the florist side.
+
+## Next
+
+Move on to [Confirmed & Ready](/wholesalers/confirmed-and-ready/) once
+your suppliers start fulfilling.

@@ -1,0 +1,104 @@
+---
+title: Daily pick-lists
+description: The printable order page for warehouse staff.
+sidebar:
+  order: 8
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+**Pick-lists** are paper-friendly views of an order, designed for the
+warehouse floor: walk along the cool-room shelves, grab the stems, tick
+them off.
+
+<HelpMedia id="pick-list-printable" caption="A printable pick-list for one florist's order" />
+
+## What's on a pick-list
+
+Each pick-list page covers **one florist order**. It shows:
+
+- Order reference (e.g. `W-1234`)
+- Florist name and contact
+- Delivery date and method (delivery / pickup)
+- Event date and venue (per event in the order)
+- Sortable flower table:
+
+| Column | What it shows |
+|---|---|
+| Flower name | Display name |
+| Colour | Variant |
+| Total stems | How many to pick |
+| Bunches | Pack count |
+| Price | Cost line (for cross-reference) |
+| Notes | Per-line notes from the florist or your team |
+
+Pick-lists are stripped of platform chrome so they print cleanly on A4
+or letter paper.
+
+## Printing a pick-list
+
+<Steps>
+
+1. Open an order from the Order Board or Order Summary.
+
+2. Click **Print Pick-List** at the top of the order detail page.
+
+3. Your browser's print dialog opens. From here:
+
+   - **Print to a physical printer** for the warehouse
+   - **Save as PDF** for archival or sending to a fulfilment partner
+
+</Steps>
+
+The page URL is stable (`/orders/{ref}/print`), so you can bookmark
+specific pick-lists or share them with staff who have a StemCounts
+login.
+
+## Bulk pick-lists for a week
+
+For day-end planning, the **Calendar view** in Order Summary lets you
+print all pick-lists for a day or week:
+
+<Steps>
+
+1. Switch to Calendar view in Order Summary.
+
+2. Pick a day or week.
+
+3. Click **Print All**.
+
+4. Each florist order gets a separate page in the print job.
+
+</Steps>
+
+<Aside type="tip">
+For warehouses with multiple shifts, print twice — once at the start of
+day for the floor team, once at end-of-day reconciliation for the
+office team.
+</Aside>
+
+## Format tweaks
+
+The pick-list uses your browser's print stylesheet. To adjust:
+
+- **Page orientation** — landscape fits more columns; portrait fits
+  more rows
+- **Margins** — narrow margins maximise usable area
+- **Background colours** — most printers default to "off"; enable
+  *Background Graphics* for status badges and headers to render in
+  colour
+
+## What's NOT on the pick-list
+
+- The full supplier breakdown (the warehouse picks from your stock, not
+  from individual supplier deliveries)
+- Cost-side platform fees
+- Subscription / billing info
+
+Use the Order Summary view for those, not the pick-list.
+
+## Outside-the-app printing
+
+If you need to share with someone without a StemCounts login, save as
+PDF and email the file. The pick-list URL itself requires authentication.

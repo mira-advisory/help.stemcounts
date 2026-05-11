@@ -1,0 +1,75 @@
+---
+title: The florist landing page
+description: What you see when you log in as a florist — drafts, events, revenue, and shortcuts.
+sidebar:
+  order: 1
+---
+
+import { Aside, Card, CardGrid } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+When you log in, you land on the **florist dashboard**. It's designed
+to answer three questions in a single glance: *what's in flight,
+what's coming up this week, and how am I tracking financially?*
+
+<HelpMedia id="florist-landing-overview" caption="The florist dashboard on first load" />
+
+## The three metrics
+
+Three big tiles sit at the top of the page:
+
+| Tile | What it counts | Click to |
+|---|---|---|
+| **Open Drafts** | Draft orders not yet sent | Filtered Orders list — draft only |
+| **Events This Week** | Events landing in the current week | This week's Orders view |
+| **Revenue This Week** | Customer-side total for the week, with your retail markup applied | Same as Events This Week |
+
+<Aside type="note">
+Revenue is calculated from arrangement budgets × your organisation's
+retail markup. See [Pricing and budgets](/florists/pricing-and-budgets/)
+for how the math works.
+</Aside>
+
+## The primary CTAs
+
+Two large cards dominate the middle of the page:
+
+- **Orders** — your full order list, all weeks
+- **New Order** — opens the *Add Event* modal, the start of every new
+  piece of work
+
+<HelpMedia id="florist-landing-primary-ctas" />
+
+## The support shortcuts
+
+Smaller cards underneath:
+
+<CardGrid>
+  <Card title="Explore Flowers">
+    Jumps to the [Flower Library](/florists/browsing-the-catalog/) — a
+    read-only browse of the full catalog. Useful for inspiration before
+    you build an arrangement.
+  </Card>
+  <Card title="Settings">
+    Profile, organisation, notifications. See [Profile and
+    notifications](/billing/profile-and-notifications/).
+  </Card>
+  <Card title="FAQs">
+    The same FAQ entries as [/faqs/](/faqs/), inside the app.
+  </Card>
+</CardGrid>
+
+## Mobile
+
+On phones, the layout collapses to a single column but the same tiles
+and cards appear in the same order. The user menu moves into a hamburger
+icon in the top-right.
+
+## What to do next
+
+If this is your first time, the obvious next step is **New Order**.
+Detailed walkthroughs:
+
+- [Creating your first event](/florists/creating-your-first-event/)
+- [Building an arrangement](/florists/building-an-arrangement/)
+- [The Flower Picker](/florists/the-flower-picker/)

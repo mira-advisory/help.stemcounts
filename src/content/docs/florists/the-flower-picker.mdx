@@ -1,0 +1,99 @@
+---
+title: The Flower Picker
+description: Stem-vs-bunch mode, colour variants, quantities, and price overrides.
+sidebar:
+  order: 5
+---
+
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+The **Flower Picker** is where you actually order stems. It opens when
+you click **Pick Flowers** inside an arrangement.
+
+<HelpMedia id="flower-picker-overview" caption="The Picker with filters open and a flower expanded" />
+
+## The layout
+
+- **Filter bar** at the top — Category, Colour, Season, fuzzy search
+  toggle
+- **Flower grid** — one card per flower
+- **Cart panel** (right or bottom) — running list of what you've added
+
+## Filters
+
+| Filter | What it does |
+|---|---|
+| **Category** | Roses, dahlias, foliage, etc. — top-level botanical groups |
+| **Colour** | One or more colours. Combine with Category to find e.g. "white roses" |
+| **Season** | Hides out-of-season stems |
+| **Fuzzy search** toggle | Loose matching on typos — finds "rununculus" → ranunculus |
+
+## Per-flower controls
+
+When you click a flower card, you see:
+
+- **Colour variants** — each colour has its own swatch and list price
+- **Quantity input** — defaults to stems
+- **Stem/Bunch toggle** — switch between counting individual stems and
+  whole bunches
+- **Notes** — optional free text the wholesaler sees
+
+<HelpMedia id="flower-picker-card-expanded" />
+
+## Stems vs bunches
+
+Florists buy in different units depending on the flower:
+
+<Tabs>
+  <TabItem label="Stems">
+    Default mode. Enter the exact number of individual stems you need.
+    StemCounts rounds up to whole bunches at the wholesaler end
+    (`bunches = ceil(stems / stems_per_bunch)`).
+  </TabItem>
+  <TabItem label="Bunches">
+    Switch to bunch mode if you'd rather count whole bunches. Useful
+    for flowers always sold in bunches of 10, 20, etc. The actual stem
+    count is calculated automatically.
+  </TabItem>
+</Tabs>
+
+The **stems-per-bunch** varies by flower and is shown on the card.
+
+## Pinning favourites
+
+Click the **pin icon** on a flower card to keep it at the top of the
+grid for future sessions. Useful for staple stems you order every week
+(eucalyptus, baby's breath, the rose variety you always carry).
+
+## Price overrides
+
+Hovering over a price shows a **pencil icon**. Click it to enter a
+different price for this single arrangement. The system remembers it
+for the rest of the order session.
+
+<Aside type="caution">
+Price overrides only affect *your* customer-side math (revenue,
+budget). They don't change what the wholesaler charges you — the
+wholesale price is fixed by the wholesaler's price list.
+</Aside>
+
+## Adding to all arrangements (bulk mode)
+
+If you opened the Picker from the **Pick Flowers** button next to *Add
+Arrangement* (not inside a specific card), you're in **bulk mode**.
+
+Quantities you set are distributed across **all arrangements in this
+event**, proportional to each arrangement's quantity.
+
+Example: 60 roses, distributed across 4 arrangements of quantity 3, 3,
+3, 3 → each gets 15 roses.
+
+## Confirming your choices
+
+When you're done, click **Done** to return to the event details page.
+Your stem list is saved.
+
+You can re-open the Picker any time to adjust. See the FAQ entry [How
+do I add more stems to an arrangement?](/faqs/florists/) for in-detail
+tweaks.
