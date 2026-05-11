@@ -4,11 +4,10 @@
  * `help-media.stemcounts.com/{slug}.{ext}` directly.
  *
  * No manifest, no DB. The S3 bucket is the source of truth — drop a
- * file with the matching filename and it appears on the next build.
- * If the file isn't there, the browser fires `onerror` which adds a
- * `missing` class to the wrapper, surfacing a placeholder with the
- * exact filename to save the screenshot as plus a one-click copy
- * button.
+ * file with the matching filename and it appears on the next load.
+ * If the file isn't there, the missing-state detection in the script
+ * below adds a `missing` class to the wrapper, which CSS uses to swap
+ * in a placeholder card showing the exact filename + a copy button.
  *
  * Usage in any .mdx file:
  *
@@ -19,7 +18,7 @@
  *   {/ * Override the auto-derived alt text * /}
  *   <HelpMedia id="dashboard-overview" alt="Dashboard with three projects" />
  *
- *   {/ * Caption renders below the media as <figcaption> * /}
+ *   {/ * Caption renders below as <figcaption> * /}
  *   <HelpMedia id="dashboard-overview" caption="Click + New project to start." />
  *
  *   {/ * Video (resolves to .mp4 instead of .png) * /}
@@ -55,12 +54,7 @@ const resolvedAlt = (alt ?? humanizeSlug(id)).toString();
 
 <figure class="help-media" data-help-media-id={id}>
   {kind === "video" ? (
-    <video
-      controls
-      preload="metadata"
-      style={`width: ${width}; height: auto;`}
-      onerror="this.closest('.help-media').classList.add('missing')"
-    >
+    <video controls preload="metadata" style={`width: ${width}; height: auto;`}>
       <source src={url} type="video/mp4" />
       Your browser doesn't support inline video.
       <a href={url}>Download {filename}</a>
@@ -72,7 +66,6 @@ const resolvedAlt = (alt ?? humanizeSlug(id)).toString();
       loading="lazy"
       decoding="async"
       style={`width: ${width}; height: auto;`}
-      onerror="this.closest('.help-media').classList.add('missing')"
     />
   )}
   {figure && caption && <figcaption>{caption}</figcaption>}
@@ -94,9 +87,60 @@ const resolvedAlt = (alt ?? humanizeSlug(id)).toString();
 </figure>
 
 <script>
-  // Wire up clipboard copy for every Missing media placeholder on the
-  // page. Module script — Astro bundles + dedupes, so this runs once
-  // per page regardless of how many HelpMedia components are on it.
+  // Mark a help-media wrapper as missing.
+  function markMissing(el: Element) {
+    el.closest(".help-media")?.classList.add("missing");
+  }
+
+  // ── Images ──────────────────────────────────────────────────────
+  // `error` event fires on the <img> itself when src 404s.
+  // The image may have already failed by the time this script runs,
+  // so also check `complete && naturalWidth === 0` synchronously.
+  for (const img of document.querySelectorAll<HTMLImageElement>(
+    ".help-media img",
+  )) {
+    if (img.complete && img.naturalWidth === 0) {
+      markMissing(img);
+    } else {
+      img.addEventListener("error", () => markMissing(img));
+    }
+  }
+
+  // ── Videos ──────────────────────────────────────────────────────
+  // For <video><source/></video>, the error fires on the <source>
+  // element when its URL 404s — NOT on the parent <video>. Also check
+  // synchronous state: `video.error` is non-null if loading already
+  // failed, and `networkState === NETWORK_NO_SOURCE` means no source
+  // could be loaded at all.
+  for (const video of document.querySelectorAll<HTMLVideoElement>(
+    ".help-media video",
+  )) {
+    const NO_SOURCE = (video.constructor as typeof HTMLMediaElement)
+      .NETWORK_NO_SOURCE;
+    if (video.error || video.networkState === NO_SOURCE) {
+      markMissing(video);
+      continue;
+    }
+
+    // Listen for synchronous loadedmetadata: if it loads but has no
+    // playable duration, treat as missing (covers the case where the
+    // CDN returns an HTML error page that the browser tries to decode).
+    video.addEventListener("loadedmetadata", () => {
+      if (!isFinite(video.duration) || video.duration === 0) {
+        markMissing(video);
+      }
+    });
+
+    // Bubbled error on the video itself (rare but possible).
+    video.addEventListener("error", () => markMissing(video));
+
+    // The real fix: listen on each <source>.
+    for (const source of video.querySelectorAll("source")) {
+      source.addEventListener("error", () => markMissing(source));
+    }
+  }
+
+  // ── Copy button ─────────────────────────────────────────────────
   for (const btn of document.querySelectorAll<HTMLButtonElement>(
     ".missing-media-copy",
   )) {
@@ -149,8 +193,6 @@ const resolvedAlt = (alt ?? humanizeSlug(id)).toString();
 
   /* ── Missing media placeholder ────────────────────────────────── */
 
-  /* Hidden by default — only shown when img/video onerror swaps in
-     the `missing` class on the wrapper. */
   .missing-media-card {
     display: none;
   }
