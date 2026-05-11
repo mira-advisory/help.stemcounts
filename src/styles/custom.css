@@ -301,30 +301,29 @@ starlight-toc nav ul a[aria-current="true"] {
 }
 
 /* ── Steps component ──
- * Smaller, outlined, muted numbered markers so reader's eye lands
- * on step text rather than the numbers. */
+ * Strip the marker box entirely. Just a brand-coloured bold number
+ * next to each step — cleaner and avoids the line-height misalignment
+ * that put numbers at the bottom of the old circle markers. */
 .sl-markdown-content ol.sl-steps > li::before {
-  width: 1.25rem !important;
-  height: 1.25rem !important;
-  font-size: 0.7rem !important;
-  font-weight: 600 !important;
+  width: auto !important;
+  height: auto !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
   background: transparent !important;
-  border: 1.5px solid hsl(220 9% 65%) !important;
-  color: hsl(220 9% 45%) !important;
-  margin-top: 0.25rem !important;
-}
-[data-theme="dark"] .sl-markdown-content ol.sl-steps > li::before {
-  border-color: hsl(210 9% 50%) !important;
-  color: hsl(210 9% 70%) !important;
+  border: none !important;
+  color: var(--sl-color-text-accent) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: inherit !important;
+  display: inline !important;
 }
 .sl-markdown-content ol.sl-steps > li {
-  padding-inline-start: 2rem !important;
+  padding-inline-start: 1.75rem !important;
 }
+/* Remove the vertical connector line — without anchor circles it has
+   nothing to attach to. */
 .sl-markdown-content ol.sl-steps {
-  --sl-steps-line-color: hsl(210 11% 90%);
-}
-[data-theme="dark"] .sl-markdown-content ol.sl-steps {
-  --sl-steps-line-color: hsl(217 19% 22%);
+  --sl-steps-line-color: transparent !important;
 }
 
 /* ── Search-modal trigger button ── */

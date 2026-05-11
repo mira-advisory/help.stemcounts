@@ -3,11 +3,12 @@
  * <HelpMedia id="slug" /> — emits an <img> or <video> pointing at
  * `help-media.stemcounts.com/{slug}.{ext}` directly.
  *
- * No manifest, no DB. The S3 bucket is the source of truth — Kate
- * drops a file with the matching name and it appears on the next
- * build. If the file doesn't exist, the browser fires `onerror`
- * which adds a `missing` class to the wrapper, surfacing a visible
- * "Missing media" placeholder via CSS.
+ * No manifest, no DB. The S3 bucket is the source of truth — drop a
+ * file with the matching filename and it appears on the next build.
+ * If the file isn't there, the browser fires `onerror` which adds a
+ * `missing` class to the wrapper, surfacing a placeholder with the
+ * exact filename to save the screenshot as plus a one-click copy
+ * button.
  *
  * Usage in any .mdx file:
  *
@@ -18,30 +19,22 @@
  *   {/ * Override the auto-derived alt text * /}
  *   <HelpMedia id="dashboard-overview" alt="Dashboard with three projects" />
  *
- *   {/ * Add a caption (renders as <figcaption> below the media) * /}
+ *   {/ * Caption renders below the media as <figcaption> * /}
  *   <HelpMedia id="dashboard-overview" caption="Click + New project to start." />
  *
- *   {/ * Video instead of image (resolves to .mp4 instead of .png) * /}
+ *   {/ * Video (resolves to .mp4 instead of .png) * /}
  *   <HelpMedia id="platform-walkthrough" kind="video" />
  */
 
 import { helpMediaUrl, humanizeSlug, type HelpMediaKind } from "../lib/helpMedia";
 
 interface Props {
-  /** Media slug. Must match the file name in the S3 bucket (without extension). */
   id: string;
-  /** Override the auto-derived humanised alt text. Pass an explicit value for any
-   *  shot whose meaning isn't obvious from the slug. */
   alt?: string;
-  /** Optional caption rendered below the media. */
   caption?: string;
-  /** `image` (default, .png) or `video` (.mp4). */
   kind?: HelpMediaKind;
-  /** Override the file extension (rare — defaults are png/mp4). */
   ext?: string;
-  /** CSS width on the rendered media. Defaults to 100% of the article column. */
   width?: string;
-  /** Wrap in <figure>. Default true; pass false for purely decorative shots. */
   figure?: boolean;
 }
 
@@ -56,6 +49,7 @@ const {
 } = Astro.props;
 
 const url = helpMediaUrl(id, kind, ext);
+const filename = `${id}.${ext ?? (kind === "video" ? "mp4" : "png")}`;
 const resolvedAlt = (alt ?? humanizeSlug(id)).toString();
 ---
 
@@ -69,7 +63,7 @@ const resolvedAlt = (alt ?? humanizeSlug(id)).toString();
     >
       <source src={url} type="video/mp4" />
       Your browser doesn't support inline video.
-      <a href={url}>Download {id}.mp4</a>
+      <a href={url}>Download {filename}</a>
     </video>
   ) : (
     <img
@@ -82,7 +76,50 @@ const resolvedAlt = (alt ?? humanizeSlug(id)).toString();
     />
   )}
   {figure && caption && <figcaption>{caption}</figcaption>}
+
+  <div class="missing-media-card" role="status">
+    <div class="missing-media-label">Missing media</div>
+    <div class="missing-media-row">
+      <code class="missing-media-filename">{filename}</code>
+      <button
+        type="button"
+        class="missing-media-copy"
+        data-copy-value={filename}
+        aria-label={`Copy filename ${filename} to clipboard`}
+      >
+        Copy
+      </button>
+    </div>
+  </div>
 </figure>
+
+<script>
+  // Wire up clipboard copy for every Missing media placeholder on the
+  // page. Module script — Astro bundles + dedupes, so this runs once
+  // per page regardless of how many HelpMedia components are on it.
+  for (const btn of document.querySelectorAll<HTMLButtonElement>(
+    ".missing-media-copy",
+  )) {
+    if (btn.dataset.bound === "true") continue;
+    btn.dataset.bound = "true";
+    btn.addEventListener("click", async () => {
+      const text = btn.dataset.copyValue;
+      if (!text) return;
+      const original = btn.textContent;
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = "Copied!";
+        btn.classList.add("just-copied");
+      } catch {
+        btn.textContent = "Copy failed";
+      }
+      window.setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove("just-copied");
+      }, 1400);
+    });
+  }
+</script>
 
 <style>
   .help-media {
@@ -110,32 +147,86 @@ const resolvedAlt = (alt ?? humanizeSlug(id)).toString();
     font-style: italic;
   }
 
-  /* Missing-media placeholder — appears when img/video onerror fires.
-     Hides the broken tag, shows a labelled box in its place using the
-     wrapper's data-help-media-id attribute. Coral, matches brand. */
-  .help-media.missing img,
-  .help-media.missing video {
+  /* ── Missing media placeholder ────────────────────────────────── */
+
+  /* Hidden by default — only shown when img/video onerror swaps in
+     the `missing` class on the wrapper. */
+  .missing-media-card {
     display: none;
   }
-  .help-media.missing::before {
-    content: "Missing media";
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--sl-color-orange-high, hsl(5 70% 38%));
-    margin-bottom: 0.25rem;
+  .help-media.missing img,
+  .help-media.missing video,
+  .help-media.missing figcaption {
+    display: none;
   }
-  .help-media.missing::after {
-    content: attr(data-help-media-id);
+  .help-media.missing .missing-media-card {
     display: block;
     background: var(--sl-color-orange-low, hsl(5 100% 96%));
     border: 1px dashed var(--sl-color-orange, #FF6F61);
     color: var(--sl-color-orange-high, hsl(5 70% 38%));
     padding: 0.75rem 1rem;
     border-radius: 8px;
+  }
+
+  .missing-media-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sl-color-orange-high, hsl(5 70% 38%));
+    margin-bottom: 0.5rem;
+  }
+
+  .missing-media-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .missing-media-filename {
+    flex: 1 1 auto;
+    min-width: 0;
+    background: rgba(0, 0, 0, 0.06);
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
     font-family: var(--__sl-font-mono, ui-monospace, monospace);
     font-size: 0.85rem;
+    color: var(--sl-color-text);
+    word-break: break-all;
+    overflow-wrap: anywhere;
+    border: none;
+  }
+
+  .missing-media-copy {
+    flex: 0 0 auto;
+    padding: 0.4rem 0.85rem;
+    border-radius: 6px;
+    border: 1px solid var(--sl-color-orange, #FF6F61);
+    background: #fff;
+    color: var(--sl-color-orange-high, hsl(5 70% 38%));
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+      background 0.15s ease,
+      color 0.15s ease,
+      transform 0.1s ease;
+  }
+  .missing-media-copy:hover {
+    background: var(--sl-color-orange, #FF6F61);
+    color: #fff;
+  }
+  .missing-media-copy:active {
+    transform: scale(0.97);
+  }
+  .missing-media-copy:focus-visible {
+    outline: 2px solid var(--sl-color-orange, #FF6F61);
+    outline-offset: 2px;
+  }
+  .missing-media-copy.just-copied {
+    background: var(--sl-color-orange, #FF6F61);
+    color: #fff;
   }
 </style>
