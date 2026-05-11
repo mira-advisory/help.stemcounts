@@ -8,98 +8,96 @@ sidebar:
 import { Steps, Aside } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-**Receive & Accept** is the first stage of the board. Florist orders
-arrive here once sent. Your job: review and accept (or, rarely, reject).
+**Receive & Accept** is the first stage of your board. Florist orders
+land here once they're sent. Your job: have a look and accept (or, in
+rare cases, reject).
 
-<HelpMedia id="receive-and-accept-view" caption="The Receive & Accept stage" />
+<HelpMedia id="receive-and-accept-view" kind="video" caption="Reviewing an incoming order in Receive & Accept" />
 
-## What you see
+## What's on the page
 
-The Receive & Accept page shows incoming orders with status **Sent**
-or already **Accepted** but not yet progressed. For each:
+Receive & Accept shows incoming orders that are **Sent** or
+already **Accepted** but haven't moved on yet. For each, you'll see:
 
-- Florist name (and their organisation)
+- The florist's name and organisation
 - Delivery date
 - Total value
 - Number of stems
 - A status badge
 
-You can drill into any order to see the full line-by-line breakdown
-before accepting.
+Click into any order to see the full breakdown, flower by flower,
+before you accept.
 
-## Accept an order
+## Accepting an order
 
 <Steps>
 
-1. Click into an order to see the full detail — every event, every
-   arrangement, every flower line.
+1. Click into an order to see the full detail — every event, every arrangement, every flower.
 
-2. Review the stems. Check:
+2. Have a look through:
 
    - Can you source everything by the delivery date?
-   - Does the florist have unusual requirements (specific varieties,
-     spares, notes)?
-   - Are quantities sensible?
+   - Anything unusual you want to confirm — specific varieties, spares, notes?
+   - Do the quantities look right?
 
 3. Click **Accept Order**.
 
    <HelpMedia id="accept-order-button" />
 
-4. You'll see a confirmation toast: **"Order W-1234 has been accepted
-   and moved to Assign & Send."** (your order reference, not literally
-   "W-1234")
+4. You'll see a confirmation: **"Order W-1234 has been accepted and moved to Assign & Send."** (with your real order reference in place of W-1234)
 
 5. The order disappears from this column and lands in **Assign & Send**.
 
 </Steps>
 
 <Aside type="note">
-Accept is **order-level only**. You can't accept some lines and reject
-others. If a single line is problematic, accept the order and either
-work it out with the florist directly or substitute that line later
-(when substitution ships).
+When you accept, you accept the **whole order**. There's no way to
+accept some flowers and decline others. If one flower's tricky, accept
+the order, then either talk it through with your florist or substitute
+that flower later (once the substitution feature ships).
 </Aside>
 
-## Reject an order
+## Rejecting an order
 
-Rejection sends the whole order back to the florist as a draft. They
-can edit and re-send, or contact you to discuss.
+Rejecting sends the whole order back to the florist as a draft. They
+can edit and re-send, or call you to talk it through.
 
 <Steps>
 
-1. Open the order detail modal.
+1. Open the order detail view.
 
 2. Click **Reject Order**.
 
-3. Confirm. You'll see: **"Order W-1234 has been rejected."** (your
-   actual order reference appears in place of "W-1234")
+3. Confirm. You'll see: **"Order W-1234 has been rejected."** (with your real order reference in place of W-1234)
 
 4. The order disappears from your board.
 
 </Steps>
 
-Reject sparingly. It's better to accept and resolve issues by direct
-contact unless you genuinely can't fulfil any of the order.
+Try to accept rather than reject where you can — a quick call with
+your florist usually sorts most issues without taking the order off
+your board.
 
-## Empty state
+## When the page is empty
 
-If there are no orders to process, the page shows:
+If there's nothing to process, you'll see:
 
 > No orders found
 >
 > No assigned orders are currently available
 
-This is normal at the start of a week or after a busy session.
+That's normal at the start of a week or right after a busy session.
 
-## What "accepted" means on the florist side
+## What "accepted" looks like for the florist
 
-When you accept an order, the florist's view updates to **Accepted**.
-They get an email notification. They expect to see **Supply Confirmed**
-next, which happens after you move stems through *Assign & Send*.
+The moment you accept, the florist's view of the order flips to
+**Accepted** and they get an email letting them know. From here they're
+waiting for **Supply Confirmed** to appear next — which happens once
+you've worked the order through *Assign & Send*.
 
 ## Cut-offs
 
-Each wholesaler has a **cut-off time** for accepting orders. Orders
-arriving after the cut-off may need to be flagged for the next sourcing
-window. The platform doesn't enforce a cut-off automatically — you set
-the policy with florists directly.
+Each wholesaler has a **cut-off time** for accepting orders. Anything
+that arrives after the cut-off may need to wait for the next sourcing
+window. StemCounts doesn't enforce a cut-off automatically — it's
+something you agree with your florists directly.

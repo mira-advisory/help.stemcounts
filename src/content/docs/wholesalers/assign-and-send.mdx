@@ -16,7 +16,7 @@ complex. Three things happen here:
 3. **Send** — generate and send supplier orders, then track for
    confirmation
 
-<HelpMedia id="assign-and-send-overview" caption="Assign & Send with three tables visible" />
+<HelpMedia id="assign-and-send-overview" kind="video" caption="Walking through Assign & Send end to end" />
 
 ## The three tables
 
@@ -52,12 +52,11 @@ button.
 
 1. Review the lines under each supplier — quantities, dates, notes.
 
-2. Click **Send**. StemCounts generates a supplier order and emails it
-   (or files it via API for integrated suppliers).
+2. Click **Send**. StemCounts generates a supplier order and emails it (or sends it directly to your integrated supplier if you have one set up).
 
 3. You'll see: **"Sent to Supplier"** confirmation.
 
-4. The lines move to the third table.
+4. The flowers move to the third table.
 
 </Steps>
 
@@ -100,19 +99,17 @@ seasonally before assigning.
 
 ## Substitutions
 
-If a supplier can't fulfil a flower, today you have two options:
+If a supplier can't fulfil a flower, you've got two options:
 
-1. Re-assign to a different supplier (move the row back to table 1)
-2. Talk to the florist about a substitution outside the platform
+1. Re-assign to a different supplier — move the row back to the first table
+2. Talk to your florist directly about a substitution
 
-In-platform substitution is in development. See [the substitution FAQ](/faqs/wholesalers/).
+A built-in substitution flow is on the way. See [the substitution FAQ](/faqs/wholesalers/) for more.
 
 ## What the florist sees during this stage
 
-- **Accepted** — until at least one of their flowers is sent to a
-  supplier
-- Each line's per-line status reflects: assigned → sent → pending →
-  confirmed
+- **Accepted** — until at least one of their flowers is sent to a supplier
+- Each flower has its own status, moving along: assigned → sent → pending → confirmed
 
 When *every* line is confirmed, the order overall becomes **Supply
 Confirmed** on the florist side.

@@ -1,369 +1,549 @@
 # Help-media upload checklist
 
-Every `<HelpMedia id="slug" />` reference in the articles, listed here so whoever is capturing screenshots / video walkthroughs can work through it methodically.
+Every `<HelpMedia>` reference across the StemCounts help site, listed by article. **50 files total** — 34 images + 16 short videos.
 
 ## How to upload
 
-1. Capture the screenshot or short video for the slug below.
-2. Save the file with the **exact** filename shown — kebab-case slug + `.png` (images) or `.mp4` (videos).
-3. Upload to the S3 bucket: **`help-media.stemcounts.com`** (flat at the root, no folders).
-4. After a batch of uploads, ping the dev team to trigger a docs site rebuild — or wait for the next deploy.
+Every file goes into one S3 bucket, at the root level — no folders.
 
-## Conventions
+**Bucket name:**
 
-- **Resolution**: capture at 2× (Retina) so the docs look crisp; aim for a max width of 2400px.
-- **Image format**: PNG. Convert JPGs to PNG before upload.
-- **Video format**: MP4, H.264, max 1080p, keep under 20 MB where you can.
-- **Don't include sensitive data**: redact real florist / customer names, real prices, real addresses.
+```
+help-media.stemcounts.com
+```
 
-## Slugs to upload — 50 total (50 images, 0 videos)
+### Step-by-step
 
-### `accept-order-button.png`
+1. Sign in to the AWS Console at <https://console.aws.amazon.com>.
+2. In the top search bar, type **S3** and click the S3 service.
+3. From the bucket list, click into **`help-media.stemcounts.com`**.
+4. Click the orange **Upload** button (top-right).
+5. Drag your captured files into the drop zone (or click **Add files** and pick them).
+6. Leave all the default options as they are. Don't create folders.
+7. Click **Upload** at the bottom.
 
-- **[Receive & Accept](/wholesalers/receive-and-accept/)**
+Once a batch is uploaded, the images will appear on the live help site after the next docs rebuild (usually within a few hours, or sooner if you ping the dev team to trigger one).
 
-- [ ] Captured
-- [ ] Uploaded to S3
+### Filename rules
 
-### `account-subscription-card.png`
+- Use the **exact filename** shown in each section below. Copy the code block — don't retype it.
+- Extensions matter: `.png` for screenshots, `.mp4` for short videos.
+- No spaces, no capitals, no folder paths.
 
-- **[Your StemCounts subscription](/billing/subscription/)** — caption: *The Subscription card on the Account page*
+### Capture guidelines
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- **Screenshots**: capture at 2× (Retina) for crispness; aim for around 2400px wide max.
+- **Videos**: MP4, H.264, max 1080p, ideally under 20 MB and under 30 seconds.
+- **Redact**: blur or replace any real florist names, customer names, real prices, or addresses before saving.
 
-### `add-arrangement-button.png`
+If you don't have AWS access, send the captured files to whoever does — the upload step is just drag-and-drop and takes seconds.
 
-- **[Building an arrangement](/florists/building-an-arrangement/)**
+## What to capture
 
-- [ ] Captured
-- [ ] Uploaded to S3
+Each section below is one article on the help site. The article link opens the live page so you can see the context the image / video sits in. The code block is the **exact filename** to save the captured file as — click the copy icon in the top-right of the block.
 
-### `add-event-modal.png`
+### [Creating your account](/getting-started/creating-your-account/)
 
-- **[Creating your first event](/florists/creating-your-first-event/)**
+- [ ] **🎥 video**
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  ```
+  signup-flow-overview.mp4
+  ```
 
-### `app-shell-overview.png`
+- [ ] image
 
-- **[Finding your way around](/getting-started/finding-your-way-around/)** — caption: *The shared header — logo, navigation, user menu*
+  ```
+  signup-role-selection.png
+  ```
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  *Shows:* Florist vs Wholesaler role picker
 
-### `arrangement-3-dot-menu.png`
+- [ ] image
 
-- **[Cloning arrangements](/florists/cloning-arrangements/)** — caption: *The 3-dot menu on an arrangement card*
+  ```
+  signup-otp-screen.png
+  ```
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  *Shows:* OTP entry — the code arrives by SMS to the phone you registered with
 
-### `arrangement-clone-action.png`
 
-- **[Cloning arrangements](/florists/cloning-arrangements/)**
+### [Finding your way around](/getting-started/finding-your-way-around/)
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- [ ] **🎥 video**
 
-### `assign-and-send-overview.png`
+  ```
+  app-shell-overview.mp4
+  ```
 
-- **[Assign & Send](/wholesalers/assign-and-send/)** — caption: *Assign & Send with three tables visible*
+  *Shows:* A quick tour of the StemCounts header and navigation
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- [ ] image
 
-### `assign-supplier-dropdown.png`
+  ```
+  user-menu-open.png
+  ```
 
-- **[Assign & Send](/wholesalers/assign-and-send/)** — caption: *Selecting a supplier for an aggregated flower row*
 
-- [ ] Captured
-- [ ] Uploaded to S3
+### [Forgot your password](/getting-started/forgot-password/)
 
-### `confirm-supplier-order.png`
+- [ ] image
 
-- **[Assign & Send](/wholesalers/assign-and-send/)** — caption: *Confirming a supplier order moves it to Confirmed & Ready*
+  ```
+  login-forgot-password-link.png
+  ```
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- [ ] image
 
-### `confirmed-and-ready-overview.png`
+  ```
+  reset-password-form.png
+  ```
 
-- **[Confirmed & Ready](/wholesalers/confirmed-and-ready/)** — caption: *Both sub-sections visible on the same page*
 
-- [ ] Captured
-- [ ] Uploaded to S3
+### [Welcome to StemCounts](/getting-started/welcome/)
 
-### `event-add-arrangement.png`
+- [ ] **🎥 video**
 
-- **[Your first 10 minutes](/getting-started/your-first-10-minutes/)**
+  ```
+  welcome-platform-overview.mp4
+  ```
 
-- [ ] Captured
-- [ ] Uploaded to S3
 
-### `event-creation-overview.png`
+### [Your first 10 minutes](/getting-started/your-first-10-minutes/)
 
-- **[Creating your first event](/florists/creating-your-first-event/)** — caption: *An event being added to a weekly order*
+- [ ] image
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  ```
+  florist-landing-new-order-cta.png
+  ```
 
-### `event-details-with-arrangements.png`
+- [ ] image
 
-- **[Building an arrangement](/florists/building-an-arrangement/)** — caption: *An event with three arrangements; each is its own bucket*
+  ```
+  event-add-arrangement.png
+  ```
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- [ ] **🎥 video**
 
-### `event-print-dialog.png`
+  ```
+  flower-picker-quantity.mp4
+  ```
 
-- **[Event details & printing](/florists/event-details-and-printing/)**
+- [ ] image
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  ```
+  order-send-confirmation.png
+  ```
 
-### `event-printable-page.png`
 
-- **[Event details & printing](/florists/event-details-and-printing/)** — caption: *A printable event sheet, ready to send to a printer or PDF*
+### [Browsing the flower catalog](/florists/browsing-the-catalog/)
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- [ ] **🎥 video**
 
-### `florist-landing-new-order-cta.png`
+  ```
+  flower-library-grid.mp4
+  ```
 
-- **[Your first 10 minutes](/getting-started/your-first-10-minutes/)**
+  *Shows:* Browsing the Flower Library
 
-- [ ] Captured
-- [ ] Uploaded to S3
 
-### `florist-landing-overview.png`
+### [Building an arrangement](/florists/building-an-arrangement/)
 
-- **[The florist landing page](/florists/florist-landing/)** — caption: *The florist dashboard on first load*
+- [ ] **🎥 video**
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  ```
+  event-details-with-arrangements.mp4
+  ```
 
-### `florist-landing-primary-ctas.png`
+  *Shows:* An event with three arrangements
 
-- **[The florist landing page](/florists/florist-landing/)**
+- [ ] image
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  ```
+  add-arrangement-button.png
+  ```
 
-### `flower-library-grid.png`
 
-- **[Browsing the flower catalog](/florists/browsing-the-catalog/)** — caption: *The Flower Library, default view*
+### [Cloning arrangements](/florists/cloning-arrangements/)
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- [ ] image
 
-### `flower-picker-card-expanded.png`
+  ```
+  arrangement-3-dot-menu.png
+  ```
 
-- **[The Flower Picker](/florists/the-flower-picker/)**
+  *Shows:* The 3-dot menu on an arrangement card
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- [ ] **🎥 video**
 
-### `flower-picker-overview.png`
+  ```
+  arrangement-clone-action.mp4
+  ```
 
-- **[The Flower Picker](/florists/the-flower-picker/)** — caption: *The Picker with filters open and a flower expanded*
 
-- [ ] Captured
-- [ ] Uploaded to S3
+### [Creating your first event](/florists/creating-your-first-event/)
 
-### `flower-picker-quantity.png`
+- [ ] **🎥 video**
 
-- **[Your first 10 minutes](/getting-started/your-first-10-minutes/)**
+  ```
+  event-creation-overview.mp4
+  ```
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  *Shows:* An event being added to a weekly order
 
-### `inventory-management-page.png`
+- [ ] image
 
-- **[Managing your inventory](/wholesalers/managing-inventory/)** — caption: *Inventory Management with selected flowers + price overrides*
+  ```
+  add-event-modal.png
+  ```
 
-- [ ] Captured
-- [ ] Uploaded to S3
 
-### `login-forgot-password-link.png`
+### [Event details & printing](/florists/event-details-and-printing/)
 
-- **[Forgot your password](/getting-started/forgot-password/)**
+- [ ] image
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  ```
+  event-printable-page.png
+  ```
 
-### `manage-subscription-button.png`
+  *Shows:* A printable event sheet, ready to send to a printer or PDF
 
-- **[Managing your subscription](/billing/managing-subscription/)** — caption: *The Manage subscription button opens the Stripe portal*
+- [ ] image
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  ```
+  event-print-dialog.png
+  ```
 
-### `mark-supplier-fulfilled.png`
 
-- **[Confirmed & Ready](/wholesalers/confirmed-and-ready/)**
+### [The florist landing page](/florists/florist-landing/)
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- [ ] **🎥 video**
 
-### `multi-supplier-diagram.png`
+  ```
+  florist-landing-overview.mp4
+  ```
 
-- **[Multi-supplier orders](/wholesalers/multi-supplier-orders/)** — caption: *One florist order → multiple supplier orders → reconstituted at handover*
+  *Shows:* A quick look at the florist home screen
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- [ ] image
 
-### `order-board-drag.png`
+  ```
+  florist-landing-primary-ctas.png
+  ```
 
-- **[The Order Board](/wholesalers/the-order-board/)** — caption: *Dragging an order from Sent to Accepted*
 
-- [ ] Captured
-- [ ] Uploaded to S3
+### [Pricing and budgets](/florists/pricing-and-budgets/)
 
-### `order-board-overview.png`
+- [ ] image
 
-- **[The Order Board](/wholesalers/the-order-board/)** — caption: *The Order Board for an integrated wholesaler — five columns*
+  ```
+  pricing-overview.png
+  ```
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  *Shows:* The cost-vs-customer-price relationship
 
-### `order-send-confirmation.png`
 
-- **[Your first 10 minutes](/getting-started/your-first-10-minutes/)**
+### [Sending your order](/florists/sending-your-order/)
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- [ ] image
 
-### `order-status-flow.png`
+  ```
+  send-order-button.png
+  ```
 
-- **[Tracking your order](/florists/tracking-your-order/)** — caption: *The five statuses florists see*
+  *Shows:* The Send Order action on a weekly order
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- [ ] image
 
-### `order-status-sent.png`
+  ```
+  order-status-sent.png
+  ```
 
-- **[Sending your order](/florists/sending-your-order/)**
 
-- [ ] Captured
-- [ ] Uploaded to S3
+### [The Flower Picker](/florists/the-flower-picker/)
 
-### `pick-list-printable.png`
+- [ ] **🎥 video**
 
-- **[Daily pick-lists](/wholesalers/daily-pick-lists/)** — caption: *A printable pick-list for one florist's order*
+  ```
+  flower-picker-overview.mp4
+  ```
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  *Shows:* Walking through the Flower Picker
 
-### `pricing-overview.png`
+- [ ] image
 
-- **[Pricing and budgets](/florists/pricing-and-budgets/)** — caption: *The cost-vs-customer-price relationship*
+  ```
+  flower-picker-card-expanded.png
+  ```
 
-- [ ] Captured
-- [ ] Uploaded to S3
 
-### `ready-florist-view-toggle.png`
+### [The Spares Bucket](/florists/the-spares-bucket/)
 
-- **[Confirmed & Ready](/wholesalers/confirmed-and-ready/)** — caption: *Toggle between List view and Florist view*
+- [ ] image
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  ```
+  spares-bucket-on-event.png
+  ```
 
-### `receive-and-accept-view.png`
+  *Shows:* The Spares Bucket sits alongside arrangements on the event page
 
-- **[Receive & Accept](/wholesalers/receive-and-accept/)** — caption: *The Receive & Accept stage*
 
-- [ ] Captured
-- [ ] Uploaded to S3
+### [Tracking your order](/florists/tracking-your-order/)
 
-### `reset-password-form.png`
+- [ ] image
 
-- **[Forgot your password](/getting-started/forgot-password/)**
+  ```
+  order-status-flow.png
+  ```
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  *Shows:* The five stages florists see
 
-### `send-order-button.png`
 
-- **[Sending your order](/florists/sending-your-order/)** — caption: *The Send Order action on a weekly order*
+### [Assign & Send](/wholesalers/assign-and-send/)
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- [ ] **🎥 video**
 
-### `settings-organization-tab.png`
+  ```
+  assign-and-send-overview.mp4
+  ```
 
-- **[Your organisation](/billing/your-organisation/)** — caption: *Organisation settings*
+  *Shows:* Walking through Assign & Send end to end
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- [ ] image
 
-### `settings-personal-tab.png`
+  ```
+  assign-supplier-dropdown.png
+  ```
 
-- **[Profile and notifications](/billing/profile-and-notifications/)** — caption: *Personal settings tab*
+  *Shows:* Selecting a supplier for an aggregated flower row
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- [ ] image
 
-### `signup-flow-overview.png`
+  ```
+  confirm-supplier-order.png
+  ```
 
-- **[Creating your account](/getting-started/creating-your-account/)**
+  *Shows:* Confirming a supplier order moves it to Confirmed & Ready
 
-- [ ] Captured
-- [ ] Uploaded to S3
 
-### `signup-otp-screen.png`
+### [Confirmed & Ready](/wholesalers/confirmed-and-ready/)
 
-- **[Creating your account](/getting-started/creating-your-account/)** — caption: *OTP entry — the code arrives by SMS to the phone you registered with*
+- [ ] **🎥 video**
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  ```
+  confirmed-and-ready-overview.mp4
+  ```
 
-### `signup-role-selection.png`
+  *Shows:* Marking supplier-fulfilled items and then ready for florist
 
-- **[Creating your account](/getting-started/creating-your-account/)** — caption: *Florist vs Wholesaler role picker*
+- [ ] image
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  ```
+  mark-supplier-fulfilled.png
+  ```
 
-### `spares-bucket-on-event.png`
+- [ ] image
 
-- **[The Spares Bucket](/florists/the-spares-bucket/)** — caption: *The Spares Bucket sits alongside arrangements on the event page*
+  ```
+  ready-florist-view-toggle.png
+  ```
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  *Shows:* Toggle between List view and Florist view
 
-### `subscribe-button.png`
 
-- **[Your StemCounts subscription](/billing/subscription/)**
+### [Daily pick-lists](/wholesalers/daily-pick-lists/)
 
-- [ ] Captured
-- [ ] Uploaded to S3
+- [ ] image
 
-### `subscription-blocked-screen.png`
+  ```
+  pick-list-printable.png
+  ```
 
-- **[Trial and blocked access](/billing/trial-and-blocked-access/)** — caption: *The Subscription Access Blocked screen*
+  *Shows:* A printable pick-list for one florist's order
 
-- [ ] Captured
-- [ ] Uploaded to S3
 
-### `user-menu-open.png`
+### [Managing your inventory](/wholesalers/managing-inventory/)
 
-- **[Finding your way around](/getting-started/finding-your-way-around/)**
+- [ ] image
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  ```
+  inventory-management-page.png
+  ```
 
-### `welcome-platform-overview.png`
+  *Shows:* Inventory Management with selected flowers + price overrides
 
-- **[Welcome to StemCounts](/getting-started/welcome/)**
 
-- [ ] Captured
-- [ ] Uploaded to S3
+### [Multi-supplier orders](/wholesalers/multi-supplier-orders/)
 
-### `wholesaler-landing-overview.png`
+- [ ] image
 
-- **[The wholesaler landing page](/wholesalers/wholesaler-landing/)** — caption: *The wholesaler dashboard with both primary destinations*
+  ```
+  multi-supplier-diagram.png
+  ```
 
-- [ ] Captured
-- [ ] Uploaded to S3
+  *Shows:* One florist order → multiple supplier orders → reconstituted at handover
+
+
+### [Receive & Accept](/wholesalers/receive-and-accept/)
+
+- [ ] **🎥 video**
+
+  ```
+  receive-and-accept-view.mp4
+  ```
+
+  *Shows:* Reviewing an incoming order in Receive & Accept
+
+- [ ] image
+
+  ```
+  accept-order-button.png
+  ```
+
+
+### [The Order Board](/wholesalers/the-order-board/)
+
+- [ ] **🎥 video**
+
+  ```
+  order-board-overview.mp4
+  ```
+
+  *Shows:* The Order Board in action
+
+- [ ] **🎥 video**
+
+  ```
+  order-board-drag.mp4
+  ```
+
+  *Shows:* Dragging an order from Sent to Accepted
+
+
+### [The wholesaler landing page](/wholesalers/wholesaler-landing/)
+
+- [ ] **🎥 video**
+
+  ```
+  wholesaler-landing-overview.mp4
+  ```
+
+  *Shows:* A quick look at the wholesaler home screen
+
+
+### [Managing your subscription](/billing/managing-subscription/)
+
+- [ ] image
+
+  ```
+  manage-subscription-button.png
+  ```
+
+  *Shows:* The Manage subscription button opens the Stripe portal
+
+
+### [Profile and notifications](/billing/profile-and-notifications/)
+
+- [ ] image
+
+  ```
+  settings-personal-tab.png
+  ```
+
+  *Shows:* Personal settings tab
+
+
+### [Your StemCounts subscription](/billing/subscription/)
+
+- [ ] image
+
+  ```
+  account-subscription-card.png
+  ```
+
+  *Shows:* The Subscription card on the Account page
+
+- [ ] image
+
+  ```
+  subscribe-button.png
+  ```
+
+
+### [Trial and blocked access](/billing/trial-and-blocked-access/)
+
+- [ ] image
+
+  ```
+  subscription-blocked-screen.png
+  ```
+
+  *Shows:* The Subscription Access Blocked screen
+
+
+### [Your organisation](/billing/your-organisation/)
+
+- [ ] image
+
+  ```
+  settings-organization-tab.png
+  ```
+
+  *Shows:* Organisation settings
+
+
+---
+
+## Quick alphabetical lookup
+
+If you need to find a specific filename fast:
+
+- `accept-order-button.png` → [Receive & Accept](/wholesalers/receive-and-accept/)
+- `account-subscription-card.png` → [Your StemCounts subscription](/billing/subscription/)
+- `add-arrangement-button.png` → [Building an arrangement](/florists/building-an-arrangement/)
+- `add-event-modal.png` → [Creating your first event](/florists/creating-your-first-event/)
+- `app-shell-overview.mp4` → [Finding your way around](/getting-started/finding-your-way-around/)
+- `arrangement-3-dot-menu.png` → [Cloning arrangements](/florists/cloning-arrangements/)
+- `arrangement-clone-action.mp4` → [Cloning arrangements](/florists/cloning-arrangements/)
+- `assign-and-send-overview.mp4` → [Assign & Send](/wholesalers/assign-and-send/)
+- `assign-supplier-dropdown.png` → [Assign & Send](/wholesalers/assign-and-send/)
+- `confirm-supplier-order.png` → [Assign & Send](/wholesalers/assign-and-send/)
+- `confirmed-and-ready-overview.mp4` → [Confirmed & Ready](/wholesalers/confirmed-and-ready/)
+- `event-add-arrangement.png` → [Your first 10 minutes](/getting-started/your-first-10-minutes/)
+- `event-creation-overview.mp4` → [Creating your first event](/florists/creating-your-first-event/)
+- `event-details-with-arrangements.mp4` → [Building an arrangement](/florists/building-an-arrangement/)
+- `event-print-dialog.png` → [Event details & printing](/florists/event-details-and-printing/)
+- `event-printable-page.png` → [Event details & printing](/florists/event-details-and-printing/)
+- `florist-landing-new-order-cta.png` → [Your first 10 minutes](/getting-started/your-first-10-minutes/)
+- `florist-landing-overview.mp4` → [The florist landing page](/florists/florist-landing/)
+- `florist-landing-primary-ctas.png` → [The florist landing page](/florists/florist-landing/)
+- `flower-library-grid.mp4` → [Browsing the flower catalog](/florists/browsing-the-catalog/)
+- `flower-picker-card-expanded.png` → [The Flower Picker](/florists/the-flower-picker/)
+- `flower-picker-overview.mp4` → [The Flower Picker](/florists/the-flower-picker/)
+- `flower-picker-quantity.mp4` → [Your first 10 minutes](/getting-started/your-first-10-minutes/)
+- `inventory-management-page.png` → [Managing your inventory](/wholesalers/managing-inventory/)
+- `login-forgot-password-link.png` → [Forgot your password](/getting-started/forgot-password/)
+- `manage-subscription-button.png` → [Managing your subscription](/billing/managing-subscription/)
+- `mark-supplier-fulfilled.png` → [Confirmed & Ready](/wholesalers/confirmed-and-ready/)
+- `multi-supplier-diagram.png` → [Multi-supplier orders](/wholesalers/multi-supplier-orders/)
+- `order-board-drag.mp4` → [The Order Board](/wholesalers/the-order-board/)
+- `order-board-overview.mp4` → [The Order Board](/wholesalers/the-order-board/)
+- `order-send-confirmation.png` → [Your first 10 minutes](/getting-started/your-first-10-minutes/)
+- `order-status-flow.png` → [Tracking your order](/florists/tracking-your-order/)
+- `order-status-sent.png` → [Sending your order](/florists/sending-your-order/)
+- `pick-list-printable.png` → [Daily pick-lists](/wholesalers/daily-pick-lists/)
+- `pricing-overview.png` → [Pricing and budgets](/florists/pricing-and-budgets/)
+- `ready-florist-view-toggle.png` → [Confirmed & Ready](/wholesalers/confirmed-and-ready/)
+- `receive-and-accept-view.mp4` → [Receive & Accept](/wholesalers/receive-and-accept/)
+- `reset-password-form.png` → [Forgot your password](/getting-started/forgot-password/)
+- `send-order-button.png` → [Sending your order](/florists/sending-your-order/)
+- `settings-organization-tab.png` → [Your organisation](/billing/your-organisation/)
+- `settings-personal-tab.png` → [Profile and notifications](/billing/profile-and-notifications/)
+- `signup-flow-overview.mp4` → [Creating your account](/getting-started/creating-your-account/)
+- `signup-otp-screen.png` → [Creating your account](/getting-started/creating-your-account/)
+- `signup-role-selection.png` → [Creating your account](/getting-started/creating-your-account/)
+- `spares-bucket-on-event.png` → [The Spares Bucket](/florists/the-spares-bucket/)
+- `subscribe-button.png` → [Your StemCounts subscription](/billing/subscription/)
+- `subscription-blocked-screen.png` → [Trial and blocked access](/billing/trial-and-blocked-access/)
+- `user-menu-open.png` → [Finding your way around](/getting-started/finding-your-way-around/)
+- `welcome-platform-overview.mp4` → [Welcome to StemCounts](/getting-started/welcome/)
+- `wholesaler-landing-overview.mp4` → [The wholesaler landing page](/wholesalers/wholesaler-landing/)
