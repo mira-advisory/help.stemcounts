@@ -1,0 +1,32 @@
+# AWS Amplify build spec for the StemCounts help site (help.stemcounts).
+#
+# Deployment plan:
+#   - Connect this repo (mira-advisory/help.stemcounts) to a new Amplify app.
+#   - Branch: main -> production -> custom domain help.stemcounts.com
+#   - (Optional later) Branch: staging -> preview -> staging-help.stemcounts.com
+#
+# Astro is a static-site generator. `astro build` writes to ./dist/.
+# Amplify serves that directly from S3 + CloudFront. No SSR runtime needed,
+# no Lambda@Edge, no container.
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - node --version
+        - npm --version
+        # `npm ci` mirrors package-lock.json exactly: faster + reproducible.
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: dist
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*
+      # Pagefind builds the search index during `astro build`; nothing
+      # extra to cache. .astro is a build cache that speeds repeat builds.
+      - .astro/**/*

@@ -1,0 +1,153 @@
+---
+/**
+ * <HelpMedia id="slug" /> — resolves a stable media slug against the
+ * help-media manifest at build time and emits the right <img> /
+ * <video> tag with alt text + caption.
+ *
+ * Source of truth (planned) lives in a StemCounts-side data store;
+ * an upstream Lambda writes a flat manifest.json to a CDN. This
+ * component consumes that manifest. See src/lib/manifest.ts for the
+ * fetch + caching logic and the pipeline-status caveat.
+ *
+ * Usage in any .mdx file:
+ *
+ *   import HelpMedia from "../../../components/HelpMedia.astro";
+ *
+ *   <HelpMedia id="catalog-browse" />
+ *
+ *   {/ * Override default alt or caption per article: * /}
+ *   <HelpMedia id="catalog-browse" alt="Catalog grid with 12 stems" />
+ *   <HelpMedia id="catalog-browse" caption="Tap a tile to add to cart." />
+ *
+ *   {/ * Wider on full-bleed pages: * /}
+ *   <HelpMedia id="order-modal" width="100%" />
+ *
+ * If the slug isn't in the manifest, a clearly-visible placeholder
+ * renders instead of failing the build — broken refs are easy to
+ * spot in the live site without blocking deploy.
+ */
+
+import { getHelpMedia } from "../lib/manifest";
+
+interface Props {
+  /** Media slug. Matches `slug` on the help_media manifest entry. */
+  id: string;
+  /** Override the manifest's alt text. */
+  alt?: string;
+  /** Override the manifest's caption. */
+  caption?: string;
+  /** CSS width on the rendered media. Defaults to 100% of the
+   *  article column. */
+  width?: string;
+  /** Wrap in <figure> + render caption as <figcaption>. Default true;
+   *  pass `false` for decorative shots. */
+  figure?: boolean;
+}
+
+const { id, alt, caption, width = "100%", figure = true } = Astro.props;
+const item = await getHelpMedia(id);
+
+const resolvedAlt = (alt ?? item?.alt ?? "").toString();
+const resolvedCaption = caption ?? item?.caption ?? null;
+---
+
+{
+  item ? (
+    figure && resolvedCaption ? (
+      <figure class="help-media">
+        {item.kind === "video" ? (
+          <video controls preload="metadata" style={`width: ${width}; height: auto;`}>
+            <source src={item.url} type={item.content_type} />
+            Your browser doesn't support inline video.
+            <a href={item.url}>Download {item.slug}</a>
+          </video>
+        ) : (
+          <img
+            src={item.url}
+            alt={resolvedAlt}
+            loading="lazy"
+            decoding="async"
+            style={`width: ${width}; height: auto;`}
+          />
+        )}
+        <figcaption>{resolvedCaption}</figcaption>
+      </figure>
+    ) : item.kind === "video" ? (
+      <video controls preload="metadata" class="help-media" style={`width: ${width}; height: auto;`}>
+        <source src={item.url} type={item.content_type} />
+        Your browser doesn't support inline video.
+        <a href={item.url}>Download {item.slug}</a>
+      </video>
+    ) : (
+      <img
+        src={item.url}
+        alt={resolvedAlt}
+        loading="lazy"
+        decoding="async"
+        class="help-media"
+        style={`width: ${width}; height: auto;`}
+      />
+    )
+  ) : (
+    <div class="help-media-missing" role="status">
+      <strong>Missing media:</strong> <code>{id}</code>
+      <p>This slug isn't in the help-media manifest yet. Either it was
+        deleted, or the article references a slug that hasn't been
+        uploaded.</p>
+    </div>
+  )
+}
+
+<style>
+  .help-media {
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 8px;
+    border: 1px solid var(--sl-color-hairline);
+    background: var(--sl-color-bg-sidebar);
+    max-width: 100%;
+  }
+  figure.help-media {
+    border: none;
+    background: none;
+    padding: 0;
+  }
+  figure.help-media img,
+  figure.help-media video {
+    border-radius: 8px;
+    border: 1px solid var(--sl-color-hairline);
+    background: var(--sl-color-bg-sidebar);
+    max-width: 100%;
+  }
+  figure.help-media figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--sl-color-text-accent);
+    text-align: center;
+    font-style: italic;
+  }
+  .help-media-missing {
+    /* Brand coral — `--sl-color-orange-*` vars are remapped at the
+       top of custom.css to StemCounts coral. Hex fallbacks below
+       match the same colour so the warning stays on-brand even if
+       Starlight ever reflows its orange tokens. */
+    margin: 1.5rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    background: var(--sl-color-orange-low, hsl(5 100% 96%));
+    border: 1px solid var(--sl-color-orange, #FF6F61);
+    color: var(--sl-color-orange-high, hsl(5 70% 38%));
+    font-size: 0.9rem;
+  }
+  .help-media-missing code {
+    background: rgba(0, 0, 0, 0.06);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85em;
+  }
+  .help-media-missing p {
+    margin: 0.4rem 0 0;
+    font-size: 0.85rem;
+    opacity: 0.85;
+  }
+</style>

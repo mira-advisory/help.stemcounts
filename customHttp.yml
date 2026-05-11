@@ -1,0 +1,37 @@
+# AWS Amplify custom HTTP headers for the StemCounts help site.
+#
+# Strategy:
+#   - HTML pages         → 5 min, must-revalidate (so post-deploy
+#                          CloudFront edges revalidate quickly)
+#   - Hashed assets      → 1 year, immutable (Astro emits content-hashed
+#                          filenames; any change gets a new URL)
+#   - Manifest JSON      → 5 min (read at build time, short anyway)
+#
+# Reference:
+#   https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html
+
+customHeaders:
+  - pattern: "**/*.html"
+    headers:
+      - key: Cache-Control
+        value: "public, max-age=300, must-revalidate"
+
+  - pattern: "/"
+    headers:
+      - key: Cache-Control
+        value: "public, max-age=300, must-revalidate"
+
+  - pattern: "/_astro/**"
+    headers:
+      - key: Cache-Control
+        value: "public, max-age=31536000, immutable"
+
+  - pattern: "**/*.json"
+    headers:
+      - key: Cache-Control
+        value: "public, max-age=300, must-revalidate"
+
+  - pattern: "/favicon.svg"
+    headers:
+      - key: Cache-Control
+        value: "public, max-age=86400"

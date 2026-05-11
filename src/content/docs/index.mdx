@@ -1,0 +1,64 @@
+---
+title: StemCounts Help
+description: Guides, walkthroughs, and reference for StemCounts — flower ordering for florists and wholesalers.
+template: splash
+hero:
+  tagline: Flower ordering for florists and wholesalers. Find your way around StemCounts, fast.
+  actions:
+    - text: Get started
+      link: /getting-started/
+      icon: right-arrow
+      variant: primary
+    - text: What's new
+      link: /changelog/
+      icon: external
+      variant: minimal
+---
+
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
+## Browse by area
+
+<CardGrid>
+  <LinkCard
+    title="Getting started"
+    description="Set up your account, find your way around the catalog, and place your first order."
+    href="/getting-started/"
+  />
+
+  <LinkCard
+    title="Ordering"
+    description="Place orders, manage carts, and track deliveries end-to-end."
+    href="/ordering/"
+  />
+
+  <LinkCard
+    title="Inventory"
+    description="Browse the live catalog, save favourites, and manage availability."
+    href="/inventory/"
+  />
+
+  <LinkCard
+    title="Suppliers"
+    description="For wholesalers — list stems, set pricing, fulfil orders."
+    href="/suppliers/"
+  />
+
+  <LinkCard
+    title="Customers"
+    description="For florists — your buying account, order history, and saved lists."
+    href="/customers/"
+  />
+
+  <LinkCard
+    title="Account & billing"
+    description="Profile, payment methods, invoices, and team access."
+    href="/billing/"
+  />
+
+  <LinkCard
+    title="Release notes"
+    description="What shipped, what changed. Linked from the in-app changelog."
+    href="/changelog/"
+  />
+</CardGrid>

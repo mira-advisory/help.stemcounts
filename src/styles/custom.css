@@ -1,0 +1,447 @@
+/* StemCounts help — design system overrides for Starlight.
+ *
+ * SOURCE OF TRUTH: This file is a derived mirror. The canonical
+ * design tokens live in the main StemCounts repo:
+ *
+ *   - CSS variables:    `src/index.css` in tomscott1/builder-sc-frontend
+ *   - Tailwind config:  `tailwind.config.cjs` (maps tokens to utility classes)
+ *   - Logo SVGs:        `public/logos/` (coral-teal, monochrome, featured, navy-blue)
+ *
+ * If you change a brand colour, change it here AND in the canonical
+ * source files in the same commit.
+ *
+ * Brand palette in use here (per docs-site decision; subset of the
+ * full brand kit in builder-sc-frontend/public/logos/):
+ *   - Brand accent (forest green):     #1B4332 / hsl(155 56% 19%)
+ *   - CTA / highlighter (coral):       #FF6F61 / hsl(5 100% 69%)
+ *   - Secondary teal (logo + favicon): #2A9D8F / hsl(173 58% 39%)
+ *   - Cream backdrop tint:             #FEFAF7
+ *   - Blush gradient stop:             #F7E0D2
+ *   - Neutral slate ramp:              matches in-app shadcn slate
+ *   - Font:                            Inter (Google Fonts) — chosen for
+ *                                      parity with planease-help; the
+ *                                      main app uses system default sans
+ *   - Radius:                          8px
+ *
+ * Starlight's own theme tokens (CSS vars prefixed --sl-) are remapped
+ * to StemCounts values rather than hard-coding new names — keeps
+ * upstream Starlight component updates compatible.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+/* -------------------------------------------------------------------
+ * Light mode (DEFAULT). Every --sl-* token Starlight consumes is
+ * mapped explicitly to a brand-aligned value here.
+ *
+ * Convention (matches node_modules/@astrojs/starlight/style/props.css):
+ *   gray-1 = DARKEST (text on contrast surfaces)
+ *   gray-2 = body text
+ *   gray-3 = secondary muted text (pagination, edit-page link)
+ *   gray-4 = tertiary muted (placeholders, disabled)
+ *   gray-5 = hairlines / borders
+ *   gray-6 = subtle surface bg (e.g. inline code)
+ *   gray-7 = lightest surface (header / sidebar tint)
+ *
+ * Get this ordering wrong and EVERY Starlight chrome element using
+ * gray-3 (pagination labels, edit-page link, etc.) goes invisible.
+ * ------------------------------------------------------------------- */
+:root {
+  /* Font + radius + rhythm */
+  --sl-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --sl-font-system: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --sl-radius: 8px;
+  --sl-line-height: 1.65;
+
+  /* ── Gray scale (light mode — DARKEST text → LIGHTEST surface) ── */
+  /* Anchored to shadcn slate (hsl 222.2 84% 4.9%) used by the main
+     app, with intermediate stops sampled for Starlight's chrome. */
+  --sl-color-white: hsl(222 47% 11%); /* "white" in Starlight light = darkest */
+  --sl-color-gray-1: hsl(222 47% 11%);  /* headings on contrast surfaces */
+  --sl-color-gray-2: hsl(222 23% 22%);  /* body text — used by --sl-color-text */
+  --sl-color-gray-3: hsl(215 16% 47%);  /* secondary muted (pagination labels) */
+  --sl-color-gray-4: hsl(215 14% 60%);  /* tertiary muted (placeholders) */
+  --sl-color-gray-5: hsl(214 32% 91%);  /* hairlines / borders */
+  --sl-color-gray-6: hsl(210 40% 96%);  /* subtle surface bg (inline code) */
+  --sl-color-gray-7: hsl(36 60% 98%);   /* lightest surface — warm cream tint */
+  --sl-color-black: hsl(0 0% 100%);     /* "black" in Starlight light = page bg */
+
+  /* ── Brand accent — forest green ── */
+  --sl-color-accent-low: hsl(150 35% 95%);  /* tinted brand surface */
+  --sl-color-accent: hsl(155 56% 19%);      /* forest green #1B4332 */
+  --sl-color-accent-high: hsl(155 60% 12%); /* deeper green (text on accent bg) */
+
+  /* ── Text ── */
+  --sl-color-text: var(--sl-color-gray-2);
+  --sl-color-text-accent: hsl(155 56% 19%); /* forest green for inline links */
+  --sl-color-text-invert: var(--sl-color-black);
+
+  /* ── Surfaces ── */
+  --sl-color-bg: hsl(0 0% 100%);              /* page bg */
+  --sl-color-bg-nav: var(--sl-color-gray-7);  /* header bg (warm cream) */
+  --sl-color-bg-sidebar: var(--sl-color-gray-7);
+  --sl-color-bg-inline-code: var(--sl-color-gray-6);
+  --sl-color-bg-accent: var(--sl-color-accent);
+
+  /* ── Borders ── */
+  --sl-color-hairline: var(--sl-color-gray-5);
+  --sl-color-hairline-light: var(--sl-color-gray-5);
+  --sl-color-hairline-shade: var(--sl-color-gray-6);
+
+  /* ── Backdrop (modal overlay) ── */
+  --sl-color-backdrop-overlay: hsla(222 47% 11% / 0.5);
+
+  /* ── Status hues — Asides (callouts) consume these ── */
+  /* Caution = coral (StemCounts CTA #FF6F61, doubles as warning hue). */
+  --sl-color-orange-low: hsl(5 100% 96%);
+  --sl-color-orange: hsl(5 100% 69%);
+  --sl-color-orange-high: hsl(5 70% 38%);
+  /* Tip = secondary teal (logo accent). */
+  --sl-color-green-low: hsl(173 50% 94%);
+  --sl-color-green: hsl(173 58% 39%);
+  --sl-color-green-high: hsl(173 65% 22%);
+  /* Note = forest green. */
+  --sl-color-blue-low: hsl(150 35% 95%);
+  --sl-color-blue: hsl(155 56% 19%);
+  --sl-color-blue-high: hsl(155 60% 12%);
+  /* Tip alternate = forest green — kill Starlight's default violet. */
+  --sl-color-purple-low: hsl(150 35% 95%);
+  --sl-color-purple: hsl(155 56% 19%);
+  --sl-color-purple-high: hsl(155 60% 12%);
+  /* Danger = coral (slightly desaturated). */
+  --sl-color-red-low: hsl(5 95% 96%);
+  --sl-color-red: hsl(5 78% 56%);
+  --sl-color-red-high: hsl(5 65% 38%);
+}
+
+/* -------------------------------------------------------------------
+ * Dark mode. Same convention — every --sl-* mapped explicitly. Gray
+ * ramp is INVERTED from light:
+ *   gray-1 = LIGHTEST (text)
+ *   gray-7 = page bg
+ * ------------------------------------------------------------------- */
+:root[data-theme="dark"] {
+  /* ── Gray scale (dark mode — LIGHTEST text → DARKEST surface) ── */
+  --sl-color-white: hsl(0 0% 100%);
+  --sl-color-gray-1: hsl(210 20% 96%);  /* lightest — headings */
+  --sl-color-gray-2: hsl(210 11% 80%);  /* body text */
+  --sl-color-gray-3: hsl(215 14% 65%);  /* secondary muted */
+  --sl-color-gray-4: hsl(215 14% 50%);  /* tertiary muted */
+  --sl-color-gray-5: hsl(217 19% 27%);  /* hairlines on dark bg */
+  --sl-color-gray-6: hsl(217 24% 17%);  /* subtle surface (sidebar) */
+  --sl-color-gray-7: hsl(222 47% 8%);   /* page bg — deep slate */
+  --sl-color-black: hsl(222 47% 8%);
+
+  /* ── Brand accent — brighter green for contrast on dark ── */
+  --sl-color-accent-low: hsl(155 40% 14%);
+  --sl-color-accent: hsl(150 40% 55%);
+  --sl-color-accent-high: hsl(150 35% 92%);
+
+  /* ── Text ── */
+  --sl-color-text: var(--sl-color-gray-2);
+  --sl-color-text-accent: hsl(150 50% 65%);
+  --sl-color-text-invert: var(--sl-color-black);
+
+  /* ── Surfaces ── */
+  --sl-color-bg: hsl(222 47% 8%);
+  --sl-color-bg-nav: var(--sl-color-gray-6);
+  --sl-color-bg-sidebar: var(--sl-color-gray-6);
+  --sl-color-bg-inline-code: var(--sl-color-gray-5);
+  --sl-color-bg-accent: var(--sl-color-accent);
+
+  /* ── Borders ── */
+  --sl-color-hairline: var(--sl-color-gray-5);
+  --sl-color-hairline-light: var(--sl-color-gray-5);
+  --sl-color-hairline-shade: var(--sl-color-gray-6);
+
+  /* ── Backdrop ── */
+  --sl-color-backdrop-overlay: hsla(222 47% 4% / 0.7);
+
+  /* ── Status hues — dark variants ── */
+  --sl-color-orange-low: hsl(5 60% 14%);
+  --sl-color-orange: hsl(5 95% 72%);
+  --sl-color-orange-high: hsl(5 100% 94%);
+  --sl-color-green-low: hsl(173 50% 11%);
+  --sl-color-green: hsl(173 55% 55%);
+  --sl-color-green-high: hsl(173 60% 92%);
+  --sl-color-blue-low: hsl(155 40% 14%);
+  --sl-color-blue: hsl(150 40% 55%);
+  --sl-color-blue-high: hsl(150 35% 92%);
+  --sl-color-purple-low: hsl(155 40% 14%);
+  --sl-color-purple: hsl(150 40% 55%);
+  --sl-color-purple-high: hsl(150 35% 92%);
+  --sl-color-red-low: hsl(5 50% 14%);
+  --sl-color-red: hsl(5 72% 60%);
+  --sl-color-red-high: hsl(5 90% 92%);
+}
+
+/* ----------------------------------------------------------------- *
+ * CTA palette (coral)
+ *
+ * Same intent as `--cta-primary` in the main app: coral is the
+ * "press me" highlight throughout. Active sidebar item, Sign-in
+ * button, hero primary action all use it. Forest green stays the
+ * informational accent (logo + inline links).
+ * ----------------------------------------------------------------- */
+:root {
+  --cta-primary: #FF6F61;
+  --cta-primary-hover: #e85a4c;
+  --cta-primary-on: #ffffff;
+}
+:root[data-theme="dark"] {
+  --cta-primary: #ff8a7e;
+  --cta-primary-hover: #ff6f61;
+  --cta-primary-on: #2a0e09;
+}
+
+/* ----------------------------------------------------------------- *
+ * Component polish
+ * ----------------------------------------------------------------- */
+
+/* Logo size — the StemCounts flower mark is square-ish (≈7:8). Sized
+   to sit comfortably alongside the wordmark text. */
+.site-title img {
+  max-height: 32px;
+  width: auto;
+}
+
+/* ── Header layout ──
+ * Search bar full-width: Starlight caps it at ~22rem; let it grow into
+ * the available space so it feels like a header search. Login CTA +
+ * theme toggle on the right are sized so they don't compete. */
+header.header > .sl-flex {
+  gap: 1rem;
+  align-items: center;
+}
+
+header.header site-search {
+  flex: 1 1 auto !important;
+  max-width: none !important;
+  width: 100%;
+}
+
+header.header site-search > button[data-open-modal] {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+@media (max-width: 50rem) {
+  header.header site-search {
+    flex: 0 0 auto !important;
+  }
+  header.header site-search > button[data-open-modal] {
+    width: auto;
+  }
+}
+
+/* ── Hero tagline ── */
+.hero .tagline,
+.hero p.tagline {
+  color: var(--sl-color-text);
+  opacity: 0.88;
+  font-weight: 400;
+}
+
+/* ── Sidebar active state ──
+ * Coral highlighter pill matches the main app's "press me" CTA
+ * convention. */
+[data-theme] .sidebar-content a[aria-current="page"] {
+  background: hsl(5 100% 96%);
+  color: var(--cta-primary-hover);
+  font-weight: 600;
+  border-radius: 6px;
+}
+[data-theme="dark"] .sidebar-content a[aria-current="page"] {
+  background: hsl(5 60% 14%);
+  color: var(--cta-primary);
+}
+
+/* Sidebar inactive items */
+[data-theme] .sidebar-content a:not([aria-current="page"]) {
+  color: var(--sl-color-gray-3);
+}
+[data-theme] .sidebar-content a:not([aria-current="page"]):hover {
+  color: var(--sl-color-gray-1);
+  background: var(--sl-color-gray-6);
+}
+
+/* Sidebar group titles */
+[data-theme] .sidebar-content summary,
+[data-theme] .sidebar-content > ul > li > details > summary > span,
+[data-theme] .sidebar-content .group-label {
+  color: var(--sl-color-text);
+  font-weight: 600;
+}
+
+/* ── In-page Table of Contents ("On this page") ── */
+starlight-toc nav ul a {
+  color: var(--sl-color-gray-3);
+}
+starlight-toc nav ul a:hover {
+  color: var(--sl-color-text);
+}
+starlight-toc nav ul a[aria-current="true"] {
+  color: var(--cta-primary-hover);
+  font-weight: 600;
+}
+[data-theme="dark"] starlight-toc nav ul a[aria-current="true"] {
+  color: var(--cta-primary);
+}
+
+/* ── Page headings ── */
+.sl-markdown-content :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--sl-color-text);
+  letter-spacing: -0.01em;
+}
+.sl-markdown-content h1 {
+  letter-spacing: -0.02em;
+}
+.hero h1 {
+  letter-spacing: -0.02em;
+}
+
+/* ── Steps component ──
+ * Smaller, outlined, muted numbered markers so reader's eye lands
+ * on step text rather than the numbers. */
+.sl-markdown-content ol.sl-steps > li::before {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+  border: 1.5px solid hsl(220 9% 65%) !important;
+  color: hsl(220 9% 45%) !important;
+  margin-top: 0.25rem !important;
+}
+[data-theme="dark"] .sl-markdown-content ol.sl-steps > li::before {
+  border-color: hsl(210 9% 50%) !important;
+  color: hsl(210 9% 70%) !important;
+}
+.sl-markdown-content ol.sl-steps > li {
+  padding-inline-start: 2rem !important;
+}
+.sl-markdown-content ol.sl-steps {
+  --sl-steps-line-color: hsl(210 11% 90%);
+}
+[data-theme="dark"] .sl-markdown-content ol.sl-steps {
+  --sl-steps-line-color: hsl(217 19% 22%);
+}
+
+/* ── Search-modal trigger button ── */
+button[data-open-modal] {
+  border-radius: var(--sl-radius);
+}
+
+/* ----------------------------------------------------------------- *
+ * Component parity with the main app's shadcn primitives
+ *
+ * Starlight ships its own Card / LinkButton / Aside components. These
+ * overrides bring their visual weight in line with the main-app
+ * shadcn equivalents so users moving between stemcounts.com and
+ * help.stemcounts.com feel they're in the same product.
+ * ----------------------------------------------------------------- */
+
+/* ── Hero LinkButton (homepage primary action) ──
+ * Match shadcn Button defaults: h-10 (40px), px-4 (16px), font-medium,
+ * rounded-md (6px). Background = coral CTA — consistent with the
+ * header Sign-in CTA. */
+.hero a.sl-link-button[data-variant="primary"] {
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: var(--cta-primary);
+  color: var(--cta-primary-on, #ffffff);
+  border: none;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+.hero a.sl-link-button[data-variant="primary"]:hover {
+  background: var(--cta-primary-hover);
+  transform: translateY(-1px);
+}
+.hero a.sl-link-button[data-variant="minimal"] {
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ── CardGrid cards ──
+ * Match shadcn <Card>: rounded-lg (8px), border, subtle shadow,
+ * lift on hover. */
+.sl-link-card,
+.card {
+  border-radius: var(--sl-radius);
+  border: 1px solid var(--sl-color-hairline);
+  background: var(--sl-color-bg-nav);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+.sl-link-card:hover,
+.card:hover {
+  border-color: var(--sl-color-accent);
+  box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.08);
+  transform: translateY(-1px);
+}
+[data-theme="dark"] .sl-link-card,
+[data-theme="dark"] .card {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+}
+[data-theme="dark"] .sl-link-card:hover,
+[data-theme="dark"] .card:hover {
+  box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.4);
+}
+
+/* ── Asides / callouts ── */
+.starlight-aside__title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+.starlight-aside {
+  padding: 1rem 1.25rem;
+  border-radius: var(--sl-radius);
+}
+
+/* ── Inline code ── */
+.sl-markdown-content :not(pre) > code:not(.starlight-aside *) {
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  font-size: 0.875em;
+  background: var(--sl-color-bg-inline-code);
+  color: var(--sl-color-text);
+  border: 1px solid var(--sl-color-hairline-shade);
+}
+
+/* ── Code blocks (fenced) ── */
+.expressive-code .frame {
+  border-radius: var(--sl-radius);
+}
+
+/* ── Inline links ── */
+.sl-markdown-content a:not(.sl-link-card, [class*="sl-anchor"]) {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.sl-markdown-content a:not(.sl-link-card, [class*="sl-anchor"]):hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ── Headings rhythm ── */
+.sl-markdown-content h2 {
+  margin-top: 2.5rem;
+}
+.sl-markdown-content h3 {
+  margin-top: 1.75rem;
+}
+.sl-markdown-content h2 + h3 {
+  margin-top: 1rem;
+}
