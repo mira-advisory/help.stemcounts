@@ -1,86 +1,76 @@
 ---
-title: Multi-supplier orders
-description: When one florist order spans flowers from two or more suppliers.
+title: Orders that use several suppliers
+description: Suppliers are chosen per flower line, so one florist order can use as many suppliers as it needs.
 sidebar:
-  order: 7
+  order: 6
 ---
 
 import { Aside } from "@astrojs/starlight/components";
-import HelpMedia from "../../../components/HelpMedia.astro";
 
-A typical florist order spans several flower types, and any one of
-them can come from a different supplier. StemCounts handles that for
-you by tracking each flower on its own.
+A florist order usually spans several flowers, and any one of them can
+come from a different supplier. On Tier 3, StemCounts handles that by
+tracking each flower line on its own.
 
-<HelpMedia id="multi-supplier-diagram" caption="One florist order → multiple supplier orders → reconstituted at handover" />
+## How it works
 
-## How it works in practice
-
-Imagine a florist has placed an order containing:
+Imagine a florist has ordered:
 
 - 100 stems of red roses
 - 50 stems of white lilies
 - 200 stems of eucalyptus
 
-You source from three suppliers:
+In the order's **Inventory List**, pick a supplier on each line:
 
-- Roses → **Supplier A**
-- Lilies → **Supplier B**
-- Eucalyptus → **Supplier C**
+- Roses from **Supplier A**
+- Lilies from **Supplier B**
+- Eucalyptus from your own stock, so **Not applicable**
 
-Behind the scenes:
+Then click **Confirm** on each line. If most lines share one supplier,
+use **Set supplier for all** in the header and change the exceptions
+afterwards.
 
-1. The florist order = **one** AssignedOrder in StemCounts
-2. Each flower aggregates across all your accepted florist orders (so
-   if two other florists also ordered red roses, those 100 stems
-   combine into a single supplier order line)
-3. Three supplier orders are created — one per supplier
-4. Each supplier order has its own status (sent → confirmed →
-   fulfilled)
+StemCounts groups the lines by supplier behind the scenes and shows the
+supplier name against each flower for the rest of the order. It does
+not send anything to your suppliers: you order from them the way you
+always have.
 
-## What this means for status tracking
+## The order waits for its last flower
 
-Because every flower is tracked separately, the florist's overall order
-status is **whatever the slowest flower says it is**.
+The order moves to **Supply Confirmed** only when every flower line is
+confirmed or removed. So one slow line holds the whole order at
+**Accepted**, and the florist sees **Accepted** until that last flower
+is confirmed.
 
-So an order with 9 flowers confirmed and 1 still pending shows as
-**Sent** on the florist side until that last one catches up.
+Each flower has its own status as well. On your side a confirmed line
+shows **Confirmed**, a line waiting on the florist shows **Awaiting
+Florist**, and a removed line shows **Not Supplied**. The florist sees
+**Supply OK** against each confirmed flower, so they can watch the order
+fill in line by line.
 
 <Aside type="note">
-This is also why the Order Board can show an order in *Confirmed* while
-a specific flower is still moving through *Assign & Send* — the
-flower-by-flower view is what to trust.
+If the florist's order went to more than one wholesaler, their overall
+order status follows whichever wholesaler is furthest behind. That is
+their view, not yours: your part of the order moves as soon as you move
+it.
 </Aside>
 
-## Partial delivery to the florist
+## When a supplier lets you down
 
-You can mark **some** flowers as ready for the florist while others are
-still with suppliers. The florist sees a **Ready** badge against each
-individual flower and can come pick up early or wait for the whole order.
+If a supplier cannot deliver a flower after all:
 
-This works well for:
+1. If you can get it elsewhere and the line is not yet confirmed,
+   change the supplier in the dropdown and confirm it as normal. Once a
+   line is confirmed its supplier is locked, so if you source it
+   elsewhere the order still shows the supplier you first chose. The
+   florist only sees that the flower is confirmed.
+2. If you cannot get it, open **Can't Supply** on the line and choose
+   **Offer Substitutes**, **Partial Quantity** or **Unavailable**. See
+   [Confirming supply](/wholesalers/confirming-supply/).
 
-- Foliage and base stems available early (sent up front)
-- Specialty flowers with longer lead time (sent later)
+## Packing when suppliers arrive at different times
 
-## When a supplier can't deliver
-
-If a supplier can't deliver something, you've got three options:
-
-1. **Re-assign** to a different supplier — drag the flower back to *Assign & Send* and pick someone else
-2. **Substitute** directly with your florist — call or email them, agree the substitution, then update the flower in StemCounts to match what's actually coming
-3. **Reject the flower** — sends your florist a notification that the original isn't available
-
-A built-in substitution flow is on the roadmap. For now, options 1 and 2 cover most situations.
-
-## Reporting
-
-The Order Summary view (calendar mode) shows aggregate stem counts
-across all suppliers for any selected week. Useful for forecasting
-volume.
-
-## Best practices
-
-- For volume stems (roses, eucalyptus), commit to one or two primary suppliers per week
-- For unusual stems, lean on your direct supplier relationships; assign in StemCounts once you've confirmed by phone
-- Use the *Florist view* in **Confirmed & Ready** to spot when one florist's order is mostly ready but a single flower is lagging
+Once the order is **Supply Confirmed**, each line has its own **Mark
+Packed** button, so you can pack the eucalyptus on Monday and the roses
+when Supplier A delivers on Wednesday. The order becomes **Supplier
+Fulfilled** when you click **Mark Supplier Fulfilled**. See
+[Packing and delivery](/wholesalers/packing-and-delivery/).

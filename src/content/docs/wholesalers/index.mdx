@@ -1,56 +1,71 @@
 ---
 title: For wholesalers
-description: The Order Board, supplier assignment, inventory management, and pick-lists on StemCounts.
+description: Working florist orders from the Order Summary, confirming supply, packing and delivery, your inventory and suppliers.
 sidebar:
   order: 0
 ---
 
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-Everything you need as a wholesaler using StemCounts. The Order
-Board moves incoming florist orders through accept → supplier
-assignment → confirmation → ready-for-florist. These guides cover
-each stage plus the inventory and printable views.
+Everything you need as a wholesaler using StemCounts. Orders from
+florists arrive in your **Order Summary**. You open each one, accept
+it, confirm what you can supply, then mark it delivered. These guides
+cover each step, plus your inventory, your suppliers and the order PDF.
 
 <CardGrid>
   <LinkCard
-    title="The wholesaler landing page"
-    description="What you see when you log in: the Order Board and the Order Summary."
+    title="The wholesaler home page"
+    description="What you see when you log in: the three counts and the cards that open everything else."
     href="/wholesalers/wholesaler-landing/"
   />
   <LinkCard
-    title="The Order Board"
-    description="Kanban columns, drag-and-drop, and how the layout changes with your tier."
+    title="Order Summary: Calendar, Board and List"
+    description="The three views of your orders, the Board columns, and what dragging does."
     href="/wholesalers/the-order-board/"
   />
   <LinkCard
-    title="Receive & Accept"
-    description="Incoming orders from florists. Accept the whole order or reject it."
-    href="/wholesalers/receive-and-accept/"
+    title="Accepting an order"
+    description="Open a new order, check it, then Accept Order or Reject Order."
+    href="/wholesalers/accepting-an-order/"
   />
   <LinkCard
-    title="Assign & Send"
-    description="Aggregating stems across orders, picking a supplier, sending the supplier order."
-    href="/wholesalers/assign-and-send/"
+    title="Accepting from the email"
+    description="The Accept this order button in the order email works once, with no login."
+    href="/wholesalers/accepting-from-the-email/"
   />
   <LinkCard
-    title="Confirmed & Ready"
-    description="Tracking supplier confirmations, then marking individual flowers ready for the florist."
-    href="/wholesalers/confirmed-and-ready/"
+    title="Confirming supply"
+    description="Confirm Order, or confirm flower by flower with a supplier. Can't Supply, substitutes and partial quantities."
+    href="/wholesalers/confirming-supply/"
   />
   <LinkCard
-    title="Managing your inventory"
-    description="Selecting which flowers you carry, setting custom prices, bulk-uploading your list."
-    href="/wholesalers/managing-inventory/"
-  />
-  <LinkCard
-    title="Multi-supplier orders"
-    description="When one florist order spans flowers from two or three suppliers."
+    title="Orders that use several suppliers"
+    description="Suppliers are chosen per flower line, so one order can use as many as it needs."
     href="/wholesalers/multi-supplier-orders/"
   />
   <LinkCard
-    title="Daily pick-lists"
-    description="The printable order page for warehouse staff."
+    title="Packing and delivery"
+    description="Mark Packed, Mark Supplier Fulfilled and Mark Delivered."
+    href="/wholesalers/packing-and-delivery/"
+  />
+  <LinkCard
+    title="Order chat"
+    description="Message the florist about an order without leaving it."
+    href="/wholesalers/order-chat/"
+  />
+  <LinkCard
+    title="Your suppliers"
+    description="Settings > Suppliers: the list your supplier dropdown reads from."
+    href="/wholesalers/suppliers/"
+  />
+  <LinkCard
+    title="Managing your inventory"
+    description="Inventory Management: the flowers you carry, their colours, your prices and stems per bunch."
+    href="/wholesalers/managing-inventory/"
+  />
+  <LinkCard
+    title="The order PDF and Download Order"
+    description="The picking document attached to every order email, and the printable A4 order page."
     href="/wholesalers/daily-pick-lists/"
   />
 </CardGrid>

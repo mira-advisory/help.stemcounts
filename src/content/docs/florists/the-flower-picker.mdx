@@ -1,99 +1,157 @@
 ---
 title: The Flower Picker
-description: Stem-vs-bunch mode, colour variants, quantities, and price overrides.
+description: Search and filters, colour dots, stem lengths, the price and bunch size on each card, pinning, and Add Selections.
 sidebar:
   order: 5
 ---
 
-import { Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+import { Aside, Steps, Tabs, TabItem } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-The **Flower Picker** is where you actually order stems. It opens when
-you click **Pick Flowers** inside an arrangement.
+The **Flower Picker** is where you choose the flowers for an
+arrangement. It opens from **Pick Flowers** on an empty arrangement card
+(that arrangement only), from **Add Flowers** in the Arrangements header
+(every arrangement in the event), or from **Add Flowers to All** in the
+**Add Arrangements** form.
 
-<HelpMedia id="flower-picker-overview" kind="video" caption="Walking through the Flower Picker" />
+## Picking flowers
 
-## The layout
+<Steps>
 
-- **Filter bar** at the top — Category, Colour, Season, fuzzy search
-  toggle
-- **Flower grid** — one card per flower
-- **Cart panel** (right or bottom) — running list of what you've added
+1. Find the flower with search or the filters. On a phone, **Search
+   flowers** is at the top and the filters are behind the **Filters**
+   button.
 
-## Filters
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="flower-picker-desktop-01-picker-filters" caption="The Flower Picker: search at the top, with the category, Colours and season filters beside it." />
+       <HelpMedia id="flower-picker-desktop-02-search-typed" caption="Type a flower name to narrow the grid; the results update as you type." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="flower-picker-phone-01-picker" caption="Add flowers on a phone: Search flowers at the top and a Filters button, then the grid." />
+       <HelpMedia id="flower-picker-phone-02-filters-sheet" caption="Tap Filters to narrow by category, colour and season, then close the sheet." />
+       <HelpMedia id="flower-picker-phone-03-search-typed" caption="Type a flower name; the grid narrows as you type." />
+     </TabItem>
+   </Tabs>
 
-| Filter | What it does |
-|---|---|
-| **Category** | Roses, dahlias, foliage, etc. — top-level botanical groups |
-| **Colour** | One or more colours. Combine with Category to find e.g. "white roses" |
-| **Season** | Hides out-of-season stems |
-| **Fuzzy search** toggle | Loose matching on typos — finds "rununculus" → ranunculus |
+2. Click a colour dot under the flower to select that colour. Selected
+   colours move up onto the photo. Click one there to deselect it. On a
+   phone, tap the flower to open it and tick the colours under **Choose
+   colours**.
 
-## Per-flower controls
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="flower-picker-desktop-03-card-colour-chosen" caption="On a flower's card, tap a colour to choose it. The card shows the price and stems per bunch." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="flower-picker-phone-04-flower-sheet-colour" caption="Tap a flower to open it: its price, stems per bunch and the colours to tick under Choose colours." />
+     </TabItem>
+   </Tabs>
 
-When you click a flower card, you see:
+3. If the card shows length pills, such as **60cm**, click one to choose
+   a stem length. Click it again to clear it.
 
-- **Colour variants** — each colour has its own swatch and list price
-- **Quantity input** — defaults to stems
-- **Stem/Bunch toggle** — switch between counting individual stems and
-  whole bunches
-- **Notes** — optional free text the wholesaler sees
+4. Click **Add Selections** (the floating button at the bottom, with a
+   count) to add them and return to the event. On a phone your picks
+   are counted on the bar at the bottom: tap it (for example **Add 1
+   flower**) to add them.
 
-<HelpMedia id="flower-picker-card-expanded" />
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="flower-picker-desktop-04-add-selections-button" caption="Your picks are counted on the floating Add Selections button at the bottom. Press it to add them to the arrangement." />
+       <HelpMedia id="flower-picker-desktop-05-event-lines-quantity" caption="Back on the event, the arrangement lists each flower with its quantity controls so you can adjust the stems." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="flower-picker-phone-05-add-bar" caption="Your picks are counted on the coral bar at the bottom. Tap Add 1 flower to add them to the arrangement." />
+       <HelpMedia id="flower-picker-phone-06-event-lines-quantity" caption="Back on the event, open the arrangement: each flower has its minus and plus to adjust the stems." />
+     </TabItem>
+   </Tabs>
 
-## Stems vs bunches
+</Steps>
 
-Florists buy in different units depending on the flower:
+Each colour you pick goes in as 1 stem (or 1 bunch in a bunches
+arrangement). Set the real quantities on the arrangement card afterwards:
+see [Building an arrangement](/florists/building-an-arrangement/). If a
+flower is already in the arrangement it is topped up rather than
+duplicated. **Back to Order Part** leaves without adding.
 
-<Tabs>
-  <TabItem label="Stems">
-    Default mode. Enter the exact number of individual stems you need.
-    StemCounts rounds up to whole bunches at the wholesaler end
-    (`bunches = ceil(stems / stems_per_bunch)`).
-  </TabItem>
-  <TabItem label="Bunches">
-    Switch to bunch mode if you'd rather count whole bunches. Useful
-    for flowers always sold in bunches of 10, 20, etc. The actual stem
-    count is calculated automatically.
-  </TabItem>
-</Tabs>
+<HelpMedia id="flower-picker-card-expanded" caption="A flower card: colour dots, length pills, Price and Stems per bunch" />
 
-The **stems-per-bunch** varies by flower and is shown on the card.
+## Search and filters
 
-## Pinning favourites
+- **Search**: "Search flowers by name, common name, or code...". It also
+  matches colour names.
+- **Categories**: narrow to one category, or **All Categories**.
+- **Colours**: under **Pick colours**, choose one or more. The **Similar
+  shades** switch (on by default) also includes colours close to the ones
+  you pick. Turn it off for exact matches only.
+- **Season**: show flowers in season in the months you choose.
 
-Click the **pin icon** on a flower card to keep it at the top of the
-grid for future sessions. Useful for staple stems you order every week
-(eucalyptus, baby's breath, the rose variety you always carry).
+Filters combine, and **Clear** resets colours or seasons. Pinned flowers
+always sort to the top.
 
-## Price overrides
+## What each card shows
 
-Hovering over a price shows a **pencil icon**. Click it to enter a
-different price for this single arrangement. The system remembers it
-for the rest of the order session.
+Each card shows **Price:** and **Stems per bunch:**. When the event has a
+preferred wholesaler, it is that wholesaler's price and bunch size for the
+flower, and that is the price the flower is costed at on the event. If
+that wholesaler does not list the flower, or the event has no preferred
+wholesaler, it is the catalogue price and bunch size. It is a wholesale
+price, not your customer price.
 
-<Aside type="caution">
-Price overrides only affect *your* customer-side math (revenue,
-budget). They don't change what the wholesaler charges you — the
-wholesale price is fixed by the wholesaler's price list.
+Hover over the name at the bottom of the photo for more: the other names,
+**Category**, **Price**, **Stems per bunch**, **Length** (if chosen) and
+**Season**.
+
+## Stem lengths
+
+When a wholesaler lists a flower in more than one length, the card shows
+length pills under the colours. Hover over a pill to see who lists that
+length and at what price. If your event's preferred wholesaler does not
+list it you can still pick it: the hover says "Not in [wholesaler]'s
+list" and names who does, and the line carries a note saying so.
+
+A line at a length is kept separate from the same flower at another
+length. It shows the length next to its name and is rounded to whole
+bunches on its own.
+
+## Pinning the flowers you always order
+
+Click the heart in the top-left corner of a flower's photo (**Pin
+flower**). Click it again to **Unpin flower**. Pinned flowers show before
+everything else, most recently pinned first, and stay pinned next time you
+open the picker. You can also pin from [Explore Flowers](/florists/browsing-the-catalog/)
+with the **Pin to the top** switch.
+
+## Adding to every arrangement at once
+
+When you open the picker from **Add Flowers** (or **Add Flowers to All**),
+every flower you pick is added to each arrangement in the event, except
+Spares: 1 stem each, or 1 bunch in a bunches arrangement. It is not
+divided between them. An arrangement that already holds that flower is
+topped up. If some arrangements already have flowers, StemCounts tells you
+before adding on top.
+
+## Why can't I find a flower?
+
+A few things hide flowers:
+
+- The picker only shows flowers, and colours, that at least one
+  wholesaler currently offers.
+- Colours already in the arrangement are taken off the card, and a flower
+  disappears once all its colours are in. When adding to all
+  arrangements, a colour is hidden only if every arrangement already has
+  it.
+- A search, category, colour or season filter is still on. Check
+  **Similar shades** too.
+
+If the page says **No flowers available**, try **Refresh Flowers**. If a
+wholesaler does not stock a flower you need, you can ask them to add it
+from the weekly order summary: see [Sending your order](/florists/sending-your-order/).
+
+<Aside type="note">
+The picker has no quantity boxes, no notes and no stem or bunch switch.
+Quantities are set on the arrangement card, comments for the wholesaler
+are added on the weekly order, and counting in bunches is a property of
+the arrangement or the order, not of the pick.
 </Aside>
-
-## Adding to all arrangements (bulk mode)
-
-If you opened the Picker from the **Pick Flowers** button next to *Add
-Arrangement* (not inside a specific card), you're in **bulk mode**.
-
-Quantities you set are distributed across **all arrangements in this
-event**, proportional to each arrangement's quantity.
-
-Example: 60 roses, distributed across 4 arrangements of quantity 3, 3,
-3, 3 → each gets 15 roses.
-
-## Confirming your choices
-
-When you're done, click **Done** to return to the event details page.
-Your stem list is saved.
-
-You can re-open the Picker any time to adjust. See the FAQ entry [How
-do I add more stems to an arrangement?](/faqs/florists/) for in-detail
-tweaks.

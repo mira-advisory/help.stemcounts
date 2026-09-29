@@ -1,99 +1,140 @@
 ---
 title: Your StemCounts subscription
-description: What the subscription unlocks, how the trial works, and how to subscribe.
+description: The 7-day free trial, the 6 and 12 month plans, how to subscribe, what each status means, and where your receipts are.
 sidebar:
   order: 3
 ---
 
-import { Steps, Aside } from "@astrojs/starlight/components";
+import { Steps, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-Florist access to StemCounts is **subscription-gated**. Wholesalers
-don't need a subscription.
+Florists pay a subscription to use StemCounts. Wholesalers do not: they
+never see the subscription section and are never blocked by it.
 
-<HelpMedia id="account-subscription-card" caption="The Subscription card on the Account page" />
-
-## What the subscription includes
-
-Active subscription unlocks:
-
-- Building and sending unlimited orders
-- Multi-event weekly orders
-- The Flower Library and Flower Picker
-- Printable event sheets
-- Email notifications and reports
-
-Without an active subscription, the app shows a hard block. See [Trial
-and blocked access](/billing/trial-and-blocked-access/).
+The subscription belongs to your **organisation**, so one subscription
+covers everyone in your florist business. There are no per-user fees.
+It lives in **Settings**, under **Your Organisation**, in the
+**Subscription** section.
 
 ## The free trial
 
-New florists get a **30-day free trial** automatically. During the trial:
+Every new florist organisation gets a **7-day free trial**. It starts
+automatically when the organisation is created at sign-up, and no card
+is needed. People who join an existing organisation later do not get a
+new trial, because the trial belongs to the organisation.
 
-- You have full access to every feature
-- A persistent banner at the top of the app shows **"X days left in
-  your trial"** with a **Subscribe to StemCounts** button
-- The countdown updates daily
+While it runs:
+
+- You have full access to every feature.
+- A banner under the header on every page reads **"X days left in your
+  trial"** with a **Subscribe to StemCounts** button.
+- The **Subscription** section reads **Trial: X days left** with "Your
+  trial ends on [date]."
+
+When it ends without a subscription, the status reads **Trial ended**
+and florist pages are paused. See [Trial and paused
+access](/billing/trial-and-blocked-access/).
+
+## Plans
+
+There are two florist plans, in Australian dollars: **6 months** and
+**12 months**. Each renews automatically at the end of its period until
+cancelled. The price is shown beside each plan in **Choose a plan**, and
+that is what you pay. StemCounts can set a different price for an
+individual business, which then appears in the same place.
 
 ## Subscribing
 
 <Steps>
 
-1. Click **Account** in the user menu (top-right avatar) — or click
-   **Subscribe to StemCounts** on the trial banner.
+1. Go to **Settings**, then **Your Organisation**, and scroll to
+   **Subscription**. Or click **Subscribe to StemCounts** on the trial
+   banner, which takes you there. The **Subscription** group shows your
+   status and a **Plan** row.
 
-2. The Account page loads with the **Subscription** card visible.
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="subscription-desktop-01-subscription-group" caption="Under Your Organisation, the Subscription group shows your status and a Plan row." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="subscription-phone-01-subscription-group" caption="Under Your Organisation, the Subscription group shows your status and a Plan row." />
+     </TabItem>
+   </Tabs>
 
-3. Click **Subscribe**.
+2. Click **Choose** on the **Plan** row.
 
-   <HelpMedia id="subscribe-button" />
+3. In **Choose a plan**, pick **6 months** or **12 months** (12 months
+   is selected to start with) and click the button. It names the price
+   and the plan, for example **Subscribe for [price] (12 months)**.
 
-4. You're redirected to **Stripe Checkout** to enter payment details.
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="subscription-desktop-02-choose-plan-6-months" caption="Choose a plan: 6 months selected, and the button says exactly what you will pay." />
+       <HelpMedia id="subscription-desktop-03-choose-plan-12-months" caption="12 months selected. Subscribe takes you to the secure checkout; Cancel closes the sheet." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="subscription-phone-02-choose-plan-6-months" caption="Choose a plan: 6 months selected, and the button says exactly what you will pay." />
+       <HelpMedia id="subscription-phone-03-choose-plan-12-months" caption="12 months selected. Subscribe takes you to the secure checkout; Cancel closes the sheet." />
+     </TabItem>
+   </Tabs>
 
-5. Complete the Stripe checkout. On success Stripe sends you back to
-   the StemCounts Account page with a green confirmation banner:
-   **"Subscription successful. Your subscription is active."**
+4. You are taken to a secure Stripe checkout page to enter your card.
+
+5. When payment completes you return to **Your Organisation** with the
+   message **"Subscription successful. Your subscription is active."**
 
 </Steps>
 
-If you abandon the Stripe checkout, you're returned to the **Subscription
-Cancel** page with a banner saying **"Checkout canceled"**. Your account
-is unchanged — you can try again.
+If you leave the checkout without paying, you come back to a page
+headed **Checkout canceled**. Nothing has been charged and nothing has
+changed. The same **Subscription** section is shown underneath, so you
+can try again straight away.
+
+<Aside type="note">
+Subscribing during the trial starts your paid plan from checkout. Your
+remaining free days are not added onto the paid period, so there is no
+benefit in waiting until the last day, but no need to rush either.
+</Aside>
 
 ## Subscription statuses
 
-The Subscription card on the Account page shows your current status:
+The **Subscription** section shows one status and, where it matters, a
+date:
 
 | Status | What it means |
 |---|---|
-| **Trial** / **Trialing** | Active free trial; access full |
-| **Active** | Paid; access full |
-| **Past Due** | Payment failed; access still full but at risk |
-| **Cancelled** | Cancelled by you; access ends at period end |
-| **Incomplete** | Stripe needs another action; access may be blocked |
+| **Trial: X days left** | Your free trial is running. "Your trial ends on [date]." |
+| **Trial ended** | The trial is over and there is no subscription. Choose a plan to continue. |
+| **Active** | Paid and working. "Renews on [date]." or "Next payment on [date]." A cancellation you have scheduled shows "Ends on [date], cancellation scheduled." |
+| **Past due** | The last payment failed. See [Managing your subscription](/billing/managing-subscription/). |
+| **Cancelled** | The subscription has ended. "Ended on [date]." |
+| **Incomplete** | "Your first payment has not gone through." |
+| **No subscription** | No trial or plan on record. |
 
-If you see **No subscription found for your organisation yet** on the
-Account page and you've already paid, contact support — your Stripe
-record may not have synced.
-
-## Pricing and plans
-
-Tiers and prices are managed in Stripe — see the Account page for what
-applies to you. The Stripe portal (see [Managing your
-subscription](/billing/managing-subscription/)) shows the current price
-and renewal date.
-
-<Aside type="note">
-Plan switching is also done through the Stripe portal — not yet a
-direct in-app action.
-</Aside>
+With **Trial ended**, **Cancelled**, **Incomplete** or **No
+subscription**, the **Plan** row offers **Choose** so you can subscribe
+again.
 
 ## Receipts and tax invoices
 
-Stripe sends an email receipt for every successful charge. To get a
-tax invoice (with GST), open the [Stripe customer
-portal](/billing/managing-subscription/) and click **Download
-invoice** next to the most recent charge.
+Once you have paid, the **Subscription** section shows a **Receipts** row
+with a count. Click it to open **Receipts**, "Tax invoices and receipts
+for your subscription." Each paid one is a **Tax invoice / receipt**
+showing the date paid, the amount and what it covered, with **View** (the
+StemCounts-branded PDF opens in the app) and **Download**. An unpaid
+renewal shows as **Awaiting payment**.
 
-For invoices that need to be customised (P.O. number, special billing
-contact), email **support@stemcounts.com**.
+A receipt is also emailed automatically after each successful payment.
+
+<Aside type="note">
+Today's receipts do not state a GST amount. For a GST question about
+your subscription, email **support@stemcounts.com**.
+</Aside>
+
+## Already subscribed?
+
+Each organisation can have only one live subscription. If someone in
+your business already subscribed, the button says "Your organisation
+already has a subscription. Manage it instead of starting a new one."
+Use **Manage subscription** rather than subscribing again, so you are
+not charged twice.

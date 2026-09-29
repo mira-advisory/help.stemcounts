@@ -1,77 +1,117 @@
 ---
 title: Tracking your order
-description: The five status stages florists see — Sent, Accepted, Supply Confirmed, Ready, Complete.
+description: The order statuses a florist sees, the status on each flower, how the order status is worked out, and confirming what arrived.
 sidebar:
   order: 10
 ---
 
-import { Aside, Badge } from "@astrojs/starlight/components";
+import { Aside } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
 Once your order is sent, you can watch it move through a handful of
-clear stages. Your wholesaler sees the same stages with a little more
-detail on their side.
+stages. Each flower on the order has a status of its own as well, and the
+order's status is worked out from them.
 
-<HelpMedia id="order-status-flow" caption="The five stages florists see" />
+<HelpMedia id="order-status-sent" caption="An order page heading: Order Details - Sent" />
 
-## The stages
+## The order stages
 
-| Status | What it means | Who moves it forward |
-|---|---|---|
-| **Draft** | You're still building it | You |
-| **Sent** | Your wholesaler has the order; not yet accepted | — |
-| **Accepted** | Wholesaler has accepted; they're now sourcing | Wholesaler |
-| **Supply Confirmed** | All flowers confirmed by suppliers | Wholesaler |
-| **Ready** | Flowers ready for pickup or delivery | Wholesaler |
-| **Complete** | With you, all done | Wholesaler |
+1. **Draft**: you are still building it and it has not been sent.
+2. **Sent**: the order has gone to your wholesaler.
+3. **Accepted**: your wholesaler has accepted responsibility for the
+   order.
+4. **Supply Confirmed**: your wholesaler has confirmed they can supply
+   it.
+5. **Ready**: your wholesaler has packed the order and it is ready for
+   delivery.
+6. **Complete**: the order has been delivered and completed.
 
-## Where you'll see the status
+Accepted does not mean every flower is confirmed. Supply is confirmed
+flower by flower after the wholesaler accepts, and the order only
+reaches **Supply Confirmed** once every flower still on it is confirmed.
 
-- **Orders list** — each row shows a status badge
-- **Order detail page** — banner up top with the overall status
-- **Inside an order** — each individual flower shows its own status; when most are *Ready*, the order is *Ready*
+## Where you see the status
 
-## Status by flower
+- **The order page**: the heading reads **Order Details** followed by the
+  status, for example "Order Details - Sent".
+- **The Orders page**: switch between **Calendar** ("View orders in the
+  weekly calendar planner.") and **Order Board** ("View orders grouped by
+  status."). The board has four columns: **Draft**, **Sent**, **In
+  Progress** (accepted and being fulfilled) and **Done** (delivered or
+  completed). The **Orders** or **Events** switch shows whole weekly
+  orders or individual events.
+- **Each flower line** in the **Weekly Order Summary** on a sent order.
 
-Your wholesaler doesn't always source every flower from the same
-supplier — so on a single order, some flowers might be confirmed
-before others. Open the Order Detail page to see exactly where each
-flower is.
+## The status on each flower
 
-For example, your order might show **Supply Confirmed** overall but
-one specific stem still shows **Sent** because it's coming from a
-slower supplier.
+| Line status | What it means |
+|---|---|
+| **Supply OK** | Your wholesaler has confirmed they can supply this flower. |
+| **Packed & Ready** | Packed and ready for delivery. |
+| **Action Required** | The wholesaler cannot supply it as ordered and needs you to choose a substitute, or accept or decline fewer stems. |
+| **Substitute Confirmed** | You accepted a substitute. |
+| **Cancelled** | The flower was unavailable and has been removed from your order. |
+| **Complete** | Delivered. |
+
+When a line shows **Action Required**, see
+[Substitutes and supply changes](/florists/substitutes-and-supply-changes/).
+
+## How the order status is worked out
+
+StemCounts works the order status out from its flower lines. Cancelled
+flowers are ignored. The order moves forward only when every remaining
+flower has reached the next stage:
+
+- every flower confirmed (or its substitute confirmed): **Supply
+  Confirmed**
+- every flower packed: **Ready**
+- every flower delivered: **Complete**
+
+While any flower is waiting on you to answer a substitute or fewer-stems
+offer, the order cannot move forward at all. One slow line holds the
+whole order at its current stage.
 
 <Aside type="note">
-The overall order status reflects the slowest flower. If nine flowers
-are confirmed and one is still on the way, the order will still read
-**Sent** until the last one catches up.
+If your order went to more than one wholesaler, the overall status
+follows the wholesaler who is furthest behind. If one has marked their
+part **Ready** and another is still at **Accepted**, the order shows
+**Accepted** until the second catches up. The overall status never goes
+backwards. Open the order to see where each wholesaler's part and each
+flower is up to.
 </Aside>
 
-## What we'll email you about
+## Confirming what arrived
 
-You'll get an email when:
+Once a wholesaler's part of your order has reached **Supply Confirmed**
+or **Ready**, you can confirm what arrived, on the order page:
 
-- Your order is **Accepted** by the wholesaler
-- Your order is **Ready** for pickup or delivery
-- A flower is **rejected** (rare — usually means a supplier couldn't get it)
+- **Confirm Received** on a single flower line
+- **Confirm Delivery of All Flowers** for everything from that wholesaler
+- **Mark as Delivered**, shown when the wholesaler's part is **Ready**
 
-You can change your notification preferences in **Settings → Personal**
-with the "Email notifications enabled" toggle.
+Received lines show **Received**. When every line from that wholesaler is
+received, their part becomes **Complete**, and the wholesaler gets a
+**Delivery confirmed** notification.
 
 ## What to do at each stage
 
 | Status | Your move |
 |---|---|
-| **Sent** | Wait for accept. If it's still sitting at Sent after 24 hours, give your wholesaler a nudge. |
-| **Accepted** | Nothing to do. If you want a closer look, the Order Detail page shows each flower's progress. |
-| **Supply Confirmed** | You know exactly what's arriving. Plan your studio time. |
-| **Ready** | Pick up, or expect delivery, per your wholesaler's schedule. |
-| **Complete** | All done. Invoice / payment captured per your normal billing arrangement. |
+| **Sent** | Wait for the accept. If it is still at Sent after a day, give your wholesaler a nudge, or message them with **Chat** on the order. |
+| **Accepted** | Nothing yet. Watch for **Action Required** on any line. |
+| **Supply Confirmed** | You know what is arriving. Plan your studio time. |
+| **Ready** | Pick up, or expect delivery, on the date you set when sending. |
+| **Complete** | All done. Confirm what arrived if you have not already. |
 
 ## If your order is rejected
 
-If your wholesaler rejects an order (capacity, sourcing, or a question
-they want to talk through), it goes back to **Draft** in your Orders
-list with a short note explaining why. Edit and re-send, or reach out
-to the wholesaler directly to chat it through.
+While an order is new, the wholesaler can reject it. The order and its
+flowers are marked **Rejected** and you get an in-app notification,
+**Order rejected**. It does not go back to draft. Talk to the wholesaler,
+or send the flowers again as a new order.
+
+## Being told about changes
+
+Which emails, texts and in-app notifications you get, and the **Order
+emails** switch in your profile, are in
+[Order messages and notifications](/florists/order-messages-and-notifications/).

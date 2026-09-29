@@ -1,6 +1,6 @@
 ---
 title: The florist landing page
-description: What you see when you log in as a florist — drafts, events, revenue, and shortcuts.
+description: What you see when you sign in as a florist, from this week's three figures to the Orders, New Order and Invoices cards, on a computer and on a phone.
 sidebar:
   order: 1
 ---
@@ -8,66 +8,76 @@ sidebar:
 import { Aside, Card, CardGrid } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-When you log in, you land on the **florist home screen**. It's built
-to answer three things at a glance: what's in flight, what's coming
-up this week, and how you're tracking financially.
+When you sign in, you land on the **florist home page**. It answers
+three things at a glance: what is in flight, what is coming up this
+week, and how you are tracking financially.
 
-<HelpMedia id="florist-landing-overview" kind="video" caption="A quick look at the florist home screen" />
+## This week's three figures
 
-## The three tiles up top
-
-| Tile | What it counts | Click to |
+| Figure | What it counts | Click to |
 |---|---|---|
-| **Open Drafts** | Draft orders you haven't sent yet | Filtered Orders list — drafts only |
-| **Events This Week** | Events landing in the current week | This week's Orders view |
-| **Revenue This Week** | Customer-side total for the week, with your retail markup applied | Same as Events This Week |
+| **Open Drafts** | Draft orders you have not sent yet | The **Orders** page, drafts only |
+| **Events This Week** | Events landing in the current week | This week on the **Orders** page |
+| **Revenue This Week** | The customer price of this week's orders | This week on the **Orders** page |
 
 <Aside type="note">
-Revenue is calculated from your arrangement budgets multiplied by your
-organisation's retail markup. There's more detail in [Pricing and
-budgets](/florists/pricing-and-budgets/).
+**Revenue This Week** is the customer-side value of this week's orders:
+each event at its own markup, or your organisation's **Retail markup**
+where an event has none. Weeks run Monday to Sunday. There is more in
+[Pricing and budgets](/florists/pricing-and-budgets/).
 </Aside>
 
 ## The main actions
 
-Two large cards sit in the middle of the page:
+Three large cards sit under the figures:
 
-- **Orders** — your full order list across every week
-- **New Order** — opens the *Add Event* modal, which is where every new piece of work starts
+- **Orders**: "View and manage all your flower orders." Your full order
+  list across every week, as a **Calendar** or an **Order Board**.
+- **New Order**: "Create a new order and add event details." Opens the
+  **Add Event to Order** window, which is where every new piece of work
+  starts.
+- **Invoices**: "View invoices and order amounts from your
+  wholesalers." Your sent orders with their wholesaler, dates, amount
+  and status, and a **View Invoice** button for each.
 
-<HelpMedia id="florist-landing-primary-ctas" />
+<HelpMedia id="florist-landing-primary-ctas" caption="The three main cards on the florist home page: Orders, New Order and Invoices" />
 
-## Quick shortcuts
-
-Smaller cards underneath:
+## Smaller cards
 
 <CardGrid>
   <Card title="Explore Flowers">
-    Opens the [Flower Library](/florists/browsing-the-catalog/) — a
-    read-only browse of the full catalog. Handy for inspiration before
-    you build an arrangement.
+    Browse the full flower catalogue, with **Category** and **Season**
+    filters and a pin for the flowers you use most. Handy for ideas
+    before you build an arrangement. It also lives in **Settings** under
+    **Ordering**.
   </Card>
   <Card title="Settings">
-    Your profile, organisation, and notifications. See
+    Your profile, your organisation and your subscription. See
     [Profile and notifications](/billing/profile-and-notifications/).
   </Card>
-  <Card title="FAQs">
-    The same FAQ entries as the [FAQs section](/faqs/) here, also available
-    inside the app.
+  <Card title="Help guides">
+    Opens this help site in a new tab. For a quick answer, the round
+    chat button at the bottom right answers from the same guides.
   </Card>
 </CardGrid>
 
-## On mobile
+## On a phone
 
-The layout collapses to a single column on phones, with the same tiles
-and cards in the same order. The user menu tucks behind a hamburger
-icon in the top-right.
+The phone home page is built for one hand. You see **Welcome** with your
+name and business, the three figures as tiles, a large **New order**
+button, then a list of rows: **Orders**, **Invoices**, **Explore
+Flowers**, **Settings** and **Help guides**. There is no menu button. A
+bar along the bottom of the screen has **Home**, **Orders**, **New
+order**, **Search** and **Chat**, and your initials at the top right open
+**Settings**, **What's new** and **Sign out**. See [StemCounts on your
+phone](/getting-started/the-phone-app/).
 
 ## Where to next
 
-If you're brand new, **New Order** is the natural place to start.
+If you are brand new, **New Order** is the natural place to start.
 Walkthroughs:
 
+- [Your first 10 minutes](/getting-started/your-first-10-minutes/)
 - [Creating your first event](/florists/creating-your-first-event/)
 - [Building an arrangement](/florists/building-an-arrangement/)
 - [The Flower Picker](/florists/the-flower-picker/)

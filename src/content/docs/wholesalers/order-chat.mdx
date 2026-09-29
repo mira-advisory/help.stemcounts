@@ -1,0 +1,73 @@
+---
+title: Order chat
+description: Message the florist about an order from the order itself, and see their replies as notifications.
+sidebar:
+  order: 8
+---
+
+import { Steps, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+Every order has its own conversation with the florist who sent it. Use
+it for the questions that used to need a phone call: a colour you want
+to check, a quantity that looks odd, a pickup time.
+
+## Opening the chat
+
+<Steps>
+
+1. Open the order from your Order Summary.
+
+2. Click **Chat**, beside the order reference at the top. The button
+   shows a count of unread messages when there are any. On a phone, tap
+   **Message the florist** under **More**.
+
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="order-chat-desktop-01-chat-button" caption="Every order has a Chat button beside its number. It opens a conversation with the florist about this order only." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="order-chat-phone-01-message-the-florist-row" caption="Under More, tap Message the florist." />
+     </TabItem>
+   </Tabs>
+
+3. On a wide screen the conversation opens beside the order, so you can
+   keep the flowers in view while you type. On a narrower screen it
+   opens over the order. On a phone it fills the screen.
+
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="order-chat-desktop-02-conversation-open" caption="The conversation slides in beside the order. Type at the bottom and press send; the florist sees it in the same place on their order." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="order-chat-phone-02-conversation" caption="The conversation fills the screen. Type at the bottom and send." />
+     </TabItem>
+   </Tabs>
+
+</Steps>
+
+## Sending a message
+
+Type in the box at the bottom (**Chat with [florist]**) and press the
+send arrow. The florist gets a **New message** notification in their
+app. Until anyone has written, the panel says **No messages yet.**
+
+You can keep more than one thread on an order. Click **New topic**,
+give it a **Topic Name**, for example "Pickup time" or "Rose colour",
+and write the first message.
+
+## When the florist replies
+
+You get a **New message** notification in the bell at the top of the
+app, and the unread count appears on the **Chat** button of that order.
+Click the notification to go straight to the order.
+
+<Aside type="note">
+Chat is not available on Tier 1, where orders are handled by email and
+the order link rather than a login. Reply to the order email instead:
+the florist who sent the order is copied in, and replies go to them.
+</Aside>
+
+## On a phone
+
+Open the order, then tap **Message the florist** under **More**.

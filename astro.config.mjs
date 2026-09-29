@@ -4,15 +4,28 @@ import starlight from "@astrojs/starlight";
 import sitemap from "@astrojs/sitemap";
 
 // StemCounts help / docs site.
-// Single Starlight project — content is grouped into product-area
+// Single Starlight project, content is grouped into product-area
 // sections via the sidebar. Each section is a folder under
 // src/content/docs/. Adding a new article = add a new .mdx file in
 // the right folder; Starlight picks it up automatically.
 export default defineConfig({
-  // Canonical site URL — drives OG tags, sitemap entries, and the
+  // Canonical site URL, drives OG tags, sitemap entries, and the
   // <link rel="canonical"> on every page. Update if the domain ever
   // changes; the value here must match the live host exactly.
   site: "https://help.stemcounts.com",
+  // Old URLs that search engines and the app's support cards indexed. The
+  // three wholesaler pages described screens that no longer exist and were
+  // replaced on 2026-09-29; the FAQ pages are now generated from the support
+  // cards, one per topic.
+  redirects: {
+    "/wholesalers/receive-and-accept/": "/wholesalers/accepting-an-order/",
+    "/wholesalers/assign-and-send/": "/wholesalers/confirming-supply/",
+    "/wholesalers/confirmed-and-ready/": "/wholesalers/packing-and-delivery/",
+    "/faqs/florists/": "/faqs/florist-ordering/",
+    "/faqs/setup/": "/faqs/account-and-billing/",
+    "/faqs/finances/": "/faqs/account-and-billing/",
+    "/faqs/delivery/": "/faqs/order-lifecycle-and-notifications/",
+  },
   integrations: [
     // Explicit sitemap integration. Starlight emits one by default,
     // but we want explicit control so future tweaks (filtering,
@@ -22,7 +35,7 @@ export default defineConfig({
     starlight({
       title: "StemCounts Help",
       description:
-        "Guides, walkthroughs, and reference for StemCounts — flower ordering for florists and wholesalers.",
+        "Guides, walkthroughs and reference for StemCounts: flower ordering for florists and wholesalers.",
       // Single-file logo (coral + teal flower mark). The same SVG
       // works on light and dark backgrounds because both fills are
       // mid-saturation. Swap to a dark-specific variant in
@@ -33,7 +46,7 @@ export default defineConfig({
       },
       // Custom CSS owns design-system mapping (Inter font, forest
       // green accent, coral CTA, neutral slate grays). See
-      // src/styles/custom.css — comment block at the top documents
+      // src/styles/custom.css, comment block at the top documents
       // the source of each token.
       customCss: ["./src/styles/custom.css"],
       // No "Edit on GitHub" link. Content authoring happens elsewhere
@@ -57,7 +70,7 @@ export default defineConfig({
         { label: "FAQs", autogenerate: { directory: "faqs" } },
         { label: "Release notes", autogenerate: { directory: "changelog" } },
       ],
-      // Quick search built in via Pagefind — no extra setup needed.
+      // Quick search built in via Pagefind, no extra setup needed.
     }),
   ],
 });

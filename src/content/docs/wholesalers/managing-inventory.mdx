@@ -1,112 +1,151 @@
 ---
 title: Managing your inventory
-description: Select which flowers you carry, set custom prices, and bulk-upload your list.
+description: Inventory Management is where you choose the flowers and colours you carry, and set your price and stems per bunch for each.
 sidebar:
-  order: 6
+  order: 10
 ---
 
-import { Steps, Aside } from "@astrojs/starlight/components";
+import { Steps, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-Your **inventory** is the list of flowers you make available to
-florists ordering on StemCounts. Florists only see flowers you've
-**selected** in your library — everything else stays hidden.
+Your inventory is the list of flowers you make available to florists on
+StemCounts, with your price per bunch and your stems per bunch for
+each. It is built on the StemCounts flower library. Florists are
+offered your in-stock flowers, in the colours you have made available,
+at your prices.
 
-<HelpMedia id="inventory-management-page" caption="Inventory Management with selected flowers + price overrides" />
+<Tabs syncKey="device">
+  <TabItem label="Computer">
+    <HelpMedia id="inventory-desktop-01-my-inventory" caption="Inventory Management opens on My Inventory: the flowers you stock, each with its colours, Stems per bunch and Price (Bunch)." />
+  </TabItem>
+  <TabItem label="Phone">
+    <HelpMedia id="inventory-phone-01-library" caption="Library on a phone: your stocked flowers with their price a bunch. Search or filter to find one." />
+  </TabItem>
+</Tabs>
 
-## Selecting flowers
+## Where it lives
 
-By default no flowers are selected. To make a flower visible to
-florists:
+Open the **Inventory Management** card on your home page. The counter
+on the card shows how many flowers you have selected against how many
+you have not.
+
+On a phone the same page is called **Library**.
+
+## The four views
+
+Filter the list with the buttons across the top. Each shows a count.
+
+| Button | What it shows |
+|---|---|
+| **My Inventory** | The flowers you carry |
+| **Available to Add** | Flowers, or colours of flowers you already carry, that you could add |
+| **Differs from Library** | Flowers where your saved price or stems per bunch differ from the library's |
+| **All** | Every flower in the library |
+
+On a phone the same views are **Mine**, **To add**, **Differs** and
+**All**.
+
+<HelpMedia id="inventory-desktop-02-available-to-add" caption="Available to Add lists library flowers you do not stock yet. Tick one to add it." />
+
+<HelpMedia id="inventory-desktop-03-differs-from-library" caption="Differs from Library shows only the flowers whose price or bunch size is not the library default." />
+
+<HelpMedia id="inventory-desktop-04-all" caption="All shows the whole library, stocked and not, in one list." />
+
+## Adding a flower
 
 <Steps>
 
-1. Go to **Settings → Wholesaler Inventory** (or the **Inventory
-   Management** link from your landing page).
+1. Find the flower in **All** or **Available to Add**. Search or filter
+   to narrow the list.
 
-2. Filter or search to find the flower.
+2. Select it with the round tick at the start of the row.
 
-3. Tick the checkbox or **Selected** indicator.
+3. In **Variants**, tick the colours you carry. Only the colours you
+   tick are offered to florists for that flower.
 
-4. The flower is now visible to florists in their Flower Library and
-   Flower Picker.
+   <HelpMedia id="inventory-desktop-08-colour-rows-expanded" caption="Click a flower to open its colours. Tick the colours you stock; each colour can carry its own bunch size." />
+
+4. Type your **Price (Bunch)** in dollars and your **Stems per bunch**.
+   A new flower needs both before it will save.
+
+5. Click **Save Inventory**.
 
 </Steps>
 
-## Setting a custom price
+Each row also has a **Name** column, your internal name for the flower,
+beside the library's **Flower** name.
 
-Each flower has a default wholesale price (set by StemCounts). You can
-override it per flower:
+## Changing prices and stems per bunch
+
+Type the new value straight into the row. Changes are not saved as you
+type: a **Save Inventory** button appears with a count of the flowers
+you have changed. Click it when you are done.
+
+<Tabs syncKey="device">
+  <TabItem label="Computer">
+    <HelpMedia id="inventory-desktop-05-price-edited" caption="Type a new price straight into the row. As soon as something changes, Save Inventory appears with the number of flowers changed." />
+    <HelpMedia id="inventory-desktop-06-save-inventory-button" caption="Click Save Inventory to save every change at once. Leave the page without saving and nothing changes." />
+  </TabItem>
+  <TabItem label="Phone">
+    <HelpMedia id="inventory-phone-02-flower-sheet" caption="Tap a flower: its sheet has Price per bunch, the bunch size and its colours. Each value saves when you close its row." />
+  </TabItem>
+</Tabs>
+
+Stems per bunch can also be set per colour variant. A colour with its
+own stems per bunch, or its own price, is ordered and billed at those
+figures ahead of the flower's.
+
+If your stems per bunch differ from the library's, you are asked to
+**Confirm Stems Per Bunch Change** before saving. Click **Continue with
+Save** to keep your figure. On a phone the same check is called **Stems
+differ from the library**, with a **Save my bunch size** button.
+
+<Aside type="note">
+On a phone, tapping a flower opens a sheet for that one flower, and
+each value saves when you close its row. There is no page-wide Save.
+</Aside>
+
+## Bulk upload from a CSV
+
+For a long list, use **Bulk Upload** (on desktop and tablet).
 
 <Steps>
 
-1. In the inventory row, click the **price field**.
+1. Click **Bulk Upload**, then **Download Template**.
 
-2. Enter your custom price (numeric, no `$` sign).
+2. Fill in the template. Its columns are `scCode`, `colour`, `price`,
+   `stemsPerBunch`, `wholesalerCode` and `wholesalerName`. `scCode`
+   (the StemCounts flower code) and `price` (dollars per bunch) are
+   required. `colour` can list several colour names separated by
+   commas to identify one colour variant. A blank optional cell leaves
+   the existing value unchanged.
 
-3. Click out of the field — the value saves automatically.
+3. Drop your CSV into the window, or click **Browse files**.
+
+   <HelpMedia id="inventory-desktop-07-bulk-upload-dialog" caption="Bulk Upload takes a CSV to update prices and stock in one go. Download Template, fill it in, Browse files to choose it, then Validate before it is applied." />
+
+4. Click **Validate**. Each row is checked and any invalid rows are
+   listed. A missing colour can be added on the spot with **Add
+   colour**.
+
+5. When every row is valid, click **Upload**. You will see **Upload
+   complete**.
 
 </Steps>
-
-If a save fails (e.g., session expired), you'll see **"Please log in to
-save prices"**. Log out and back in to refresh.
-
-## Variants (colours)
-
-For flowers with multiple colour variants, tick the colour variants
-you carry. Florists won't see colours you haven't selected — even if
-the flower itself is selected.
-
-## Bulk upload
-
-For wholesalers with hundreds of stems, the **Bulk Upload** button
-opens a CSV upload modal. Format:
-
-| Column | Required? | Notes |
-|---|---|---|
-| Flower name | Yes | Must match a known catalog entry |
-| Colour variant | Optional | Multiple rows per flower for multiple colours |
-| Price | Optional | Numeric; leave blank to use the default |
-| Selected | Optional | TRUE/FALSE; defaults TRUE on upload |
 
 <Aside type="caution">
-Bulk upload **adds or updates** rows; it doesn't deselect anything. To
-remove flowers, deselect them manually in the UI.
+The upload is all or nothing. If any row is invalid, nothing is saved.
+Fix the rows it names and validate again. New flowers in the file are
+added to your inventory as selected.
 </Aside>
 
-## What you can't edit
+## How your prices reach florists
 
-A few things are read-only from the wholesaler view:
+Your price per bunch is your wholesale price. Florists see it with a
+StemCounts platform fee added on top; the fee is not charged to you.
+Your own order totals and invoices show your price without the fee.
+When a florist chooses you as the wholesaler for an order, every line
+is recounted to your bunch sizes.
 
-- **Photos** — the catalog photo is the photo, shared across all
-  wholesalers
-- **Seasonality** — the catalog defines which seasons a flower is
-  available; you can carry it out of season but it'll be flagged
-- **Stems per bunch** — fixed at the catalog level
-
-If you spot a catalog error (wrong photo, missing variant, wrong pack
-size), email **support@stemcounts.com**.
-
-## Filters and search
-
-The inventory page has filters by:
-
-- **Category** — roses, dahlias, foliage, etc.
-- **Colour** — multi-select
-- **Season** — current season / out-of-season
-- **Selected only** — quickly see your current list
-
-The fuzzy search toggle lets you find flowers despite minor typos.
-
-## Why selection matters
-
-Florists place orders based on **what they can see**. A flower not in
-your library = a missed sale. Conversely, leaving every flower
-selected with no price overrides means you've effectively accepted
-default platform pricing for everything.
-
-<Aside type="tip">
-Most wholesalers maintain a *core list* of staple stems they always
-carry and override prices on, plus an opportunistic *seasonal list*
-they enable for short windows.
-</Aside>
+If you supply a regular price list file, the StemCounts team can load it
+for you. Email **support@stemcounts.com** to arrange it.

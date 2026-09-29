@@ -1,62 +1,65 @@
 ---
-title: Browsing the flower catalog
-description: The Flower Library — a read-only browse of every flower available on StemCounts.
+title: Explore Flowers
+description: Browse the whole flower catalogue from Settings, with a price range across wholesalers, and pin the flowers you order every week.
 sidebar:
   order: 3
 ---
 
 import { Aside } from "@astrojs/starlight/components";
-import HelpMedia from "../../../components/HelpMedia.astro";
 
-The **Flower Library** is your reference catalog. It shows every flower
-your wholesalers have listed, with photos, colour variants, and key
-details. It's read-only — you can't order from it directly; for that,
-use [the Flower Picker](/florists/the-flower-picker/) inside an
+**Explore Flowers** is the catalogue. It shows every flower on
+StemCounts, with photos, colours and a price range across wholesalers.
+It is for browsing and looking things up. You cannot order from it: for
+that, use [the Flower Picker](/florists/the-flower-picker/) inside an
 arrangement.
 
-<HelpMedia id="flower-library-grid" kind="video" caption="Browsing the Flower Library" />
+## Where it is
 
-## When to use the Library
+Open your name menu at the top right, click **Settings**, and choose
+**Explore Flowers** under **Ordering**. It is also the **Explore Flowers**
+tile on the florist home screen.
 
-- **Inspiration** before building an arrangement — "what's in season,
-  what colours can I get for this?"
-- **Sanity-check** something you saw on the Picker that you want to look
-  at in more detail
-- **Brief a client** — pull up a photo of a specific stem to confirm
-  what they're picturing
+## When to use it
 
-## How to find a flower
+- **Inspiration** before building an arrangement: what is in season, what
+  colours can I get?
+- **A closer look** at a flower you saw in the picker.
+- **Briefing a client**: open a flower's photo to confirm what they are
+  picturing.
 
-- **Search bar** — type the flower name (e.g. "ranunculus")
-- **Pagination** — twenty flowers per page; use the page controls at the
-  bottom
+## Finding a flower
 
-The library shows the flower's display name, available colour variants,
-and the photo. Click a flower to see more detail.
+- **Search**: by name, common name or code. It also matches colour names.
+- **Category**: narrow to one category, or all categories.
+- **Colour**: choose one or more colours. **Similar shades** (on by
+  default) also includes colours close to the ones you pick. Turn it off
+  for exact matches only.
+- **Season**: show flowers in season in the months you choose.
+
+Filters combine. Pinned flowers always sort to the top.
 
 ## What you see per flower
 
-Each flower card shows:
+Each flower shows its name, photo and colours. Because Explore Flowers
+is not tied to an event, its price is a range across wholesalers, for
+example "from $9.00 (5 stems) to $20.00 (10 stems)". These are wholesale
+prices, not your customer prices.
 
-- Display name
-- Hero photo
-- Available colour variants (small swatches)
-- *(if logged in as a wholesaler with this flower in their library)*
-  custom pricing
+Open a flower to see its **Category** and **Season**, and the **Pin to
+the top** switch: "Pinned flowers come first, here and when you pick
+flowers for an order."
 
-## Library vs Picker — what's the difference?
+## Explore Flowers and the Flower Picker
 
-This trips up new florists. Quick reference:
-
-| | Flower Library | Flower Picker |
+| | Explore Flowers | Flower Picker |
 |---|---|---|
-| **Where** | `/flower-library` from the menu or landing page | Inside an arrangement, click **Pick Flowers** |
-| **What it's for** | Browse / lookup | Add stems to an order |
-| **Quantity controls** | None | Yes |
-| **Filters** | Search only | Category, Colour, Season, fuzzy search |
-| **Order context** | None | Tied to a specific arrangement |
+| **Where** | Settings, under **Ordering** | Inside an event, from **Pick Flowers** or **Add Flowers** |
+| **What it is for** | Browse and look up | Add flowers to an arrangement |
+| **Price shown** | A range across wholesalers | The event's preferred wholesaler's price, or the catalogue price |
+| **What it lists** | The whole catalogue | Only flowers and colours a wholesaler currently offers |
+| **Pinning** | **Pin to the top** switch on a flower | Heart on the photo, **Pin flower** |
 
 <Aside type="tip">
-For most florists, the Picker is where the actual work happens. The
-Library is best treated as a reference.
+The picker is where the work happens. Treat Explore Flowers as your
+reference.
 </Aside>

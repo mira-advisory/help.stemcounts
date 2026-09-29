@@ -1,4 +1,4 @@
-/* StemCounts help — design system overrides for Starlight.
+/* StemCounts help - design system overrides for Starlight.
  *
  * SOURCE OF TRUTH: This file is a derived mirror. The canonical
  * design tokens live in the main StemCounts repo:
@@ -18,13 +18,13 @@
  *   - Cream backdrop tint:             #FEFAF7
  *   - Blush gradient stop:             #F7E0D2
  *   - Neutral slate ramp:              matches in-app shadcn slate
- *   - Font:                            Inter (Google Fonts) — chosen for
+ *   - Font:                            Inter (Google Fonts) - chosen for
  *                                      parity with planease-help; the
  *                                      main app uses system default sans
  *   - Radius:                          8px
  *
  * Starlight's own theme tokens (CSS vars prefixed --sl-) are remapped
- * to StemCounts values rather than hard-coding new names — keeps
+ * to StemCounts values rather than hard-coding new names - keeps
  * upstream Starlight component updates compatible.
  */
 
@@ -53,20 +53,20 @@
   --sl-radius: 8px;
   --sl-line-height: 1.65;
 
-  /* ── Gray scale (light mode — DARKEST text → LIGHTEST surface) ── */
+  /* ── Gray scale (light mode - DARKEST text → LIGHTEST surface) ── */
   /* Anchored to shadcn slate (hsl 222.2 84% 4.9%) used by the main
      app, with intermediate stops sampled for Starlight's chrome. */
   --sl-color-white: hsl(222 47% 11%); /* "white" in Starlight light = darkest */
   --sl-color-gray-1: hsl(222 47% 11%);  /* headings on contrast surfaces */
-  --sl-color-gray-2: hsl(222 23% 22%);  /* body text — used by --sl-color-text */
+  --sl-color-gray-2: hsl(222 23% 22%);  /* body text - used by --sl-color-text */
   --sl-color-gray-3: hsl(215 16% 47%);  /* secondary muted (pagination labels) */
   --sl-color-gray-4: hsl(215 14% 60%);  /* tertiary muted (placeholders) */
   --sl-color-gray-5: hsl(214 32% 91%);  /* hairlines / borders */
   --sl-color-gray-6: hsl(210 40% 96%);  /* subtle surface bg (inline code) */
-  --sl-color-gray-7: hsl(36 60% 98%);   /* lightest surface — warm cream tint */
+  --sl-color-gray-7: hsl(36 60% 98%);   /* lightest surface - warm cream tint */
   --sl-color-black: hsl(0 0% 100%);     /* "black" in Starlight light = page bg */
 
-  /* ── Brand accent — forest green ── */
+  /* ── Brand accent - forest green ── */
   --sl-color-accent-low: hsl(150 35% 95%);  /* tinted brand surface */
   --sl-color-accent: hsl(155 56% 19%);      /* forest green #1B4332 */
   --sl-color-accent-high: hsl(155 60% 12%); /* deeper green (text on accent bg) */
@@ -91,7 +91,7 @@
   /* ── Backdrop (modal overlay) ── */
   --sl-color-backdrop-overlay: hsla(222 47% 11% / 0.5);
 
-  /* ── Status hues — Asides (callouts) consume these ── */
+  /* ── Status hues - Asides (callouts) consume these ── */
   /* Caution = coral (StemCounts CTA #FF6F61, doubles as warning hue). */
   --sl-color-orange-low: hsl(5 100% 96%);
   --sl-color-orange: hsl(5 100% 69%);
@@ -104,7 +104,7 @@
   --sl-color-blue-low: hsl(150 35% 95%);
   --sl-color-blue: hsl(155 56% 19%);
   --sl-color-blue-high: hsl(155 60% 12%);
-  /* Tip alternate = forest green — kill Starlight's default violet. */
+  /* Tip alternate = forest green - kill Starlight's default violet. */
   --sl-color-purple-low: hsl(150 35% 95%);
   --sl-color-purple: hsl(155 56% 19%);
   --sl-color-purple-high: hsl(155 60% 12%);
@@ -115,24 +115,24 @@
 }
 
 /* -------------------------------------------------------------------
- * Dark mode. Same convention — every --sl-* mapped explicitly. Gray
+ * Dark mode. Same convention - every --sl-* mapped explicitly. Gray
  * ramp is INVERTED from light:
  *   gray-1 = LIGHTEST (text)
  *   gray-7 = page bg
  * ------------------------------------------------------------------- */
 :root[data-theme="dark"] {
-  /* ── Gray scale (dark mode — LIGHTEST text → DARKEST surface) ── */
+  /* ── Gray scale (dark mode - LIGHTEST text → DARKEST surface) ── */
   --sl-color-white: hsl(0 0% 100%);
-  --sl-color-gray-1: hsl(210 20% 96%);  /* lightest — headings */
+  --sl-color-gray-1: hsl(210 20% 96%);  /* lightest - headings */
   --sl-color-gray-2: hsl(210 11% 80%);  /* body text */
   --sl-color-gray-3: hsl(215 14% 65%);  /* secondary muted */
   --sl-color-gray-4: hsl(215 14% 50%);  /* tertiary muted */
   --sl-color-gray-5: hsl(217 19% 27%);  /* hairlines on dark bg */
   --sl-color-gray-6: hsl(217 24% 17%);  /* subtle surface (sidebar) */
-  --sl-color-gray-7: hsl(222 47% 8%);   /* page bg — deep slate */
+  --sl-color-gray-7: hsl(222 47% 8%);   /* page bg - deep slate */
   --sl-color-black: hsl(222 47% 8%);
 
-  /* ── Brand accent — brighter green for contrast on dark ── */
+  /* ── Brand accent - brighter green for contrast on dark ── */
   --sl-color-accent-low: hsl(155 40% 14%);
   --sl-color-accent: hsl(150 40% 55%);
   --sl-color-accent-high: hsl(150 35% 92%);
@@ -157,7 +157,7 @@
   /* ── Backdrop ── */
   --sl-color-backdrop-overlay: hsla(222 47% 4% / 0.7);
 
-  /* ── Status hues — dark variants ── */
+  /* ── Status hues - dark variants ── */
   --sl-color-orange-low: hsl(5 60% 14%);
   --sl-color-orange: hsl(5 95% 72%);
   --sl-color-orange-high: hsl(5 100% 94%);
@@ -198,7 +198,7 @@
  * Component polish
  * ----------------------------------------------------------------- */
 
-/* Logo size — the StemCounts flower mark is square-ish (≈7:8). Sized
+/* Logo size - the StemCounts flower mark is square-ish (≈7:8). Sized
    to sit comfortably alongside the wordmark text. */
 .site-title img {
   max-height: 32px;
@@ -302,7 +302,7 @@ starlight-toc nav ul a[aria-current="true"] {
 
 /* ── Steps component ──
  * Strip the marker box entirely. Just a brand-coloured bold number
- * next to each step — cleaner and avoids the line-height misalignment
+ * next to each step - cleaner and avoids the line-height misalignment
  * that put numbers at the bottom of the old circle markers. */
 .sl-markdown-content ol.sl-steps > li::before {
   width: auto !important;
@@ -320,7 +320,7 @@ starlight-toc nav ul a[aria-current="true"] {
 .sl-markdown-content ol.sl-steps > li {
   padding-inline-start: 1.75rem !important;
 }
-/* Remove the vertical connector line — without anchor circles it has
+/* Remove the vertical connector line - without anchor circles it has
    nothing to attach to. */
 .sl-markdown-content ol.sl-steps {
   --sl-steps-line-color: transparent !important;
@@ -342,7 +342,7 @@ button[data-open-modal] {
 
 /* ── Hero LinkButton (homepage primary action) ──
  * Match shadcn Button defaults: h-10 (40px), px-4 (16px), font-medium,
- * rounded-md (6px). Background = coral CTA — consistent with the
+ * rounded-md (6px). Background = coral CTA - consistent with the
  * header Sign-in CTA. */
 .hero a.sl-link-button[data-variant="primary"] {
   height: 2.5rem;
@@ -443,4 +443,9 @@ button[data-open-modal] {
 }
 .sl-markdown-content h2 + h3 {
   margin-top: 1rem;
+}
+
+/* ── Phone screenshots: keep them phone sized, centred ── */
+.help-media[data-help-media-id*="-phone-"] {
+  max-width: 320px;
 }

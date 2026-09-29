@@ -1,6 +1,6 @@
 ---
-title: The Spares Bucket
-description: Where extra stems live for last-minute changes and breakage cover.
+title: The Spares bucket
+description: Where the stems that round a part bunch up to a whole one live. How stems get in, how to remove or move them, and why Add to Weekly Order is greyed out.
 sidebar:
   order: 7
 ---
@@ -8,55 +8,78 @@ sidebar:
 import { Aside } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-The **Spares Bucket** is an extra slot inside every event that holds
-stems not allocated to a specific arrangement. It's where you put cover
-for breakages, last-minute changes, and improvised additions on the day.
+Wholesalers sell in bunches. Your arrangements count stems. When the
+stems of a flower across an event do not come to whole bunches, the extra
+stems needed to complete the bunch go into **Spares**. Every event with
+arrangements has a Spares card, shown after your arrangements.
 
-<HelpMedia id="spares-bucket-on-event" caption="The Spares Bucket sits alongside arrangements on the event page" />
+<HelpMedia id="spares-bucket-on-event" caption="The Spares card on an event page, after the arrangements" />
 
-## Why it exists
+## The Summary panel
 
-A wedding's bridal bouquet might call for 18 roses. Two will get
-crushed in transit, one will look wrong on the day. If you ordered
-exactly 18, you're short. If you build "spares" into each arrangement,
-your budgets get distorted and you lose visibility on what's actually
-contingency.
+The **Summary** panel on the event page adds up each flower across every
+arrangement and Spares, including arrangement quantities, and compares
+the total with the bunch size.
 
-The Spares Bucket separates **planned stems** from **just-in-case
-stems** without messing up your arrangement budgets.
+- **Unrounded Bunches**: flowers that do not come to a whole number of
+  bunches. Each row has a red **Remove** button showing the extra stems,
+  and a teal **Add** button showing the stems needed to complete the
+  bunch.
+- **Rounded Bunches**: flowers that are whole bunches, with a tick.
 
-## How to use it
+**Add** puts the missing stems into Spares. **Remove** takes the extra
+stems back out of your arrangements. If a flower has no whole bunch at
+all, you are asked to confirm removing it from the event.
 
-Treat the Spares Bucket as its own pseudo-arrangement. You add flowers
-to it the same way you'd add to a normal arrangement:
+## How stems get into Spares
 
-1. Open the event
-2. Click **Pick Flowers** on the Spares Bucket card
-3. Add the stems you want as cover
-4. Save
+The Spares card has no **Pick Flowers** button. Stems get in three ways:
 
-The Spares Bucket has no budget — anything you add to it is over-and-above
-your arrangement budgets.
+- The **Add** button in the Summary's **Unrounded Bunches** table.
+- Dragging a flower from an arrangement onto Spares.
+- Automatically: when you change a flower's quantity in an arrangement
+  and that flower already has a spares line, the line is reset to exactly
+  what completes the bunch. If nothing is needed, it is removed.
 
-## What gets reported where
+## Removing or moving spare stems
 
-| | Arrangements | Spares Bucket |
-|---|---|---|
-| Counts toward arrangement budget | Yes | No |
-| Counts toward weekly order total | Yes | Yes |
-| Appears on the printable event sheet | Yes | Yes (separate section) |
-| Sent to the wholesaler | Yes | Yes |
+Quantities in Spares cannot be typed in. Each spare row has two small
+buttons instead:
 
-The wholesaler doesn't see the conceptual split — they receive the
-total stem count for the event. The split is purely for your
-budgeting and on-day fulfilment.
+- **X** (**Remove these stems from Spares**) removes that row outright.
+  The same **Undo** as other rows appears for five seconds before the
+  removal is saved.
+- The two-way arrows (**Reallocate these stems**) move the stems into your
+  arrangements. **Move spare stems into your arrangements** lists every
+  arrangement in the event. Use each card's stepper to set how many stems
+  go in, then click **Move N stems**. An arrangement that does not have
+  the flower yet can still receive it. For an arrangement made several
+  times (Qty above 1), stems move that many at a time, one into each.
+  Leftovers that cannot be placed stay in Spares.
 
-<Aside type="tip">
-Build a habit: 5–10% spares on every event. Cheaper than driving back
-to the wholesaler at 7am on a Saturday.
+After removing spares, that flower may no longer be whole bunches. Check
+the **Summary** panel before adding the event to the weekly order.
+
+## Spares and your budget
+
+Spares are ordered from the wholesaler with everything else and count
+towards the event's total spend. The event header's **Spent** includes
+them.
+
+## Why Add to Weekly Order is greyed out
+
+**Add to Weekly Order** takes you from the event to its weekly order,
+ready to send. It stays greyed out until every flower in the event's
+**Summary** is whole bunches. Hovering it says "Allocate all spares before
+adding to the weekly order." To fix it, clear the **Unrounded Bunches**
+table with **Add** or **Remove**. Bunch orders do not have this check.
+
+<Aside type="note">
+On a phone, the **Bunches** tab on an event shows the flowers still to
+round up, with minus and plus buttons.
 </Aside>
 
-## Adjusting spares after sending
+## After sending
 
-Spares can be edited up to the cut-off (same as the rest of the order).
-After the cut-off, contact your wholesaler directly to amend.
+Spares lock with the rest of the event when the order is sent. For a
+change after that, contact your wholesaler.

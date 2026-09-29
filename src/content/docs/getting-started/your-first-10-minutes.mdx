@@ -1,90 +1,119 @@
 ---
 title: Your first 10 minutes
-description: A florist-side quickstart from logging in to sending your first order.
+description: A florist quickstart from signing in to sending your first weekly order.
 sidebar:
   order: 5
 ---
 
-import { Steps, Aside } from "@astrojs/starlight/components";
+import { Steps, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-Brand new to StemCounts? Here's the shortest path from logging in to a
+Brand new to StemCounts? Here is the shortest path from signing in to a
 sent order. About 10 minutes start to finish.
 
 <Aside type="tip">
-This walkthrough is florist-focused. If you signed up as a wholesaler,
+This walkthrough is for florists. If you signed up as a wholesaler,
 read [The wholesaler landing page](/wholesalers/wholesaler-landing/) instead.
 </Aside>
 
-## The shortest happy path
+## The shortest path
 
 <Steps>
 
-1. **Log in** at [app.stemcounts.com](https://app.stemcounts.com).
+1. **Sign in** at [app.stemcounts.com](https://app.stemcounts.com).
 
-   You'll land on the florist dashboard. Three metrics at the top:
-   *Open Drafts*, *Events This Week*, *Revenue This Week*.
+   You land on the florist home page. Three figures sit at the top:
+   **Open Drafts**, **Events This Week** and **Revenue This Week**.
+   The first time, StemCounts may ask a few questions about your
+   business before you get there: see [The first time you sign
+   in](#the-first-time-you-sign-in).
 
 2. Click **New Order**.
 
-   <HelpMedia id="florist-landing-new-order-cta" />
+   <HelpMedia id="florist-landing-new-order-cta" caption="The New Order card on the florist home page" />
 
-   This opens the Add Event modal.
+   The **Add Event to Order** window opens with two pages: **Event
+   Order** (a named event, on a date, at a venue) and **Bunch Order**
+   (flowers by the bunch, no event). Stay on **Event Order**.
 
-3. Fill in:
+3. Fill in the event:
 
-   - **Event Name** — e.g. "Smith Wedding"
-   - **Event Date** — the day of the actual event (not the delivery date)
-   - **Event Location** — venue or address
+   - **Name**, for example "Smith Wedding"
+   - **Event Date**: the day of the event itself
+   - **Location**: the venue or address
+   - **Delivery / Pickup Date**: when you want the flowers
+   - **Preferred wholesaler** (optional)
 
-   Click **Save**. StemCounts will either add this event to an existing
-   weekly order (if you have a draft for that week) or create a new
-   draft.
+   Click **Add and Edit** to open the event straight away. StemCounts
+   puts it into your draft weekly order for that week, or starts a new
+   draft if there is none.
 
-4. Click **Add Arrangement** on the event detail page.
+4. Click **Add Arrangement** on the event page.
 
-   <HelpMedia id="event-add-arrangement" />
+   In **Add Arrangements**, give it a **Name** (for example "Bridal
+   bouquet"), a **Qty** and a **Budget** each. "All budget values are Ex
+   GST". Click **Add Arrangement**.
 
-   Give the arrangement a **name** (e.g. "Bridal bouquet") and a
-   **budget** in customer price excluding GST.
+5. Click **Add Flowers** at the top of the event page. In the Flower
+   Picker, search or filter by **Category**, **Colour** and **Season**,
+   and turn on **Similar shades** to widen a colour. Pick the colours
+   you want and click **Add Selections**. Back on the event page, set
+   the stems for each flower on the arrangement card.
 
-5. Click **Pick Flowers** inside your new arrangement.
+6. (Optional) Repeat steps 4 and 5 for the other arrangements in the
+   event: ceremony, reception, cake flowers and so on.
 
-   The Flower Picker opens. Use the **Category**, **Colour**, **Season**
-   filters or search. For each flower you want, choose a colour variant
-   and set the quantity in **stems**.
+7. (Optional) Add another event to the same week with **Add Event** on
+   the order page.
 
-   <HelpMedia id="flower-picker-quantity" kind="video" />
+8. Click **Add to Weekly Order** at the top of the event page. If a
+   flower does not fill whole bunches, the page asks you to round up and
+   place the spare stems first.
 
-   Click **Done** when you've finished.
-
-6. (Optional) Repeat steps 4–5 for any additional arrangements in the
-   same event — ceremony, reception, cake florals, etc.
-
-7. (Optional) Add another event to the same weekly order with **Add
-   another event** on the order details page.
-
-8. Send the order.
-
-   When everything looks right, send the weekly order to your wholesaler.
-   The order transitions from **Draft** to **Sent** and lands on their
-   Receive & Accept board.
-
-   <HelpMedia id="order-send-confirmation" />
+9. Send the order. In the order summary, click **Send Order**. The
+   **Send Assigned Orders** window lists each wholesaler with a delivery
+   date and how the flowers will get to you. Click **Send Order** to
+   confirm. The order moves from **Draft** to **Sent**, and each
+   wholesaler is told.
 
 </Steps>
 
+## The first time you sign in
+
+After you sign in, StemCounts may show a short set of steps about your
+business before you start, for example **Step 1 of 3: Your ABN**.
+
+- **Your ABN** appears if your business has no ABN saved. Search the
+  Australian Business Register by **Business name, ABN or ACN**, select
+  your business and click **Save and continue**. You can click **Skip
+  for now**, and you will be asked again in a later session.
+- **Your details** asks for anything missing, such as **Business
+  address**, **Phone**, **Contact email** (where order emails from
+  wholesalers go), **Website** and **Best way to reach you**. Fill in
+  what you can. Anything you skip is asked about again in ten days.
+
+<Tabs syncKey="device">
+  <TabItem label="Computer">
+    <HelpMedia id="login-gate-desktop-01-abn-step" caption="After signing in, a short set of steps: Step 1 of 3: Your ABN. Choose your ABN and Save and continue, or Skip for now." />
+  </TabItem>
+  <TabItem label="Phone">
+    <HelpMedia id="login-gate-phone-01-abn-step" caption="After signing in, a short set of steps: Step 1 of 3: Your ABN. Choose your ABN and Save and continue, or Skip for now." />
+  </TabItem>
+</Tabs>
+
 ## What happens next
 
-Once sent, your order moves through fulfilment. You'll see the status
-change in the Orders list:
+Your order moves through fulfilment. You see the status change on the
+**Orders** page:
 
 | Status | Means |
 |---|---|
-| **Sent** | Your wholesaler has the order; not yet accepted |
-| **Accepted** | They've accepted; they're sourcing the stems |
-| **Supply Confirmed** | All flowers confirmed by suppliers |
-| **Ready** | Flowers are ready for pickup or delivery |
-| **Complete** | Delivered. Payment captured. |
+| **Sent** | Your wholesaler has the order and has not accepted it yet |
+| **Accepted** | They have accepted it and are sourcing the stems |
+| **Supply Confirmed** | They have confirmed what they can supply |
+| **Ready** | Your wholesaler has packed the order |
+| **Complete** | Delivered |
 
-Full detail on tracking is in [Tracking your order](/florists/tracking-your-order/).
+If a wholesaler cannot supply a flower, or offers a substitute or fewer
+stems, the order asks you to respond. Full detail is in [Tracking your
+order](/florists/tracking-your-order/).

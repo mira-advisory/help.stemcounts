@@ -1,0 +1,157 @@
+---
+title: Confirming supply
+description: Confirm Order on Tier 2, or confirm flower by flower with a supplier on Tier 3. Can't Supply, substitutes, partial quantities and unavailable flowers.
+sidebar:
+  order: 5
+---
+
+import { Steps, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+Once an order is **Accepted**, the next step is to confirm you can
+supply it. How you do that depends on your tier. The line under the
+order reference tells you what to do.
+
+<Tabs>
+  <TabItem label="Tier 2: Confirm Order">
+    The order says **Confirm this order when supply is locked in. Use
+    Actions on a flower only if something changes.**
+
+    Every flower is accepted with the order, so there is no per-flower
+    confirm. The Inventory List shows them under **Accepted**.
+
+    <Steps>
+
+    1. Lock in your supply the way you normally do.
+
+    2. If there is a flower you cannot supply as ordered, open
+       **Actions** on that line first (see below).
+
+    3. Click **Confirm Order**. The order moves to **Supply
+       Confirmed** and the florist is notified.
+
+    </Steps>
+
+    After that, the order says **Order confirmed. Mark delivered once
+    pickup or delivery is complete.** See
+    [Packing and delivery](/wholesalers/packing-and-delivery/).
+  </TabItem>
+  <TabItem label="Tier 3: confirm each flower">
+    The order says **Confirm supply for each flower below. Flag anything
+    you can't supply.**
+
+    Each flower line in the **Inventory List** has a supplier dropdown.
+    It lists the suppliers you have added in
+    [Settings > Suppliers](/wholesalers/suppliers/), plus **Not
+    applicable** for a flower you supply from your own stock.
+
+    <Tabs syncKey="device">
+      <TabItem label="Computer">
+        <HelpMedia id="confirm-supply-desktop-01-inventory-list" caption="The Inventory List on an accepted order: every flower line with a supplier dropdown, and in the header Set supplier for all and Confirm All." />
+        <HelpMedia id="confirm-supply-desktop-03-line-supplier-open" caption="Or choose a supplier line by line: the dropdown lists your suppliers and Not applicable." />
+      </TabItem>
+      <TabItem label="Phone">
+        <HelpMedia id="confirm-supply-phone-01-order-confirm-supply" caption="An accepted order on a phone: the button at the bottom reads Confirm supply." />
+        <HelpMedia id="confirm-supply-phone-02-flowers-sheet" caption="The Flowers sheet holds the same list as the desktop. Swipe it sideways to reach each line's buttons." />
+        <HelpMedia id="confirm-supply-phone-03-flowers-sheet-buttons" caption="Swiped across: each line's supplier dropdown, then Confirm and Can't Supply once a supplier is chosen." />
+      </TabItem>
+    </Tabs>
+
+    <Steps>
+
+    1. Choose a supplier on the line. Once one is chosen, the line
+       shows **Confirm** and **Can't Supply**.
+
+    2. Click **Confirm**. The line locks and moves under **Confirmed**.
+
+       <HelpMedia id="confirm-supply-desktop-04-line-confirm-cant-supply" caption="With a supplier chosen the line shows Confirm and Can't Supply. Click Confirm when you can supply it as ordered." />
+
+    3. Repeat for each flower. To go faster, use **Set supplier for
+       all** in the header to apply one supplier to every open line,
+       then **Confirm All** to confirm them together.
+
+       <HelpMedia id="confirm-supply-desktop-02-set-supplier-for-all-open" caption="Open Set supplier for all to give every line the same supplier in one go, or Not applicable if you supply it yourself." />
+
+    4. When every flower is confirmed (or marked unavailable), the
+       order moves to **Supply Confirmed** on its own and the florist
+       is notified.
+
+       <HelpMedia id="confirm-supply-desktop-08-supply-confirmed-order" caption="Once every line is confirmed the order moves to Supply Confirmed and the next step is packing." />
+
+    </Steps>
+
+    **Save and Close** keeps what you have done so far and returns you
+    to the orders page. Come back any time to finish the rest.
+  </TabItem>
+</Tabs>
+
+<Aside type="note">
+StemCounts does not send anything to your suppliers. Choosing a
+supplier records where that flower is coming from, so the supplier name
+shows against the line for the rest of the order. You place the order
+with your supplier the way you always have, then come back and click
+**Confirm**.
+</Aside>
+
+## When you cannot supply a flower
+
+Open **Can't Supply** (Tier 3) or **Actions** (Tier 2) on the flower
+line. The line expands with **What would you like to offer for
+[flower]?** and three choices:
+
+| Choice | What it does |
+|---|---|
+| **Offer Substitutes** | Search your own stock and add up to five alternatives. Each needs a flower, a colour, a stem quantity and a price per bunch. The florist picks one or declines them all |
+| **Partial Quantity** | Enter how many stems you can supply. It must be at least one bunch, in whole bunches, and fewer than were ordered. It is priced at your current price for that flower |
+| **Unavailable** | The flower is removed from the order and the order total goes down. The florist does not have to do anything |
+
+<HelpMedia id="confirm-supply-desktop-05-cant-supply-offer-substitutes" caption="Click Can't Supply and choose what to offer: Offer Substitutes lets you pick up to five flowers from your inventory for the florist to choose from." />
+
+<HelpMedia id="confirm-supply-desktop-06-cant-supply-partial-quantity" caption="Partial Quantity: say how many stems you can supply, counted in your bunch size." />
+
+<HelpMedia id="confirm-supply-desktop-07-cant-supply-unavailable" caption="Unavailable: the flower is removed from the order and the florist is told. Nothing is sent until you submit the offer." />
+
+Add a **Note to florist (optional)** if it helps, for example "Out of
+season until June". Then click **Send to Florist**, or **Confirm
+Cancellation** for an unavailable flower.
+
+The florist is told in the app and by email. A change covers the whole
+line: every arrangement on the order that uses that flower, colour and
+length.
+
+## Awaiting Florist
+
+After you offer substitutes or a partial quantity, the line shows
+**Awaiting Florist** and sits under **Awaiting Florist Response** in the
+Inventory List. There is nothing for you to do while the florist
+reviews your offer. You will be notified when they answer: **Substitute
+selected**, or **Substitute options declined** (the line is then
+removed).
+
+While any flower is waiting, the order cannot move on. The order button
+reads **Awaiting Florist** until the florist responds. An
+**Unavailable** flower does not hold the order up, because it is removed
+straight away.
+
+<Aside type="tip">
+If a florist is slow to answer, [order chat](/wholesalers/order-chat/)
+reaches them on the order itself.
+</Aside>
+
+## Confirming a whole week at once (Tier 3)
+
+On the Board, drag a week's banner from **Accepted** to **Supply
+Confirmed**. The week's **Accepted Workflow** opens with a **Flower
+Requirements** table that combines each flower and colour across the
+week's orders, with **Flower**, **Colour**, **Stem / Bunches**,
+**Supplier** and **Status**. Tick lines (or **Select All**), use **Set
+supplier for selected**, then set each line's status to confirmed.
+**Save and Close** keeps your progress. The **Supply Confirmed** button
+appears once every line has a supplier and is confirmed.
+
+## On a phone
+
+On an accepted Tier 3 order the big button reads **Confirm supply** and
+opens the **Flowers** sheet. Swipe a flower's row sideways for its
+buttons. On Tier 2 the big button is **Confirm order**, and **Cannot
+supply a flower** under **More** opens the same sheet.

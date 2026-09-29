@@ -1,6 +1,6 @@
 ---
 title: Finding your way around
-description: A quick tour of the StemCounts app shell — header, navigation, user menu.
+description: A quick tour of the StemCounts screen on a computer, from the header and your name menu to Settings, the trial banner and the chat button.
 sidebar:
   order: 4
 ---
@@ -8,66 +8,98 @@ sidebar:
 import { Aside, Card, CardGrid } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-The same chrome wraps every page in StemCounts. Once you know what each
-piece does, the app stops feeling new.
+The same frame wraps every page in StemCounts. Once you know what each
+piece does, the app stops feeling new. This guide is the computer view.
+On a phone the layout is different, see [StemCounts on your
+phone](/getting-started/the-phone-app/).
 
-<HelpMedia id="app-shell-overview" kind="video" caption="A quick tour of the StemCounts header and navigation" />
+<HelpMedia id="phone-shell-phone-01-home" caption="Home on a phone: the tab bar along the bottom has Home, Orders, the raised New order, Search and Chat." />
 
 ## The header
 
-The sticky header at the top of every page has three parts:
+The header stays at the top of every page.
 
-- **Left** — the StemCounts logo (clicking it sends you to your
-  landing page) and the **Orders** dropdown
-- **Middle** — search (planned)
-- **Right** — your user avatar and menu
+- **Left**: the StemCounts logo. Click it to go back to your home page.
+- **Right**: any actions for the page you are on, the **Notifications**
+  bell, and your name with your role under it. Click your name to open
+  your menu.
 
-## The Orders dropdown
+## Your name menu
 
-Both roles see an **Orders** dropdown in the header, but the items
-differ a little. Both have three workflow stages:
+<HelpMedia id="user-menu-open" caption="The menu under your name at the top right: Settings, Sign Out, What's new and the version line, with the Notifications bell beside it" />
 
-- **Receive and Accept** — florists see incoming confirmations, wholesalers see new orders
-- **Assign and Send** — florists see orders being processed, wholesalers see supplier assignment
-- **Confirmed and Ready** — items ready for the next step
+The menu has three items and a version line:
 
-For full detail on these stages, see [Tracking your order](/florists/tracking-your-order/)
-(florist view) or [The Order Board](/wholesalers/the-order-board/)
-(wholesaler view).
+- **Settings**: your profile, your organisation, and the ordering
+  screens for your role.
+- **Sign Out**.
+- **What's new**: the list of recent changes to StemCounts. The small
+  grey line under it is the version you are running. If you ever need
+  help, the team may ask for that number.
 
-## Your user menu
+There is no separate Account page. Your subscription and billing live in
+**Settings** under **Your Organisation**.
 
-Click your **avatar circle** in the top-right to open the user menu.
+## Settings
 
-<HelpMedia id="user-menu-open" />
+Settings has a sidebar grouped by job. Everyone sees **You**, holding
+**Your Profile** (your name, contact details and password) and **Your
+Organisation** (your business details, trading areas, payment setup and,
+for florists, the subscription). Under **Ordering**, florists see
+**Favourite Arrangements** and **Explore Flowers**, and wholesalers see
+**Suppliers**.
 
-Every user sees:
+- [Profile and notifications](/billing/profile-and-notifications/)
+- [Your organisation](/billing/your-organisation/)
+- [Your StemCounts subscription](/billing/subscription/)
 
-- **Settings** — your profile, organisation, notifications
-- **Sign out**
+## Your home page
 
-Florists also see:
+Florists land on the florist home page: three figures for the week and
+tiles for **Orders**, **New Order**, **Invoices**, **Explore Flowers**,
+**Settings** and **Help guides**. Wholesalers land on the wholesaler home
+page with **Order Summary**, **Order Board**, **Invoices**, **Inventory
+Management**, **Settings** and **Help guides**. **Help guides** opens this
+site in a new tab.
 
-- **Account** — your subscription and billing
+Florists' **Orders** page has two views, **Calendar** and **Order
+Board**, switched at the top of the page.
 
-## Trial banner (florists only)
+## The trial banner (florists only)
 
-While you're on the free trial, a banner stays pinned at the top of the
-page showing **"X days left in your trial"** with a **Subscribe to
-StemCounts** button. The countdown updates daily. After the trial ends,
-the banner is replaced by a hard block until you subscribe — see
-[Trial and blocked access](/billing/trial-and-blocked-access/).
+While your organisation is on its free trial, a banner sits under the
+header on every page. It reads **"X days left in your trial"** with
+"Subscribe now to keep full access to StemCounts after your trial
+ends." and a **Subscribe to StemCounts** button, which takes you to the
+**Subscription** section of **Your Organisation**. Once you subscribe,
+the banner goes away. When the trial ends without a subscription, see
+[Trial and paused access](/billing/trial-and-blocked-access/).
+
+## The chat button
+
+The round chat button at the bottom right of every page opens the
+StemCounts chat. Its header reads **Chatting with Stems Bot**. Type your
+question in your own words, for example "how do I round up bunches",
+and it answers from these help guides. If it cannot help, it offers to
+pass you to the team, and you can email **support@stemcounts.com** at any
+time.
+
+<Aside type="note">
+Now and then, after you sign in, a small **Did you know?** card offers
+one tip. **Show me** opens the matching guide, **Ask more** puts the
+question to the chat, and **Stop tips at sign-in** turns the cards off.
+See [What's new and updates](/getting-started/whats-new-and-updates/).
+</Aside>
 
 ## What's next
 
 <CardGrid>
-  <Card title="If you're a florist">
+  <Card title="If you are a florist">
     Start with [Your first 10 minutes](/getting-started/your-first-10-minutes/),
-    a quick walkthrough from logging in to sending your first order.
+    a walkthrough from signing in to sending your first order.
   </Card>
-  <Card title="If you're a wholesaler">
+  <Card title="If you are a wholesaler">
     Read [The wholesaler landing page](/wholesalers/wholesaler-landing/)
-    next — it covers the Order Board, the Order Summary, and how to switch
-    between calendar and Kanban views.
+    next. It covers the Order Board and the Order Summary.
   </Card>
 </CardGrid>

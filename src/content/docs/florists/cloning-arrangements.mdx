@@ -1,6 +1,6 @@
 ---
 title: Cloning arrangements
-description: Duplicating a design so you don't rebuild it twice.
+description: Copy a design inside an event so you do not rebuild it, or delete one. The More actions menu on an arrangement card.
 sidebar:
   order: 8
 ---
@@ -8,10 +8,11 @@ sidebar:
 import { Steps, Aside } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-If two arrangements share most of their flowers — e.g. five identical
-centerpieces — clone instead of rebuilding.
+If two arrangements share most of their flowers, clone one instead of
+rebuilding it. Clone works within the same event, and only while the
+order is a draft.
 
-<HelpMedia id="arrangement-3-dot-menu" caption="The 3-dot menu on an arrangement card" />
+<HelpMedia id="arrangement-3-dot-menu" caption="The More actions menu on an arrangement card" />
 
 ## How to clone
 
@@ -19,53 +20,40 @@ centerpieces — clone instead of rebuilding.
 
 1. Open the event with the arrangement you want to copy.
 
-2. Click the **3-dot menu** on the arrangement card (top-right of the
-   card).
+2. Click the three dots on the arrangement card (**More actions**).
 
-3. Click **Clone**.
+3. Click the copy icon (**Clone**).
 
-   <HelpMedia id="arrangement-clone-action" kind="video" />
+4. A new arrangement called "[name] (Copy)" appears after your other
+   arrangements. It has the same **Qty**, budget and flower list with the
+   same quantities.
 
-4. A new arrangement appears immediately below the original. By default
-   it copies:
-
-   - The full flower list (every stem, every colour, every quantity)
-   - The budget
-   - The quantity
-
-5. Click the new arrangement to rename it and adjust budget or
-   quantity if needed. Then **Pick Flowers** to tweak the stem list.
+5. Click the copy's name to rename it, and adjust **Qty**, budget or
+   flowers as you would on any card.
 
 </Steps>
 
-## What clone copies vs not
+## What clone copies
 
 | Copied | Not copied |
 |---|---|
-| Flower list | Substitutions you've requested |
-| Budget | Photos / files attached |
-| Quantity | Notes that reference the original by name |
+| The flower list, with quantities | Per-flower markup overrides |
+| The budget | Chosen stem lengths |
+| **Qty** | |
 
-## Cloning across events
+## Reusing a design on another event
 
-Cloning works **within** an event. To copy a design to a different
-event in another week:
-
-1. Clone the arrangement (in the original event)
-2. Open the destination event
-3. Manually recreate the arrangement using the cloned one as a reference
-   (or use **Add Arrangement** with the same name and rebuild)
-
-There's no cross-event clone today.
-
-<Aside type="tip">
-If you regularly run a "house" arrangement (always the same composition),
-build it once and clone it each week. Faster than rebuilding from scratch.
-</Aside>
+Clone stays inside one event. To use a design on a different event, in
+any week, save it as a favourite: the star in the same menu, **Save as
+favourite (with its flowers)**. Then fill an empty arrangement on the other
+event with **Fill with a Favourite**. See
+[Favourite arrangements](/florists/favourites/).
 
 ## Deleting
 
-The same 3-dot menu has a **Delete** option. Deletes are confirmed and
-not recoverable — the arrangement and its stem list are gone. The
-flowers freed up are not auto-added back to the Spares Bucket; the
-budget is freed.
+The same menu has a bin icon (**Delete**). **Delete arrangement** asks you
+to confirm, and if the arrangement has flowers it says they will be
+deleted with it. The action cannot be undone.
+
+You can only delete while the order is a draft. After sending, the window
+says the arrangement cannot be deleted because the order has been sent.

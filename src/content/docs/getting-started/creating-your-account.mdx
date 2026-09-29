@@ -1,6 +1,6 @@
 ---
 title: Creating your account
-description: Sign up as a florist or a wholesaler, verify your phone, and log in for the first time.
+description: Pick your role, enter your details, find or create your organisation, verify your email, and sign in for the first time.
 sidebar:
   order: 2
 ---
@@ -8,74 +8,139 @@ sidebar:
 import { Steps, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-Signing up is a three-step process: **pick your role**, **fill in your
-details**, **verify your phone**.
+Signing up takes a few minutes: **pick your role**, fill in **Your
+details**, choose **Your Organisation**, then **verify your email**.
 
-<HelpMedia id="signup-flow-overview" kind="video" />
-
-## Step-by-step
+## Step by step
 
 <Steps>
 
 1. Go to **[app.stemcounts.com](https://app.stemcounts.com)** and click
-   **Sign up**.
+   **Create an account** under the sign-in form.
 
 2. Choose your role:
 
-   - **Florist** — "Create and manage flower orders"
-   - **Wholesaler** — "Review and fulfil florist orders"
+   - **Florist**: "Create and manage flower orders."
+   - **Wholesaler**: "Review and fulfil florist orders."
 
-   <HelpMedia id="signup-role-selection" caption="Florist vs Wholesaler role picker" />
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="signup-desktop-01-role-picker" caption="Choose Florist or Wholesaler to start creating your account." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="signup-phone-01-role-picker" caption="Choose Florist or Wholesaler to start creating your account." />
+     </TabItem>
+   </Tabs>
 
    <Aside type="caution">
-   You can't change this later without contacting support. Pick the role
-   that matches your business.
+   Only the StemCounts team can change your role later. Pick the one
+   that matches your business. Already have an account? Click **Oops I
+   have an account** to go back to sign in.
    </Aside>
 
-3. Fill in the form:
+3. Fill in **Your details**:
 
-   - First name, last name
-   - **Organisation name** — your business or shop name
-   - Email and phone number (Australian numbers default to +61)
-   - Password — minimum 8 characters, must include an uppercase letter,
-     a lowercase letter, and a number
+   - **First Name** and **Last Name**
+   - **Email**: this is how you sign in
+   - **Phone Number**: the country picker defaults to Australia (+61),
+     and a leading 0 is dropped for you
+   - **Password** and **Confirm Password**
 
-4. Click **Create Account**. You'll see "Creating Account..." briefly,
-   then be redirected to the OTP verification screen.
+   Click **Continue →**. If you picked the wrong role, **Back to Role
+   Selection** takes you back a step.
 
-5. Check your phone for a **6-digit code** and enter it.
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="signup-desktop-02-your-details" caption="Step 1, Your details: your name, email, mobile number and a password, then Continue." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="signup-phone-02-your-details" caption="Step 1, Your details: your name, email, mobile number and a password, then Continue." />
+     </TabItem>
+   </Tabs>
 
-   <HelpMedia id="signup-otp-screen" caption="OTP entry — the code arrives by SMS to the phone you registered with" />
+4. Choose **Your Organisation**. Type at least two letters of your
+   business name into **Search for your organisation…**.
 
-   - Didn't receive it? Click **Resend OTP**.
-   - The code is single-use and expires after a few minutes.
+   - If your business is already on StemCounts, pick it from the list.
+     You will see "Joining existing organisation" with the current
+     member count. Everyone in the same organisation shares its business
+     details and its subscription.
+   - If it is not there, choose **Create "[name]" as a new
+     organisation**. A new organisation also asks for a **PayID Email**,
+     the business email payers will use to send money to your
+     organisation. Click **Use my email** to reuse your sign-up email,
+     or **Use a different email**.
 
-6. On success you'll see **"Registration successful! Logging you in..."**
-   and be redirected to your landing page after about 2 seconds.
+   Click **Create Account**.
+
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="signup-desktop-03-your-organisation-search" caption="Step 2, Your Organisation: type your business name under Organisation Name and pick it from the list if it is already on StemCounts." />
+       <HelpMedia id="signup-desktop-04-your-organisation-create-new" caption="Not listed? Choose Create ... as a new organisation, then set the PayID Email payers will use, and press Create Account." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="signup-phone-03-your-organisation-search" caption="Step 2, Your Organisation: type your business name under Organisation Name and pick it from the list if it is already on StemCounts." />
+       <HelpMedia id="signup-phone-04-your-organisation-create-new" caption="Not listed? Choose Create ... as a new organisation, then set the PayID Email payers will use, and press Create Account." />
+     </TabItem>
+   </Tabs>
+
+5. Verify your email. The **Verify Your Account** screen says "Enter
+   the 6-digit code we emailed to" your address. Type the code into
+   **Verification code** and click **Verify**.
+
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="signup-desktop-05-verify-code" caption="Verify Your Account: enter the 6 digit code we emailed you and press Verify. Resend code sends another." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="signup-phone-05-verify-code" caption="Verify Your Account: enter the 6 digit code we emailed you and press Verify. Resend code sends another." />
+     </TabItem>
+   </Tabs>
+
+   Nothing arrived? Check your spam folder, then click **Resend code**.
+
+6. On success you see **"Registration successful! Logging you in..."**
+   and you are signed in.
 
 </Steps>
+
+## Password rules
+
+Use at least 8 characters, with an uppercase letter, a lowercase letter
+and a number. Adding a symbol is a good idea too. If something is
+missing, the form says "Password must contain:" followed by what is
+missing, and "Passwords do not match" if the two entries differ.
 
 ## What happens next
 
 <Tabs>
   <TabItem label="Florist">
-    You land on the **florist dashboard** with your **30-day free trial**
-    activated. You'll see a trial countdown banner at the top of the app
-    until you subscribe. See [Your StemCounts subscription](/billing/subscription/)
-    for next steps.
+    You land on the florist home page with your **7-day free trial**
+    running. A banner across the top shows how many days are left until
+    you subscribe. See [Your StemCounts subscription](/billing/subscription/)
+    and [The florist landing page](/florists/florist-landing/).
   </TabItem>
   <TabItem label="Wholesaler">
-    You land on the **wholesaler dashboard** showing the Order Board and
-    Order Summary. The Order Board starts empty — orders arrive as
-    florists send them. See [The wholesaler landing page](/wholesalers/wholesaler-landing/).
+    You land on the wholesaler home page with tiles for **Order Summary**,
+    **Order Board**, **Invoices**, **Inventory Management**, **Settings**
+    and **Help guides**. The board starts empty and fills as florists
+    send you orders. See [The wholesaler landing page](/wholesalers/wholesaler-landing/).
   </TabItem>
 </Tabs>
+
+## Signing in
+
+Enter your **Email** and **Password** on the **Sign In** screen and
+click **Sign In**. To sign out, open the menu under your name at the
+top right and click **Sign Out**.
 
 ## Troubleshooting
 
 | Problem | Fix |
 |---|---|
-| "Account not verified. Please check your phone for OTP." | Go to OTP verify directly via the link in the error, or request a new code. |
-| OTP never arrives | Wait 60 seconds, then click **Resend OTP**. If still nothing, check your number is correct on the previous screen. |
-| "First name is required" / "Passwords do not match" | Inline form validation. The red message points at the field with the problem. |
-| Password rejected | Must be 8+ chars, with uppercase, lowercase, and a number. |
+| "Invalid email or password" | Check both. This message also appears if the account was never verified with the emailed code. Try **Forgot password?**, and if you never finished verification, email support@stemcounts.com. |
+| The code never arrives | Check spam, then click **Resend code**. Make sure the email shown on the screen is yours. |
+| "That code is not correct. Please check and try again." | Type the newest code you were sent. |
+| "That code has expired. Please request a new one." | Click **Resend code** and use the new one. |
+| "Too many attempts. Please wait a few minutes and try again." | Wait a few minutes, then try once more. |
+| Your teammate created a second organisation with your business name | Email support@stemcounts.com and the team will move them across. |

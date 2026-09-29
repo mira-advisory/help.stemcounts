@@ -1,41 +1,43 @@
 ---
 title: Account & billing
-description: Manage your StemCounts profile, organisation, and subscription.
+description: Your profile, your organisation, and the florist subscription, all under Settings.
 sidebar:
   order: 0
 ---
 
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-Your account is split into **Settings** (profile, organisation,
-notifications) and **Account** (subscription, payment, billing portal).
-Florists need an active subscription to use StemCounts; wholesalers
-don't.
+Everything about your account lives in **Settings**, under **You**:
+**Your Profile** (your own details and notifications) and **Your
+Organisation** (your business details and, for florists, the
+**Subscription** section). There is no separate Account page. Florists
+need an active trial or subscription to use StemCounts; wholesalers do
+not.
 
 <CardGrid>
   <LinkCard
     title="Profile and notifications"
-    description="Your name, email, phone, password, and notification toggles."
+    description="Your name, mobile, contact details, password, and the Order emails and sign-in tips switches."
     href="/billing/profile-and-notifications/"
   />
   <LinkCard
     title="Your organisation"
-    description="Company name, ABN, address, reference prefix, and retail markup."
+    description="Business name, logo, ABN, order prefix, retail markup, address, trading areas and business type."
     href="/billing/your-organisation/"
   />
   <LinkCard
     title="Your StemCounts subscription"
-    description="What the subscription unlocks, how the trial works, and how to subscribe."
+    description="The 7-day trial, the 6 and 12 month plans, how to subscribe, statuses and receipts."
     href="/billing/subscription/"
   />
   <LinkCard
     title="Managing your subscription"
-    description="The Stripe customer portal: change plan, update card, cancel."
+    description="Update your card, cancel, failed payments and the 7-day grace period."
     href="/billing/managing-subscription/"
   />
   <LinkCard
-    title="Trial and blocked access"
-    description="When your trial ends, what you see, and how to restore access."
+    title="Trial and paused access"
+    description="What you see when the trial ends, and how to restart access."
     href="/billing/trial-and-blocked-access/"
   />
 </CardGrid>

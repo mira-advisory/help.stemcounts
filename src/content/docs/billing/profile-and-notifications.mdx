@@ -1,91 +1,121 @@
 ---
 title: Profile and notifications
-description: Your name, email, phone, password, and notification toggles.
+description: Your Profile in Settings, your name, mobile, contact details and password, and the Order emails and sign-in tips switches.
 sidebar:
   order: 1
 ---
 
-import { Steps, Aside } from "@astrojs/starlight/components";
+import { Steps, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-Personal settings live in **Settings → Personal**. This is where you
-keep your name, contact details, and how we get in touch with you.
+Your own details live in **Settings** under **Your Profile**. Open the
+menu under your name at the top right, click **Settings**, then **Your
+Profile**. This is where you keep your name and contact details, and
+how StemCounts gets in touch with you.
 
-<HelpMedia id="settings-personal-tab" caption="Personal settings tab" />
+<Tabs syncKey="device">
+  <TabItem label="Computer">
+    <HelpMedia id="settings-profile-desktop-01-profile-list" caption="Your Profile is a list: Name, Email, Mobile, your contact details, Notifications and Password. Tap a row to change it." />
+  </TabItem>
+  <TabItem label="Phone">
+    <HelpMedia id="settings-profile-phone-01-profile-list" caption="Your Profile is a list: Name, Email, Mobile, your contact details, Notifications and Password. Tap a row to change it." />
+  </TabItem>
+</Tabs>
 
-## What's editable
+## How the screen works
 
-| Field | Notes |
+Everything reads as a list of rows. Click a row to open a small sheet
+for that one thing, change it and save. Switches save the moment you
+flip them. On success you see **"Saved"**; if something goes wrong you
+see **"Could not save. Please try again."**
+
+<Tabs syncKey="device">
+  <TabItem label="Computer">
+    <HelpMedia id="settings-profile-desktop-02-name-sheet" caption="Tap Name to open Your name: change First name or Last name and press Save." />
+  </TabItem>
+  <TabItem label="Phone">
+    <HelpMedia id="settings-profile-phone-02-name-sheet" caption="Tap Name to open Your name: change First name or Last name and press Save." />
+  </TabItem>
+</Tabs>
+
+## What is on the page
+
+| Group | Rows |
 |---|---|
-| First name | |
-| Last name | |
-| Email | Used for login and notifications |
-| Phone number | Used for OTP and account recovery; format with country code |
-| Password | See [Change your password](#change-your-password) below |
-| Email notifications | Toggle on/off |
+| **Account** | **Name**, **Email**, **Mobile** |
+| **Contact and social** | **Website**, **Best way to reach you**, and your Instagram, Facebook, TikTok and LinkedIn handles. All optional. |
+| **Notifications** | **Order emails**, **Tips when you sign in** |
+| **Security** | **Password** |
+
+## Your email cannot be changed here
+
+Your **Email** is shown but not editable. The screen says: "Your email
+is how you sign in. To change it, ask the StemCounts team." Email
+**support@stemcounts.com** from your current address with the new one
+you want to use. Your **Name** and **Mobile** you can change yourself.
 
 ## Change your password
 
 <Steps>
 
-1. Go to **Settings → Personal**.
+1. In **Your Profile**, click **Password** under **Security**.
 
-2. Scroll to the **Password change** section.
+2. The **Change password** sheet asks for your **Current password**,
+   your **New password** and **Confirm new password**. The new one needs
+   at least 8 characters, with upper and lower case letters, a number
+   and a symbol.
 
-3. Enter:
-   - Current password
-   - New password (minimum 6 characters)
-   - Confirm new password (must match)
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="settings-profile-desktop-03-change-password-sheet" caption="Change password asks for your Current password, a New password and to Confirm new password, then Update password." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="settings-profile-phone-03-change-password-sheet" caption="Change password asks for your Current password, a New password and to Confirm new password, then Update password." />
+     </TabItem>
+   </Tabs>
 
-4. Click **Save**.
-
-5. On success: **"Password updated successfully!"** toast. The session
-   stays logged in.
+3. Click **Update password**.
 
 </Steps>
 
-<Aside type="caution">
-The password change form requires your **current password** for
-security. If you've forgotten it, use [Forgot your
-password](/getting-started/forgot-password/) instead.
-</Aside>
+If the current password is wrong, the change is refused and you are
+told so. If you cannot remember it, sign out and use **Forgot
+password?** on the sign-in screen instead. See [Forgot your
+password](/getting-started/forgot-password/).
 
-## Email notifications
+## Order emails
 
-A single toggle controls all email notifications from StemCounts.
+The **Notifications** group has an **Order emails** switch, described as
+"New orders, changes and updates from your wholesalers." Turn it on or
+off and it saves straight away. It is a switch for your own account:
+each person in your organisation sets their own.
 
-When **on**, you receive emails for:
-
-- **Florists**: order accepted, supply confirmed, order ready,
-  subscription / billing events
-- **Wholesalers**: new incoming order, supplier confirmation, system
-  alerts
-
-When **off**, no transactional emails are sent. Critical billing
-emails (failed payment, cancellation notices) may still arrive because
-they're required by Stripe.
+<Tabs syncKey="device">
+  <TabItem label="Computer">
+    <HelpMedia id="settings-profile-desktop-04-notifications-switch-row" caption="Under Notifications, Order emails is a switch: flick it and it saves at once." />
+  </TabItem>
+  <TabItem label="Phone">
+    <HelpMedia id="settings-profile-phone-04-notifications-switch-row" caption="Under Notifications, Order emails is a switch: flick it and it saves at once." />
+  </TabItem>
+</Tabs>
 
 <Aside type="note">
-Per-channel notification controls (e.g. mute specific notification types)
-aren't available today — it's a single on/off toggle.
+Subscription receipts are emailed regardless of this switch.
 </Aside>
 
-## What's not on this tab
+## Tips when you sign in
 
-- **Organisation** info (company name, ABN, address) → Settings →
-  Organization. See [Your organisation](/billing/your-organisation/).
-- **Subscription** → Account page. See [Your StemCounts
-  subscription](/billing/subscription/).
-- **Team members / sub-users** → not yet supported in the UI; contact
-  support to add.
+Now and then, after you sign in, a small **Did you know?** card offers
+one tip about StemCounts. The **Tips when you sign in** switch turns
+those cards on and off. See [What's new and
+updates](/getting-started/whats-new-and-updates/) for what the card does.
 
-## Saving and errors
+## What is not on this page
 
-| State | What you see |
-|---|---|
-| Save success | "Settings saved successfully!" toast |
-| Save error | "Failed to save settings. Please try again." toast |
-| Missing user data | "No user data available" error |
-
-If saves consistently fail, try a hard refresh (Ctrl+Shift+R / Cmd+Shift+R)
-to reload your session.
+- **Business details** (name, ABN, address, logo): **Your Organisation**.
+  See [Your organisation](/billing/your-organisation/).
+- **Subscription**: the **Subscription** section of **Your
+  Organisation**. See [Your StemCounts subscription](/billing/subscription/).
+- **Team members**: there is no invite button. Each person creates
+  their own account and picks your organisation at sign-up. See
+  [Creating your account](/getting-started/creating-your-account/).

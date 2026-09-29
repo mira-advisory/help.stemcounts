@@ -1,6 +1,6 @@
 ---
 title: Your organisation
-description: Company name, ABN, address, reference prefix, and retail markup.
+description: Your Organisation in Settings, from business name, logo, ABN, order prefix and retail markup to address, trading areas and business type.
 sidebar:
   order: 2
 ---
@@ -8,75 +8,102 @@ sidebar:
 import { Aside } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-Organisation settings live in **Settings → Organization**. These are
-the details about your business — separate from your personal profile.
+Your business details live in **Settings** under **Your Organisation**.
+This is the record your whole business shares: everyone in the
+organisation sees the same details, and a change by one person applies
+to all.
 
-<HelpMedia id="settings-organization-tab" caption="Organisation settings" />
+<HelpMedia id="settings-organization-tab" caption="Your Organisation in Settings: the Business group with Name, Logo, ABN, Order prefix and Retail markup, then Where you are" />
 
-## Fields
+Like **Your Profile**, it is a list of rows. Click a row to open a
+sheet for that one thing and save it. A row that is empty shows **Add**,
+**Upload** or **Choose**.
 
-| Field | What it's for | Editable by |
-|---|---|---|
-| **Company name** | Display on invoices, pick-lists, communications | Anyone in the org |
-| **ABN** | Tax identifier (Australia) | Anyone in the org |
-| **Address** | Billing and delivery; uses Google Places lookup | Anyone in the org |
-| **Reference prefix** | Customises your order reference numbers (e.g. `SMITH-1234` instead of `F-1234`) | Admin only |
-| **Retail markup (%)** | The % you mark up wholesale → customer price | Admin only |
+## What is on the page
 
-## Reference prefix
+| Group | Rows |
+|---|---|
+| **Business** | **Name**, **Logo**, **ABN**, **Order prefix**, **Retail markup** |
+| **Where you are** | **Address**, **Based in** |
+| **Business type** | **Florist** and **Wholesaler** switches |
+| **Areas you trade in** (wholesalers) | **Trading areas** |
+| **Contact and social** | **Website**, **Phone**, **Contact email**, **Best way to reach you**, and your social handles. All optional. |
+| **Subscription** (florists) | See [Your StemCounts subscription](/billing/subscription/) |
 
-By default, orders get a generic prefix. Setting your own makes references
-recognisable in correspondence and on printed sheets.
+## Logo
 
-Example:
-- Default: `F-1234`
-- With prefix `SMITH`: `SMITH-1234`
+Click **Logo** (**Upload** when empty, **Change** once set) and choose an
+image file. To take it off, click **Remove logo** and confirm **Remove
+your logo?**. Your organisation shows without a logo until you upload a
+new one.
 
-The prefix only applies to **new** orders. Existing orders keep whatever
-reference they were created with.
+## ABN
+
+Click **ABN** (**Add** when empty). The sheet says "Find your business on
+the ABN register and pick it." Search by business name or number, pick
+the right entry and save. A mistyped number is refused. Your ABN is
+shown to people choosing your organisation at sign-up, so they pick the
+right business.
+
+## Order prefix
+
+The order prefix is "The letters at the start of your order numbers,
+e.g. BLOOM-001." It is set automatically when the organisation is
+created, from the first three letters of the business name, with a
+number added if those letters are already taken.
+
+Most people see it as a plain row with the note "Your reference prefix
+is set by your organisation admin." To change yours, email
+**support@stemcounts.com**.
 
 ## Retail markup
 
-Florists only. Used to calculate customer-side pricing from wholesale
-cost.
-
-- A markup of **200%** means wholesale × 2 = customer price
-- A markup of **250%** means wholesale × 2.5 = customer price
-- Australian florists often use 240–300% depending on segment
+Florists only. **Retail markup** is the multiplier applied to wholesale
+costs when pricing for your customers, shown as, for example, **3 x
+cost**. The sheet explains: "Example: 3 x $10 = $30." Type a
+**Multiplier** of 1 or more. Values snap to the nearest 0.25 (3, 3.25,
+3.5) and the hint shows exactly what will be saved. Anyone in the
+organisation can change it.
 
 See [Pricing and budgets](/florists/pricing-and-budgets/) for how the
-math flows into arrangement budgets and the **Revenue This Week** metric.
+markup flows into customer prices and **Revenue This Week**.
 
-<Aside type="caution">
-Changing retail markup affects **all open quotes and budgets** in real
-time. Sent orders are not retroactively recalculated — they keep the
-markup that was in force when they were sent.
+## Address and where you are based
+
+Click **Address** to open **Business address**, type and pick your
+address. **Based in** is "Filled in from your address postcode. Change
+it if that is wrong." It is the area your business operates from.
+Florists see the wholesalers that trade in the area they are based in.
+
+## Areas you trade in (wholesalers)
+
+Wholesalers also set **Trading areas**. "Florists only see wholesalers
+that trade where they are based. Leave it empty to be visible
+everywhere." You can tick a whole state or country, or pick individual
+regions and cities.
+
+## Business type
+
+"What this company does on StemCounts. Turn on both if you buy as a
+florist and sell as a wholesaler." **Florist** means the company "Buys
+flowers and sends orders to wholesalers." **Wholesaler** means it "Sells
+flowers and receives orders from florists." Each switch saves when you
+flip it.
+
+<Aside type="note">
+Business type describes the company. Your own login role (florist or
+wholesaler) was set when you signed up and is changed only by the
+StemCounts team.
 </Aside>
 
-## Google Places address lookup
+## Team members and roles
 
-The Address field uses Google Places to autocomplete. Start typing
-your street address and pick the right match — this ensures
-postcodes, suburbs, and coordinates are accurate.
+There is no invite button. Each person creates their own account and,
+in the **Your Organisation** step of sign-up, searches for your business
+and picks it. Make sure they pick the existing organisation rather than
+creating a new one with a similar name. If someone has joined the wrong
+organisation, email **support@stemcounts.com**.
 
-If Google Places isn't finding your address, manually type the full
-address. You can edit it freely after the auto-complete fills the field.
-
-## Roles and edit permissions
-
-Only **admin** and **organisationadmin** roles can edit reference prefix
-and retail markup. Other users see those fields as read-only.
-
-To promote a user to admin: **Settings → Admin** (requires existing
-admin access). The toast you'll see: **"User role updated to [role]
-successfully!"**
-
-## Multi-user organisations
-
-If multiple staff use the same StemCounts organisation, they all share
-this organisation record. Changes propagate immediately for all signed-in
-users.
-
-To add a team member, they sign up with **the same organisation name**
-during registration. Currently there's no admin invite flow — new
-users self-register and get matched to your org by name.
+Each person has one role, **Florist** or **Wholesaler**, shown under
+their name in the top-right menu. There is no screen for your own
+organisation to change people's roles; ask **support@stemcounts.com**.

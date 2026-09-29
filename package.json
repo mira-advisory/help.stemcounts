@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "prebuild": "(node scripts/import-support-cards.mjs || echo 'cards import skipped, using committed pages') && (node scripts/import-changelog.mjs || echo 'changelog import skipped, using committed page')",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"

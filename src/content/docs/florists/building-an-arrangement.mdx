@@ -1,98 +1,166 @@
 ---
 title: Building an arrangement
-description: Inside an event — add an arrangement, set a budget, start picking flowers.
+description: Inside an event. Add Arrangements, set a budget, edit name, quantity and budget on the card, adjust flower quantities, and use the 3-dot menu.
 sidebar:
   order: 4
 ---
 
-import { Steps, Aside } from "@astrojs/starlight/components";
+import { Steps, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-An **arrangement** is one design within an event. A wedding might
-have four: ceremony, bridal bouquet, reception centerpieces, cake
-florals. Each arrangement is built separately with its own name,
-budget, and flower list.
-
-<HelpMedia id="event-details-with-arrangements" kind="video" caption="An event with three arrangements" />
+An **arrangement** is one design within an event. A wedding might have
+four: ceremony arch, bridal bouquet, reception centrepieces, cake flowers.
+Each arrangement has its own name, quantity, budget and flower list, and
+shows as a card on the event page.
 
 ## Add an arrangement
 
 <Steps>
 
-1. Open the event (from the landing page or the Orders list).
+1. Open the event and click **Add Arrangement**.
 
-2. Click **Add Arrangement** on the event details page.
+   <HelpMedia id="add-arrangement-button" caption="Add Arrangement in the Arrangements header of an event" />
 
-   <HelpMedia id="add-arrangement-button" />
+2. In **Add Arrangements**, fill in a row for each design:
 
-3. Fill in the arrangement form:
+   - **Name**: short and specific, for example "Centrepiece".
+   - **Qty**: how many of this design you are making.
+   - **Budget**: your customer price for one of them, ex GST. **Total
+     Budget** shows Qty times Budget.
 
-   - **Name** — short and specific, e.g. "Ceremony arch", "Bridal
-     bouquet", "Centerpiece x 12"
-   - **Quantity** — how many of this design you need (e.g. 12
-     centerpieces). Defaults to 1.
-   - **Budget** — your **customer price** for this arrangement,
-     excluding GST. StemCounts calculates the cost-side flower budget
-     from your retail markup.
+   Use **Add another arrangement** for more rows. If you have saved
+   favourites, they show as pills above the rows: click one to add it with
+   its budget and flowers. See [Favourite arrangements](/florists/favourites/).
 
-4. Click **Save**. The arrangement appears as a card on the event
-   details page.
+   On a phone it is a step by step wizard instead: start **From scratch**
+   or **From a favourite**, give it a name, then set how many and the
+   **Budget each**.
 
-5. Click **Pick Flowers** inside the new arrangement card to start
-   adding stems. See [The Flower Picker](/florists/the-flower-picker/).
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="add-arrangements-desktop-01-form-empty" caption="The Add Arrangements form: one row per arrangement with a name, how many and a budget each (ex GST)." />
+       <HelpMedia id="add-arrangements-desktop-02-favourites-pills" caption="Your saved favourites sit above the rows as pills. Tap one to add it with its budget and its flowers." />
+       <HelpMedia id="add-arrangements-desktop-03-form-filled" caption="Name it, set how many and the budget each; Total Budget works itself out. Add Arrangement saves it; Add Flowers to All saves and goes straight to the Flower Picker." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="add-arrangements-phone-01-wizard-start" caption="New arrangement, step 1: start From scratch or From a favourite." />
+       <HelpMedia id="add-arrangements-phone-02-wizard-favourite" caption="Pick a favourite: tap one to use its name, budget and flowers." />
+       <HelpMedia id="add-arrangements-phone-03-wizard-name" caption="What is it called? Type the arrangement's name and tap Next." />
+       <HelpMedia id="add-arrangements-phone-04-wizard-amount" caption="How many, and the budget: set the count with the minus and plus and type the Budget each. Then Save and create another arrangement, Add flowers (straight to the picker) or Save without flowers." />
+     </TabItem>
+   </Tabs>
+
+3. Click **Add Arrangement** (or **Add Arrangements** for several rows).
+   **Add Flowers to All** creates the arrangements first and then opens
+   the Flower Picker for all of them. **Cancel** closes the form.
+
+   On a phone, **Save and create another arrangement** starts the next
+   one, **Add flowers** saves it and opens the Flower Picker, and **Save
+   without flowers** saves it as it is.
+
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="add-arrangements-desktop-04-budget-step" caption="Leave the budget blank and StemCounts asks for it before adding: type the amount and carry on, or Cancel." />
+       <HelpMedia id="add-arrangements-desktop-05-add-flowers-picker" caption="Then add the flowers: the Flower Picker opens for that arrangement, with Back to Order Part to return." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="add-arrangements-phone-05-add-flowers-picker" caption="Then Add flowers: the phone picker opens for that arrangement, search first." />
+     </TabItem>
+   </Tabs>
 
 </Steps>
 
+If you leave a budget blank, StemCounts asks for it before adding, in a
+window that says "All budget values are Ex GST". Adding the first
+arrangement to an event also creates the event's **Spares** bucket. See
+[The Spares bucket](/florists/the-spares-bucket/).
+
 ## Two ways to add flowers
 
-There are **two Pick Flowers buttons** on the event page. They do
-different things:
+| Button | Where | Adds flowers to |
+|---|---|---|
+| **Pick Flowers** | On an empty arrangement card | That arrangement only |
+| **Add Flowers** | In the Arrangements header, once the event has at least one arrangement | Every arrangement in the event, except Spares |
 
-| Button location | Adds flowers to |
-|---|---|
-| Inside a specific arrangement card | Just that arrangement |
-| Next to **Add Arrangement** at the top of the event | **All arrangements in the event** (bulk mode) |
+Both open [the Flower Picker](/florists/the-flower-picker/). With **Add
+Flowers**, every flower you pick is added to each arrangement at the same
+quantity (1 stem each). It is not divided between them. If some
+arrangements already have flowers, StemCounts tells you before adding on
+top.
 
-<Aside type="tip">
-Bulk mode is useful when many arrangements share a flower — e.g. all
-your centerpieces use the same roses. Add them once, distributed
-proportionally across arrangements.
-</Aside>
+## Change the name, quantity or budget
 
-## Budget tracking
+Edit them in place on the card while the order is a draft:
 
-The arrangement card shows a live budget meter:
+- Click the arrangement name to rename it.
+- Click **Qty:** to change how many of this design you are making.
+- Click the **$spent / $budget** figure to change the budget.
 
-- **Budget** — what you set when you created the arrangement
-- **Spent** — running total based on stem prices × quantities
-- **Remaining** — budget minus spent
+Press Enter to save or Escape to cancel.
 
-The colour of the meter shifts as you approach the limit. You can
-exceed your budget — StemCounts won't stop you — but you'll see it
-called out in red.
+## Change flower quantities
 
-## Editing or removing an arrangement
+Each flower row on a card has:
 
-Each arrangement card has a **3-dot menu** in the top-right:
+- small up and down arrows (**Increase quantity**, **Decrease quantity**),
+- the number itself. Click it to type a new amount, then press Enter,
+- an **X** (**Remove from this list**) to take the flower out. An **Undo**
+  button shows for five seconds before the removal is saved.
 
-- **Clone** — duplicate this arrangement. See [Cloning
-  arrangements](/florists/cloning-arrangements/).
-- **Delete** — remove it. Confirmation required.
-- **Rename** — edit name and budget.
+Hover a flower's number to see its total stems for the event.
 
-## Quantity vs stems
+## Quantity and stems
 
-Two different "quantities" in StemCounts:
+Two different numbers:
 
-- **Arrangement quantity** — how many of *this design* you need. 12
-  centerpieces = quantity 12.
-- **Stem quantity** — how many stems of *each flower* you need *per
-  arrangement*. 5 roses per centerpiece = 5 stems.
+- **Qty** on the card is how many of this design you are making.
+- The number on each flower row is stems **per arrangement**.
 
-The total stem count = arrangement quantity × stem quantity. For 12
-centerpieces with 5 roses each, you need 60 stems of roses.
+The total stems for the event are one multiplied by the other: 5 roses in
+an arrangement with Qty 12 is 60 roses.
+
+## The 3-dot menu
+
+Each arrangement card has a three-dot button (**More actions**) with:
+
+- a star, **Save as favourite (with its flowers)**. See
+  [Favourite arrangements](/florists/favourites/).
+- a copy icon, **Clone**. See [Cloning arrangements](/florists/cloning-arrangements/).
+- a bin, **Delete**.
+
+<HelpMedia id="arrangement-3-dot-menu" caption="The More actions menu on an arrangement card" />
+
+## Change the price of one flower
+
+Click a flower's name on the card to open its markup card. It shows
+**Wholesale / bunch** and **Customer / bunch**. Enter a multiplier in
+**Markup override** and click **Save**, or **Clear override** to go back
+to the event or default markup. A flower with its own markup shows its
+name in coral. See [Pricing and budgets](/florists/pricing-and-budgets/).
+
+## Move or copy a flower between arrangements
+
+Drag a flower row from one card and drop it on another arrangement, or on
+Spares. **Transfer Flower** opens with two choices: **Copy stems** (enter
+how many to copy and keep the source as it is) or **Move all**. If the
+target already has that flower, the stems are added to its existing line.
+You can also drag whole cards to reorder them; Spares always stays last.
+
+## Counting in bunches inside an event
+
+Arrangements normally count stems. To count in bunches, click the bouquet
+button beside **Add Flowers** (**Add a Bunches arrangement**). **Add
+Bunches Arrangement** asks for a **Name** and **Budget**. In a bunches
+arrangement each picked flower goes in as one bunch and the arrows move a
+bunch at a time. There is no switch to turn a stems arrangement into
+bunches, so add a Bunches arrangement instead.
+
+## Once the order is sent
+
+Everything on the event becomes read-only: no adding, cloning or deleting
+arrangements, and no changing flowers, quantities, budgets or markups.
+See [Sending your order](/florists/sending-your-order/).
 
 ## Next
 
-Now [pick the flowers](/florists/the-flower-picker/) for this
-arrangement.
+Now [pick the flowers](/florists/the-flower-picker/) for the arrangement.

@@ -1,104 +1,54 @@
 ---
-title: Daily pick-lists
-description: The printable order page for warehouse staff.
+title: The order PDF and the printable order page
+description: The picking document attached to every order email and downloadable from the order, and the printable A4 order page.
 sidebar:
-  order: 8
+  order: 11
 ---
 
 import { Steps, Aside } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-**Pick-lists** are paper-friendly views of an order, designed for the
-warehouse floor: walk along the cool-room shelves, grab the stems, tick
-them off.
+There are two printable versions of an order. The **order PDF** is the
+picking document, with no prices. The **printable order page** is an A4
+page that includes prices and the order total. Both cover one order at
+a time.
 
-<HelpMedia id="pick-list-printable" caption="A printable pick-list for one florist's order" />
+## The order PDF
 
-## What's on a pick-list
+The order PDF lists the flowers with their stem and bunch counts. It
+deliberately shows no prices, so it can go straight to whoever picks
+the order.
 
-Each pick-list page covers **one florist order**. It shows:
+You can get it three ways:
 
-- Order reference (e.g. `W-1234`)
-- Florist name and contact
-- Delivery date and method (delivery / pickup)
-- Event date and venue (per event in the order)
-- Sortable flower table:
+- Attached to the **New order** email
+- From the printer icon beside the order reference in the order
+  window (**Download order PDF**)
 
-| Column | What it shows |
-|---|---|
-| Flower name | Display name |
-| Colour | Variant |
-| Total stems | How many to pick |
-| Bunches | Pack count |
-| Price | Cost line (for cross-reference) |
-| Notes | Per-line notes from the florist or your team |
+  <HelpMedia id="print-desktop-01-printer-icon" caption="The printer icon beside the order number downloads this order as a PDF pick list." />
+- From **Download PDF** on the shared order page that the email's
+  **View the order** button opens
 
-Pick-lists are stripped of platform chrome so they print cleanly on A4
-or letter paper.
+On a phone, open the order and tap **Order PDF** under **More**.
 
-## Printing a pick-list
+## The printable order page
 
-<Steps>
+<HelpMedia id="print-desktop-04-printable-page" caption="The printable order page: an A4 sheet with every line, bunch counts and the total. Use your browser's print to paper or PDF." />
 
-1. Open an order from the Order Board or Order Summary.
-
-2. Click **Print Pick-List** at the top of the order detail page.
-
-3. Your browser's print dialog opens. From here:
-
-   - **Print to a physical printer** for the warehouse
-   - **Save as PDF** for archival or sending to a fulfilment partner
-
-</Steps>
-
-The page URL is stable (`/orders/{ref}/print`), so you can bookmark
-specific pick-lists or share them with staff who have a StemCounts
-login.
-
-## Bulk pick-lists for a week
-
-For day-end planning, the **Calendar view** in Order Summary lets you
-print all pick-lists for a day or week:
-
-<Steps>
-
-1. Switch to Calendar view in Order Summary.
-
-2. Pick a day or week.
-
-3. Click **Print All**.
-
-4. Each florist order gets a separate page in the print job.
-
-</Steps>
+The printable order page shows the order reference, the florist's
+details, the delivery or pickup date, any order note, and a table of
+**Name**, **Colour**, **Quantity**, **Bunches** and **Price** with the
+total value. Use your browser's print to print it on paper or save it
+as a PDF.
 
 <Aside type="tip">
-For warehouses with multiple shifts, print twice — once at the start of
-day for the floor team, once at end-of-day reconciliation for the
-office team.
+For a printout without prices, use the order PDF instead.
 </Aside>
 
-## Format tweaks
+## What is not on either document
 
-The pick-list uses your browser's print stylesheet. To adjust:
-
-- **Page orientation** — landscape fits more columns; portrait fits
-  more rows
-- **Margins** — narrow margins maximise usable area
-- **Background colours** — most printers default to "off"; enable
-  *Background Graphics* for status badges and headers to render in
-  colour
-
-## What's NOT on the pick-list
-
-- The full supplier breakdown (the warehouse picks from your stock, not
-  from individual supplier deliveries)
-- Cost-side platform fees
-- Subscription / billing info
-
-Use the Order Summary view for those, not the pick-list.
-
-## Outside-the-app printing
-
-If you need to share with someone without a StemCounts login, save as
-PDF and email the file. The pick-list URL itself requires authentication.
+- The supplier for each flower (that shows in the order's Inventory
+  List)
+- Platform fees
+- Invoice or payment details (see the **Invoices** card on your home
+  page)

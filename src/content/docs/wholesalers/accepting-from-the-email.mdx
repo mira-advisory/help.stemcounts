@@ -1,0 +1,90 @@
+---
+title: Accepting from the email
+description: The new order email, the Accept this order button that works once without a login, and the authorisation letter.
+sidebar:
+  order: 4
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+
+Every order a florist sends you also arrives by email. You can accept it
+straight from that email, with no login.
+
+## The new order email
+
+The subject is **New order from [florist business]: [order
+reference]**. The email says who sent it, how many items there are and
+the delivery date, with a short facts table (Order, From, Delivery,
+Items).
+
+It goes to the **Contact email** set in **Settings > Your
+Organisation**. If you have not set one, it goes to every active user in
+your organisation. The florist who sent the order is copied in, and a
+reply goes straight to them.
+
+Attached is the order PDF, the picking document with every flower, its
+stems and bunches. If the florist pinned Canva mood boards to the order,
+those are attached too.
+
+Some wholesalers also receive a text message with the same link to view
+and accept the order.
+
+## Accepting from the link
+
+<Steps>
+
+1. Click **Accept this order** in the email. The order opens in your
+   browser. Nothing is accepted just by opening the link, so a mail
+   scanner cannot accept an order by accident.
+
+2. The page shows **New order from [florist].**, with the order's
+   details and flowers, and two buttons: **Accept this order** and
+   **Log in to manage**.
+
+3. Click **Accept this order**.
+
+4. The page confirms **Accepted. [Florist] has been told.** The florist
+   gets an email and an in-app notification saying you accepted.
+
+</Steps>
+
+Accepting from the link only tells the florist you have taken the order
+on. Quantities, substitutions and delivery are managed in the app after
+you log in.
+
+<Aside type="caution">
+The link works once. After the order is accepted, the link in the email
+and the link in the text both stop working. Opening one again shows
+**This link has already been used**, or **Already accepted**, or **This
+order has moved on** with the order's current status. The usual cause is
+a colleague getting there first. Log in to see where the order is up to.
+</Aside>
+
+## Viewing an order without an account
+
+The **View the order** button in the email opens a shared order page
+that needs no login. It shows the order details, with **Download PDF**
+and **Download the authorisation letter**, and offers **Create account**
+if you do not yet have one. The shared page is read only and keeps
+working for as long as the order exists, so you can forward it to
+whoever packs the order.
+
+## The authorisation letter
+
+Each order carries a platform authorisation letter from the florist to
+you. It is linked at the bottom of the order email, and in the app it
+is the **Authorisation letter** button in the order window.
+
+The letter states that orders you receive through StemCounts on that
+florist's account are placed with the florist's authority, and that
+order documents issued through the platform are covered by it. It does
+not transfer liability for goods, and it does not let StemCounts vary
+pricing, credit or trading terms agreed between you and the florist. It
+lasts until the florist withdraws it in writing.
+
+<Aside type="note">
+The letter link only appears in the email when the letter can be
+produced. That needs the florist's business name and ABN, and your
+business name and address. If the email has no letter link, the florist
+has not completed their organisation details yet.
+</Aside>

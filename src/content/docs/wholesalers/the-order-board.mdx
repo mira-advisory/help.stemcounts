@@ -1,86 +1,129 @@
 ---
-title: The Order Board
-description: Columns, drag-and-drop, and how the layout fits your tier.
+title: "Order Summary: Calendar, Board and List"
+description: The three views of your orders, the Board columns, the filters, and what dragging an order does.
 sidebar:
   order: 2
 ---
 
-import { Aside } from "@astrojs/starlight/components";
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-The **Order Board** is your view of every order moving through
-fulfilment. Columns sit left to right in the order work happens —
-grab an order and move it along as you complete each step.
+The **Order Summary** is where you work your orders. It has three
+views, switched at the top of the page: **Calendar**, **Board** and
+**List**. Every view shows the same orders. Clicking an order in any of
+them opens that order, where you accept it, confirm supply and complete
+it.
 
-<HelpMedia id="order-board-overview" kind="video" caption="The Order Board in action" />
+<HelpMedia id="ready-florist-view-toggle" caption="The Order Summary banner with its Calendar, Board and List switch, here with Board selected." />
 
-## Columns by tier
+## The three views
 
-StemCounts has three wholesaler tiers, and your board's columns reflect
-the workflow you actually run.
+<Tabs>
+  <TabItem label="Calendar">
+    The default view. Your orders sit in the **Orders and Weekly
+    Planner**, laid out by delivery date across a run of weeks (twelve
+    by default, and you can choose how many to show). Use it to spot
+    busy weeks and days coming up. Click an order to open it.
+  </TabItem>
+  <TabItem label="Board">
+    Orders grouped into columns, one per stage, left to right in the
+    order work happens. Inside each column, orders are grouped by
+    delivery week, and each column shows a count. The **Order Board**
+    card on your home page opens straight into this view.
+  </TabItem>
+  <TabItem label="List">
+    A searchable table with **Order Reference**, **Florist**,
+    **Status**, **Amount** and **Delivery Date**. Best when you know the
+    order you want.
+  </TabItem>
+</Tabs>
 
-| Tier | Columns | What it means |
+## Filters
+
+Every view has a search box (**Search florists, events or orders**),
+plus a **Florist** filter and a **Status** filter. Board and List can also be
+sorted by **Delivery Date** or **Received Date**. Click the sort button
+again to flip the direction.
+
+## The Board columns
+
+The full set of columns is:
+
+| Column | What it means |
+|---|---|
+| **New Orders** | A new order from a florist, waiting for you to act |
+| **Accepted** | You have accepted the order and are sourcing it |
+| **Supply Confirmed** | Supply is confirmed for every flower |
+| **Supplier Fulfilled** | The order is packed and ready for delivery or pickup |
+| **Completed** | Delivered and done |
+
+Which columns you see depends on how your account is set up. StemCounts
+sets each wholesaler to one of three tiers:
+
+| Tier | Columns you see | How an order moves |
 |---|---|---|
-| **Integrated** | Sent · Accepted · Confirmed · Fulfilled · Delivered | Full workflow including supplier procurement |
-| **Non-integrated** | Sent · Accepted · Delivered | Skips supplier procurement (you source directly) |
-| **Shadow** | Accepted · Delivered | A minimal view, used where StemCounts is mirroring a workflow you run elsewhere |
+| **Tier 1** | New Orders, Accepted, Completed | Orders arrive by email and link. Accept, then mark delivered |
+| **Tier 2** | New Orders, Accepted, Supply Confirmed, Completed | Accept, confirm the whole order, then mark delivered |
+| **Tier 3** | All five | Accept, confirm each flower with its supplier, pack, mark supplier fulfilled, then mark delivered |
 
 <Aside type="note">
-Not sure which tier you're on? Count the columns on your board. Your
-tier is set when your account's created. If you ever need to change
-it, get in touch with us and we'll sort it.
+Not sure which tier you are on? Count the columns on your Board, or
+open an accepted order: a **Confirm Order** button means Tier 2, and a
+supplier dropdown on each flower line means Tier 3. Your tier is set on
+your account by StemCounts. To change it, email
+**support@stemcounts.com**.
 </Aside>
 
-## What each column means
+## Dragging on the Board
 
-- **Sent** — order has arrived from the florist, waiting for you to accept
-- **Accepted** — you've accepted; time to assign stems to suppliers
-- **Confirmed** — your supplier(s) have confirmed availability
-- **Fulfilled** — supplier has delivered to you; flowers are ready for the florist
-- **Delivered** — flowers handed over; all done
+You can drag an order one column to the right. Dragging anywhere else
+shows **Drag to the next workflow stage to continue.**
 
-## Drag-and-drop
+Dragging a single order does not move it on its own. It opens the
+order, where you finish the step (for example, **Accept Order**). The
+order moves once you have done that.
 
-Grab an order and move it to the next column. It has exactly the same
-effect as clicking the **Accept** or **Mark Ready** button on the order
-itself — whichever feels more natural in the moment.
+You can also drag a whole week's group of orders at once, by its week
+banner:
 
-<HelpMedia id="order-board-drag" kind="video" caption="Dragging an order from Sent to Accepted" />
+| Drag a week from | To | What opens |
+|---|---|---|
+| **New Orders** | **Accepted** | A review window for each order in turn, so you accept them one by one |
+| **Accepted** | **Supply Confirmed** | The week's **Accepted Workflow**, which lists the week's flowers in a **Flower Requirements** table so you can set suppliers and confirm lines together |
+| **Supply Confirmed** | **Supplier Fulfilled** | **Mark Ready for Dispatch** for the week, where each flower gets a **Prep Day** and a status |
+| **Supplier Fulfilled** | **Completed** | Every order in that week is completed |
 
-You can also drag a **whole week** at once by grabbing the week banner
-at the top of a column. Handy when a batch of orders is ready to move
-together.
+The eye icon on a week banner opens a **Week Overview**: every order in
+that week and its combined flower requirements.
 
 <Aside type="caution">
-The board only allows valid moves. You can't drag an order straight
-from *Sent* to *Delivered* — it'll need to flow through the stages in
-between.
+An order cannot reach **Supply Confirmed** until every flower on it is
+confirmed. If you drag a week across and see **This order cannot move
+to Supply Confirmed until all flowers are confirmed.**, open that order
+and finish confirming it. See
+[Confirming supply](/wholesalers/confirming-supply/).
 </Aside>
 
-## Calendar view
+## On a phone
 
-Need to plan by week or day instead? Switch from Board to **Calendar**
-in the Order Summary view. Orders are grouped by week then by day —
-useful for spotting busy windows or capacity squeezes.
+On a phone the orders page is a single list. Search by florist, event
+or order reference, filter by **Order stage** with the pill row, and
+orders are grouped by delivery week. Tap an order to open it.
 
-## Filtering the board
+<HelpMedia id="wholesaler-phone-phone-01-home" caption="On a phone the wholesaler home shows your numbers, then Order Board, Library, Invoices and Settings as rows." />
 
-Up the top of the board you'll find filters for:
+<HelpMedia id="wholesaler-phone-phone-02-tab-bar" caption="The bar at the bottom is always there: Home, Orders, Library, Search and Chat." />
 
-- **Week** — focus on a specific week
-- **Florist** — single-florist view, useful when you're on the phone with one
-- **Status** — hide columns you're not working in right now
+<HelpMedia id="wholesaler-phone-phone-03-orders" caption="Orders: a search box, a pill for each stage and the orders grouped by delivery week. Tap one to open it." />
 
-## Empty state
+<HelpMedia id="wholesaler-phone-phone-04-order" caption="Tap an order: its total and bunch count, the flowers, then More with messages and the PDF. The next step is the button at the bottom." />
 
-- An empty **Sent** column means no new orders to process — relax for a minute
-- An empty **Accepted** column means you've moved everything on — nicely done
-- An empty board overall means nothing's open in the window you're viewing; switch the week filter to check what's coming
+<HelpMedia id="wholesaler-phone-phone-05-library" caption="Library on a phone: search your flowers, filter, and tap one to edit its price and bunch size in a sheet." />
+
+<HelpMedia id="wholesaler-phone-phone-06-chat" caption="Chat opens the StemCounts help chat over any page. Ask a question about the app in plain words." />
 
 ## Where to next
 
-Once you understand the board, dive into each stage:
-
-- [Receive & Accept](/wholesalers/receive-and-accept/)
-- [Assign & Send](/wholesalers/assign-and-send/)
-- [Confirmed & Ready](/wholesalers/confirmed-and-ready/)
+- [Accepting an order](/wholesalers/accepting-an-order/)
+- [Confirming supply](/wholesalers/confirming-supply/)
+- [Packing and delivery](/wholesalers/packing-and-delivery/)

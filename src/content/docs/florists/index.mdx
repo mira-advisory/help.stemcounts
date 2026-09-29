@@ -1,70 +1,102 @@
 ---
 title: For florists
-description: Place orders, build arrangements, track fulfilment, and print event sheets on StemCounts.
+description: Add events, build arrangements, pick flowers, send the weekly order to your wholesaler and follow it through to delivery.
 sidebar:
   order: 0
 ---
 
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-Everything you need as a florist using StemCounts. Browse the
-catalog, build event-based orders, send them to wholesalers, and
-track each line through fulfilment.
+Everything you need as a florist using StemCounts. Add an event, build
+its arrangements, pick the flowers, round them to whole bunches, send the
+weekly order to your wholesaler and follow it through to delivery.
+
+## Building an order
 
 <CardGrid>
   <LinkCard
-    title="The florist landing page"
-    description="What you see when you log in: open drafts, this week's events, revenue."
+    title="The florist home screen"
+    description="What you see when you log in: open drafts, this week's events, revenue, and the shortcuts."
     href="/florists/florist-landing/"
   />
   <LinkCard
     title="Creating your first event"
-    description="Events are how StemCounts groups your work. Pick a date, name it, set a venue."
+    description="The Add Event to Order form: Event Order or Bunch Order, dates, location, preferred wholesaler."
     href="/florists/creating-your-first-event/"
   />
   <LinkCard
-    title="Browsing the flower catalog"
-    description="The Flower Library: filters, search, pinning favourites."
-    href="/florists/browsing-the-catalog/"
-  />
-  <LinkCard
     title="Building an arrangement"
-    description="Inside an event: add an arrangement, set a budget, start picking flowers."
+    description="Add Arrangements, set a budget, edit name, quantity and budget on the card, the 3-dot menu."
     href="/florists/building-an-arrangement/"
   />
   <LinkCard
     title="The Flower Picker"
-    description="Stem-vs-bunch mode, colour variants, quantities, and price overrides."
+    description="Search and filters, colour dots, stem lengths, pinning, and Add Selections."
     href="/florists/the-flower-picker/"
   />
   <LinkCard
-    title="Pricing and budgets"
-    description="Customer price, retail markup, and how the budget tracker stays accurate."
-    href="/florists/pricing-and-budgets/"
-  />
-  <LinkCard
-    title="The Spares Bucket"
-    description="Where extra stems live for last-minute changes and breakage cover."
-    href="/florists/the-spares-bucket/"
+    title="Favourite arrangements"
+    description="Save a design with its flowers and reuse it on any event."
+    href="/florists/favourites/"
   />
   <LinkCard
     title="Cloning arrangements"
-    description="Duplicating a design so you don't rebuild it twice. The 3-dot menu."
+    description="Copy a design inside an event, or delete one."
     href="/florists/cloning-arrangements/"
   />
   <LinkCard
+    title="The Spares bucket"
+    description="Where the stems that round a part bunch up to a whole one live."
+    href="/florists/the-spares-bucket/"
+  />
+  <LinkCard
+    title="Bunch orders"
+    description="Buy flowers by the bunch with no event and no arrangements."
+    href="/florists/bunch-orders/"
+  />
+  <LinkCard
+    title="Pricing and budgets"
+    description="Wholesale cost, retail markup, per-event and per-flower markups, ex GST budgets."
+    href="/florists/pricing-and-budgets/"
+  />
+  <LinkCard
+    title="Explore Flowers"
+    description="Browse the whole catalogue from Settings, with prices across wholesalers."
+    href="/florists/browsing-the-catalog/"
+  />
+</CardGrid>
+
+## Sending and tracking
+
+<CardGrid>
+  <LinkCard
     title="Sending your order"
-    description="What 'sent' means, the cut-off, what wholesalers see next."
+    description="Choose a wholesaler per flower, fix part bunches, Send Order, what is locked afterwards."
     href="/florists/sending-your-order/"
   />
   <LinkCard
     title="Tracking your order"
-    description="The florist-side statuses: Sent → Supply Confirmed → Ready → Complete."
+    description="Sent, Accepted, Supply Confirmed, Ready, Complete, and the status on each flower."
     href="/florists/tracking-your-order/"
   />
   <LinkCard
-    title="Event details & printing"
-    description="The printable event sheet: flowers, arrangements, comments, ready to share."
+    title="Substitutes and supply changes"
+    description="When a wholesaler offers a substitute, fewer stems, or cannot supply a flower."
+    href="/florists/substitutes-and-supply-changes/"
+  />
+  <LinkCard
+    title="Order messages and notifications"
+    description="The bell, order emails, text messages, and chatting with your wholesaler on an order."
+    href="/florists/order-messages-and-notifications/"
+  />
+  <LinkCard
+    title="Event details and printing"
+    description="Download PDF on a sent event: the sheet your team works from."
     href="/florists/event-details-and-printing/"
+  />
+  <LinkCard
+    title="Canva mood boards"
+    description="The Canva add-on: pin a mood board to an event and it travels to the wholesaler with the order."
+    href="/florists/canva-mood-boards/"
   />
 </CardGrid>

@@ -1,0 +1,118 @@
+---
+title: Packing and delivery
+description: Mark Packed on each flower, Mark Supplier Fulfilled on the order, then Mark Delivered.
+sidebar:
+  order: 7
+---
+
+import { Steps, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+Once supply is confirmed, the last steps are packing the order and
+marking it delivered. Which buttons you see depends on your tier.
+
+<Tabs>
+  <TabItem label="Tier 3: pack, fulfil, deliver">
+    At **Supply Confirmed**, the order's Inventory List shows each
+    confirmed flower with a **Mark Packed** button.
+
+    <Steps>
+
+    1. As you pack each flower, click **Mark Packed** on its line. Packed
+       lines move under **Packed** and show **Supplier Fulfilled**.
+
+       <Tabs syncKey="device">
+         <TabItem label="Computer">
+           <HelpMedia id="pack-and-deliver-desktop-01-mark-packed-lines" caption="On a Supply Confirmed order each line has Mark Packed. Tick them off as you pack." />
+         </TabItem>
+         <TabItem label="Phone">
+           <HelpMedia id="pack-and-deliver-phone-02-flowers-sheet-mark-packed" caption="The Flowers sheet, Mark each flower packed. Swipe sideways to reach the buttons." />
+           <HelpMedia id="pack-and-deliver-phone-03-flowers-sheet-mark-packed-buttons" caption="Swiped across: Mark Packed on every line, with the supplier beside it." />
+         </TabItem>
+       </Tabs>
+
+    2. When the whole order is packed and ready, click **Mark Supplier
+       Fulfilled** at the bottom of the order. The order moves to the
+       **Supplier Fulfilled** column. On the florist's side it shows as
+       **Ready**, and each flower as **Packed & Ready**.
+
+       <Tabs syncKey="device">
+         <TabItem label="Computer">
+           <HelpMedia id="pack-and-deliver-desktop-02-mark-supplier-fulfilled" caption="When everything is packed, click Mark Supplier Fulfilled. Save and Close keeps your progress and goes back to the board." />
+           <HelpMedia id="pack-and-deliver-desktop-03-supplier-fulfilled-order" caption="A Supplier Fulfilled order: every line is locked and marked packed, ready for pickup or delivery." />
+         </TabItem>
+         <TabItem label="Phone">
+           <HelpMedia id="pack-and-deliver-phone-01-order-mark-supplier-fulfilled" caption="A Supply Confirmed order on a phone: Mark supplier fulfilled at the bottom, and a row to mark each flower packed." />
+         </TabItem>
+       </Tabs>
+
+    3. Once the florist has picked the order up, or you have delivered
+       it, click **Mark Delivered**. The order moves to **Completed**
+       and shows **Complete** to the florist.
+
+       <Tabs syncKey="device">
+         <TabItem label="Computer">
+           <HelpMedia id="pack-and-deliver-desktop-04-mark-delivered" caption="After the florist has the flowers, click Mark Delivered. The order is then complete." />
+           <HelpMedia id="pack-and-deliver-desktop-05-completed-order" caption="A completed order is read only: every line is locked and marked Completed." />
+         </TabItem>
+         <TabItem label="Phone">
+           <HelpMedia id="pack-and-deliver-phone-04-order-mark-delivered" caption="A Supplier Fulfilled order: the button at the bottom reads Mark delivered." />
+         </TabItem>
+       </Tabs>
+
+    </Steps>
+
+    If any flower is not yet confirmed or removed, the order button
+    reads **Confirm flowers first**. Finish
+    [confirming supply](/wholesalers/confirming-supply/), then come back.
+  </TabItem>
+  <TabItem label="Tier 2: deliver">
+    After **Confirm Order**, the order says **Order confirmed. Mark
+    delivered once pickup or delivery is complete.** There is no
+    per-flower packing step.
+
+    Once the florist has the flowers, click **Mark Delivered**. The
+    order moves to **Completed** and shows **Complete** to the florist.
+  </TabItem>
+  <TabItem label="Tier 1: deliver">
+    After **Accept Order**, the order says **Accepted. Mark it
+    delivered once it is picked up or delivered.**
+
+    Click **Mark Delivered** when the flowers are with the florist.
+  </TabItem>
+</Tabs>
+
+<Aside type="caution">
+**Mark Delivered** and **Mark Supplier Fulfilled** are disabled while a
+flower is waiting on the florist's reply to a substitute or partial
+quantity offer. The button reads **Awaiting Florist** until they answer.
+</Aside>
+
+## A whole week at once (Tier 3)
+
+On the Board, drag a week's banner from **Supply Confirmed** to
+**Supplier Fulfilled**. **Mark Ready for Dispatch** opens for that
+week. Its **Confirmed Flower Preparation** table lists each flower with
+**Bunches / Stems**, **Supplier**, **Prep Day** and **Status**. **Prep
+Day** is the weekday (Monday to Friday) you will prepare that flower for
+dispatch. Select lines to set a prep day or status for several at once.
+When every line is set to fulfilled with a prep day, **Mark Ready for
+Dispatch** moves the week's orders on.
+
+To complete a whole week, drag its banner from **Supplier Fulfilled**
+to **Completed**. Every order in that week is completed.
+
+## The florist can also confirm delivery
+
+Once your part of an order is **Supply Confirmed** or **Ready**, the
+florist can confirm what arrived on their side, flower by flower or all
+at once. When they confirm every line, your part of the order becomes
+**Complete** and you get a **Delivery confirmed** notification. So an
+order can reach **Completed** without you clicking **Mark Delivered**.
+
+## On a phone
+
+The one big button at the bottom of the order reads **Mark supplier
+fulfilled** or **Mark delivered**, depending on the stage. To pack flower
+by flower, open **Pack flower by flower** under **More**. It opens the
+**Flowers** sheet; swipe a row sideways for its **Mark Packed** button.

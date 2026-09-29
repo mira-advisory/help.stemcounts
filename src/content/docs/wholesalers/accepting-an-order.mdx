@@ -1,0 +1,123 @@
+---
+title: Accepting an order
+description: Open a new order, check it, then Accept Order or Reject Order.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+import HelpMedia from "../../../components/HelpMedia.astro";
+
+A new order from a florist lands in **New Orders**. Your first job is
+to open it, look it over, and accept it (or, rarely, reject it). You
+accept or reject the whole order at once.
+
+## Opening a new order
+
+Click the order in the Calendar, Board or List view of your Order
+Summary. It opens in a window with:
+
+- The order reference at the top, with the **Download order PDF**
+  printer icon, the **Authorisation letter** button and the **Chat**
+  button beside it
+- One line saying what to do next. For a new order that is **Review
+  order details before accepting or rejecting.**
+- **Pickup Date**, **Event Name**, **Florist**, **Wholesaler** and
+  **Total**, plus the **Florist note** if they left one
+- An **Inventory List** of every flower, with its colour, stem length
+  where the florist asked for one, stems, bunches and line cost. Notes
+  the florist left against a flower show under it as **Florist note**
+
+<Tabs syncKey="device">
+  <TabItem label="Computer">
+    <HelpMedia id="accept-desktop-01-order-summary-calendar" caption="The Order Summary in Calendar view: a new order sits on its delivery day, waiting for you." />
+    <HelpMedia id="accept-desktop-02-order-summary-board" caption="The Order Summary in Board view: orders you have not answered yet are in the New Orders column." />
+    <HelpMedia id="accept-desktop-03-order-summary-list" caption="The Order Summary in List view: every order in one searchable list, new ones marked as such." />
+    <HelpMedia id="accept-desktop-04-order-detail-top" caption="Open the order. The line under its number reads Review order details before accepting or rejecting., with the pickup date, florist and total." />
+  </TabItem>
+  <TabItem label="Phone">
+    <HelpMedia id="accept-phone-01-orders-new" caption="On a phone, tap Orders and the New pill to see only the orders waiting for your answer." />
+  </TabItem>
+</Tabs>
+
+## Accepting
+
+<Steps>
+
+1. Read through the Inventory List. Can you source everything by the
+   pickup date? Do the quantities look right?
+
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="accept-desktop-05-order-detail-bottom" caption="Scroll to the foot of the order: the last flower lines, then Reject Order and Accept Order." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="accept-phone-02-order-accept" caption="Open the order: the flowers and the florist's note, then Accept order at the bottom. Reject order is under More." />
+     </TabItem>
+   </Tabs>
+
+2. Click **Accept Order**.
+
+   <HelpMedia id="accept-desktop-06-accept-reject-buttons" caption="Click Accept Order to take the order, or Reject Order if you cannot supply it." />
+
+3. You will see **Order accepted**, and the order moves to **Accepted**.
+   The florist is notified in the app.
+
+   <HelpMedia id="accept-desktop-07-accepted-order" caption="An accepted order: the status badge reads Accepted and the line under the number tells you the next step, Confirm supply for each flower below." />
+
+</Steps>
+
+Accepting means you have taken the order on. It does not confirm
+supply. That is the next step, and it depends on your tier: see
+[Confirming supply](/wholesalers/confirming-supply/). On Tier 1 there is
+no supply step, and the next button is **Mark Delivered**.
+
+<Aside type="note">
+If a single flower is a problem, accept the order anyway. Then use
+**Can't Supply** (Tier 3) or **Actions** (Tier 2) on that flower line
+to offer substitutes, offer fewer stems, or mark it unavailable. The
+rest of the order carries on. See
+[Confirming supply](/wholesalers/confirming-supply/).
+</Aside>
+
+## Rejecting
+
+<Steps>
+
+1. Open the order.
+
+2. Click **Reject Order**. On a phone you are asked **Reject this
+   order?** first.
+
+3. You will see **Order rejected**. The order leaves your board.
+
+</Steps>
+
+The florist gets an in-app notification, **Order rejected**. No email
+is sent for a rejection, and the order does not go back to the
+florist's drafts. If they still want the flowers, they will need to
+talk to you or send a new order.
+
+Where you can, accept and sort out the detail through
+[order chat](/wholesalers/order-chat/) rather than rejecting.
+
+## Accepting a whole week at once
+
+On the Board, drag a week's banner from **New Orders** to **Accepted**.
+StemCounts opens each order in that week in turn in a review window
+(**Review order details before accepting or rejecting.**), and you
+accept them one by one.
+
+## Accepting from the email
+
+You can also accept from the **Accept this order** button in the order
+email, without logging in. See
+[Accepting from the email](/wholesalers/accepting-from-the-email/).
+
+## On a phone
+
+The order opens as its own page. The one big button at the bottom reads
+**Accept order**. **Reject order** sits under **More**, along with
+**Message the florist**, **Order PDF** and **Authorisation letter**.
+
+<HelpMedia id="accept-phone-03-more-reject-order" caption="Under More: Message the florist, Order PDF, Authorisation letter and, in red, Reject order." />

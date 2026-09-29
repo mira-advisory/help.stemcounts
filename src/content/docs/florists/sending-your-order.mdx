@@ -1,81 +1,176 @@
 ---
 title: Sending your order
-description: What 'sent' means, when the cut-off lands, what wholesalers see next.
+description: Choose a wholesaler for each flower, fix part bunches, add comments, then Send Order. What the wholesaler receives and what is locked afterwards.
 sidebar:
   order: 9
 ---
 
-import { Steps, Aside } from "@astrojs/starlight/components";
+import { Steps, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-A **draft order** is still yours to edit. Once you **send** it, the
-order goes to your wholesaler and editing is locked.
+A **draft** weekly order is still yours to edit. Once you **send** it,
+each wholesaler gets their own order and the event pages lock. Sending
+happens from the weekly order page, in the **Weekly Order Summary**.
 
-<HelpMedia id="send-order-button" caption="The Send Order action on a weekly order" />
+## Getting the event onto the weekly order
 
-## Before you send: a quick checklist
+On the event page, click **Add to Weekly Order**. It is greyed out until
+every flower in the event's **Summary** is whole bunches: see
+[The Spares bucket](/florists/the-spares-bucket/). It takes you to the
+weekly order, where the **Weekly Order Summary** lists every flower in
+the order.
 
-- All events for the week added
-- Each event has at least one arrangement
-- Each arrangement has flowers (or you've intentionally left it empty for later)
-- Budgets and quantities look right
-- The Spares Bucket has cover if you want any
-- Notes / special instructions filled in where needed
+## Choosing a wholesaler for each flower
+
+- **Wholesaler:** in the summary header sets a wholesaler on every row
+  they stock (**Apply to eligible flowers**).
+- Each row also has its own wholesaler list, showing each wholesaler's
+  price. **Select wholesaler** clears the row.
+- A row with no wholesaler is shaded yellow. A row showing **Default** has
+  no wholesaler offering that flower.
+
+A preferred wholesaler set on the event is filled in to start with. You
+can use different wholesalers for different flowers.
+
+### Why the bunches changed when you picked a wholesaler
+
+Wholesalers do not all sell a flower in the same bunch size. When you
+choose one, each row is recounted in that wholesaler's bunch size and
+priced at their price. If your stems no longer make whole bunches, a
+**Not whole bunches** window lists each flower with the extra stems and
+what they cost. Pick one:
+
+- **Round up** (it shows the stems and the total cost) adds the missing
+  stems to Spares on the event.
+- **Choose another wholesaler** closes the window so you can pick a
+  different one.
+- **Remove the extra stems** opens the event on its Bunches tab to trim
+  them.
+
+A part bunch cannot be sent, so **Send Order** stays disabled until it is
+sorted.
+
+## Comments and missing flowers
+
+- **Comment on a flower:** click a row in the **Weekly Order Summary** to
+  open **Comment for wholesaler**. Type your note and click the tick
+  (**Save comment**). Comments are also saved when you send.
+- **Order note:** click the speech-bubble icon next to the order reference
+  (**Open order note**). **Order Note** says "Add a comment for the entire
+  order." Type it and click **Save note**.
+- **Missing flower:** if the wholesaler you chose does not carry a flower
+  or colour, its cell shows an amber warning and a **Request missing
+  flower** button appears in the header. The request window previews the
+  message, takes an optional note and emails that wholesaler, with you
+  copied.
 
 ## Sending
 
 <Steps>
 
-1. Open the weekly order (from the Orders list or the landing page).
+1. Click **Send Order** in the **Weekly Order Summary** header. It turns
+   on once every row has a wholesaler and every row is whole bunches.
 
-2. Review the **Weekly Totals Overview** card — total stems, total
-   wholesale cost, total customer revenue.
+   On a phone, the order page ends in a **Review and send** bar. Tap it
+   to open the **Review and send** sheet, choose a **Wholesaler**, and
+   **Send order** goes live once the sheet reads **Ready to send**.
 
-3. Click **Send Order** at the bottom of the page.
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="send-order-desktop-01-send-disabled" caption="Send Order stays grey until every flower has a wholesaler. The yellow Wholesaler control is the sign that some do not." />
+       <HelpMedia id="send-order-desktop-02-wholesaler-picker-open" caption="Open Wholesaler and choose one to apply to every flower it can supply." />
+       <HelpMedia id="send-order-desktop-03-send-enabled" caption="With a wholesaler on every line, Send Order turns green." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="send-order-phone-01-review-bar" caption="On a phone the order page ends in a Review and send bar. The line above it says what still needs doing." />
+       <HelpMedia id="send-order-phone-02-review-sheet" caption="Review and send: the reason Send order is not ready yet, the Wholesaler row, every flower and the totals." />
+       <HelpMedia id="send-order-phone-03-wholesaler-sheet" caption="Tap Wholesaler and choose one under Wholesaler for everything." />
+       <HelpMedia id="send-order-phone-04-ready-to-send" caption="With a wholesaler on every flower the sheet reads Ready to send and Send order is live." />
+     </TabItem>
+   </Tabs>
 
-4. Confirm the action. The order status flips from **Draft** to
-   **Sent** and lands on your wholesaler's *Receive & Accept* board
-   instantly.
+2. **Send Assigned Orders** lists each wholesaler you have used. For each
+   one, set the **Delivery/Pick Up Date** and **Fulfilment type**
+   (**Delivery** or **Pick up**).
 
-   <HelpMedia id="order-status-sent" />
+   On a phone the same step is the **Send to wholesalers** sheet.
+
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="send-order-desktop-04-send-dialog" caption="Send Assigned Orders shows what goes to each wholesaler. Send Order sends it; Cancel goes back." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="send-order-phone-05-send-confirm" caption="Send to wholesalers lists what each one gets. Tap Send order to send it, or close the sheet to go back." />
+     </TabItem>
+   </Tabs>
+
+3. Click **Send Order**. The order and each wholesaler's lines now show
+   **Sent**.
+
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="send-order-desktop-05-sent-order" caption="Once sent, the order shows Sent on the order and on each wholesaler's lines." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="send-order-phone-06-sent-order" caption="A sent order on a phone: the status card at the top reads Sent, with each wholesaler's flowers below." />
+     </TabItem>
+   </Tabs>
 
 </Steps>
 
-## What happens next
+If you filtered the summary to certain events with the eye icon on the
+event cards, only those events are sent.
 
-- Your order is locked from edits (except for notes — more on that below)
-- We let your wholesaler know straight away
-- The order shows up in your Orders list under **Sent**
-- It'll move through fulfilment over the next few days — see [Tracking your order](/florists/tracking-your-order/)
+## What the wholesaler receives
 
-## After sending — what you can still change
+Each wholesaler on the order gets:
 
-| Field | Editable after send? |
-|---|---|
-| Adding events | No |
-| Adding arrangements to existing events | No |
-| Changing flower quantities | No |
-| Order **note** (free-text field) | Yes |
-| Per-arrangement notes for the wholesaler | Yes |
+- an email, **New order from [your business]: [order reference]**, with
+  the order PDF attached and an **Accept this order** button. Any Canva
+  mood boards pinned to the events are attached too. See
+  [Canva mood boards](/florists/canva-mood-boards/).
+- an in-app notification, **New order received**, if they have a
+  StemCounts account.
+- a text message with a link to view and accept, when order text
+  messages are switched on.
 
-If you need to change anything else after sending, contact your
-wholesaler directly. They can reject the order, which sends it back to
-draft for you to edit.
+You are copied on the wholesaler's email, which is your confirmation that
+it went out. There is no separate "order sent" email to you. See
+[Order messages and notifications](/florists/order-messages-and-notifications/).
 
-## Cut-offs
-
-Each wholesaler has a **cut-off time** — usually a fixed day-of-week
-and time. Orders sent before the cut-off land on the standard sourcing
-window; orders sent after may miss it and need to be confirmed manually.
-
-<Aside type="caution">
-Check your wholesaler's cut-off in their welcome email or directly with
-them. StemCounts doesn't enforce the cut-off but missing it can mean a
-delayed delivery.
+<Aside type="note">
+On a phone, the order page ends in a **Review and send** bar, with a
+line above it saying what still needs doing. That sheet shows the
+event, a **Delivery** date, a **Wholesaler**, and each flower's bunches
+and stems, then sends. The button reads **Round up** until every line is
+whole bunches.
 </Aside>
 
-## Sending vs rejecting
+## What is locked after sending
 
-If a wholesaler rejects your order, it returns to **Draft**. You can
-edit and re-send. You'll see a status badge on the order indicating it
-was rejected.
+Once the order is sent, the order and event pages become read-only:
+
+- no adding, cloning or deleting arrangements, and no changing flowers,
+  quantities, budgets or markups,
+- no **Add Event**, and the event **Edit** and **Delete** menu is gone,
+- the order note and flower comments can no longer be edited; the note is
+  shown read-only in an **Order Note** panel at the top of the order,
+- the wholesaler lists become plain wholesaler names.
+
+An event whose flowers have all been sent is locked even if the rest of
+the order is still a draft. For a change after sending, contact your
+wholesaler, or use **Chat** on the order.
+
+## If the wholesaler rejects the order
+
+While an order is new, the wholesaler can reject it. The order and its
+flowers are marked **Rejected** and you get an in-app notification,
+**Order rejected**. No email or text is sent for a rejection.
+
+Rejecting does not turn the order back into a draft. Talk to the
+wholesaler, or send the flowers again as a new order. If you need a sent
+order cancelled, contact support@stemcounts.com or your wholesaler.
+
+## Next
+
+Follow the order through: [Tracking your order](/florists/tracking-your-order/).

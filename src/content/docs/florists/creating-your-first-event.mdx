@@ -1,76 +1,155 @@
 ---
 title: Creating your first event
-description: Events are the unit of work in StemCounts. Pick a date, name it, set a venue.
+description: The Add Event to Order form. Event Order or Bunch Order, the dates, the location, the preferred wholesaler, and which weekly order the event lands in.
 sidebar:
   order: 2
 ---
 
-import { Steps, Aside } from "@astrojs/starlight/components";
+import { Steps, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
 import HelpMedia from "../../../components/HelpMedia.astro";
 
-In StemCounts, an **event** is one piece of work — a wedding, a
-corporate gig, a funeral — for a specific date. Events live inside
-**weekly orders**, which are containers for everything happening in
-that calendar week.
+In StemCounts an **event** is one piece of work: a wedding, a corporate
+job, a funeral, on a date, at a venue. Events live inside **weekly
+orders**. You never create a weekly order by hand. You add an event, and
+StemCounts puts it into the right week for you.
 
-<HelpMedia id="event-creation-overview" kind="video" caption="An event being added to a weekly order" />
-
-## Create an event
+## Add an event
 
 <Steps>
 
-1. Click **New Order** on the landing page (or **Add another event** if
-   you're already on an open weekly order).
+1. Click **New Order** on the home screen. The **Add Event to Order** form
+   opens on the **Event Order** tab. On a phone, tap **New order** on
+   **Home** or the raised **New order** in the bar along the bottom, and
+   the **New event** sheet opens on its **Event** page.
 
-2. The Add Event modal opens with three fields:
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="new-event-desktop-01-home-new-order" caption="From Home, choose New Order." />
+       <HelpMedia id="new-event-desktop-02-add-event-empty" caption="The Add Event to Order form. Event Order is for an event; Bunch Order is flowers by the bunch with no event." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="new-event-phone-01-home" caption="On a phone, Home has a New order button, and the same raised New order in the tab bar along the bottom." />
+       <HelpMedia id="new-event-phone-02-new-event-empty" caption="The New event sheet. Event and Bunch order are the two pages at the top." />
+     </TabItem>
+   </Tabs>
 
-   - **Event Name** — short and descriptive, e.g. "Smith wedding",
-     "ANZ Q3 boardroom"
-   - **Event Date** — the day the event actually happens. **Not** the
-     delivery date.
-   - **Event Location** — venue or address. Used on the printable event
-     sheet.
+2. Fill in the four required fields:
 
-   <HelpMedia id="add-event-modal" />
+   - **Name**: short and specific, for example "Smith wedding".
+   - **Event Date**: the day the event happens.
+   - **Location**: the venue. It suggests venues from your own past
+     events, and you can still type a new one.
+   - **Delivery / Pickup Date**: when the flowers are needed. StemCounts
+     fills this in for you, but only while the field is blank, so a date
+     you type is never overwritten.
 
-3. Click **Save**.
+   **Preferred wholesaler** is optional. Leave it on **No preference** if
+   you have none. On a phone, tap each row to fill it in: **Event date**
+   opens a calendar to choose the day.
 
-   StemCounts looks at the event date and decides where the event lives:
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="new-event-desktop-03-add-event-filled" caption="Fill in the Name, Event Date, Location and Delivery / Pickup Date. Preferred wholesaler is optional. Then Add and Edit opens the event, or Add to Order adds it and stays on the summary." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="new-event-phone-03-event-date-sheet" caption="Tap Event date and choose the day from the calendar." />
+       <HelpMedia id="new-event-phone-04-new-event-filled" caption="Type the name, then fill the rows: Event date, Location, Delivery / pickup and, if you like, Wholesaler. Add and edit opens the event; Add to order adds it and goes back." />
+     </TabItem>
+   </Tabs>
 
-   - If you already have a **draft weekly order** for that week → event
-     is added to it
-   - If not → a new weekly order is created and your event becomes the
-     first one inside it
+3. Choose how to finish:
 
-4. You land on the **Event Details** page. The event is empty until you
-   add arrangements — that's the next step.
+   - **Add and Edit** takes you straight to the new event's page, ready to
+     add arrangements.
+   - **Add to Order** takes you to the weekly order the event landed in.
+
+   <Tabs syncKey="device">
+     <TabItem label="Computer">
+       <HelpMedia id="new-event-desktop-05-event-page" caption="The event page you land on: the event's details at the top, its arrangements below, ready for Add Arrangement." />
+     </TabItem>
+     <TabItem label="Phone">
+       <HelpMedia id="new-event-phone-06-event-page" caption="The event page you land on: the event's details at the top, its arrangements below, ready for Add Arrangement." />
+     </TabItem>
+   </Tabs>
 
 </Steps>
 
-## Event date vs delivery date
+## Event Order or Bunch Order
 
-These are different. The **event date** is when the event happens. The
-**delivery date** is calculated separately — usually one or two days
-before — and is when the flowers arrive with you to prepare.
+The form has two tabs.
 
-<Aside type="caution">
-Always enter the **event date**, not the delivery date. StemCounts
-calculates delivery from the event date based on your settings and the
-wholesaler's lead time.
+| Tab | What it is for | What you fill in |
+|---|---|---|
+| **Event Order** | "A named event, on a date, at a venue." You build it from arrangements. | **Name**, **Event Date**, **Location**, **Delivery / Pickup Date** |
+| **Bunch Order** | "Buy flowers by the bunch. No event, no arrangements." | **Name** and **Delivery / Pickup Date**. **Location** is optional. |
+
+<Tabs syncKey="device">
+  <TabItem label="Computer">
+    <HelpMedia id="new-event-desktop-04-bunch-order-tab" caption="The Bunch Order page: a name, the Delivery / Pickup Date, an optional wholesaler and location, with no event date." />
+  </TabItem>
+  <TabItem label="Phone">
+    <HelpMedia id="new-event-phone-05-bunch-order" caption="The Bunch order page: a name and the Delivery / pickup day, with the wholesaler and location optional." />
+  </TabItem>
+</Tabs>
+
+A Bunch Order takes you straight into the Flower Picker, counting in
+bunches. See [Bunch orders](/florists/bunch-orders/). There is no
+separate retail order type: if you are buying stock for the shop rather
+than for an occasion, use the **Bunch Order** tab.
+
+## Event date and delivery date
+
+**Event Date** is the day the event happens. **Delivery / Pickup Date**
+is when the flowers are needed. You choose both. Change the delivery date
+if the flowers should arrive earlier.
+
+You can change the delivery date later on the weekly order page, with
+**Delivery/Pick Up Date:** in the summary header, and again for each
+wholesaler when you send. Those pickers only allow dates from today up to
+the latest event date in the order (or the end of the order's week).
+
+## Which weekly order the event goes into
+
+Orders are grouped by week. StemCounts looks at the week of your **Event
+Date** (for a Bunch Order, the **Delivery / Pickup Date**). If you already
+have a draft order for that week, the event is added to it. If not, a new
+draft order is created for that week.
+
+To add another event to a week you already have open, click **Add Event**
+at the top of that order's page. The button only shows while the order is
+a draft. When you add from inside an order, the **Event Date** picker only
+offers days in that order's week.
+
+## Preferred wholesaler
+
+It is a starting point, not a lock-in. As the form says: "Every flower
+starts with this wholesaler. You can still change any of them later."
+
+Choosing one also means the event is counted in that wholesaler's bunch
+sizes where they have one, the Flower Picker shows their price and bunch
+size for each flower, and the picker can tell you when a stem length you
+choose is not in their list.
+
+## Editing or deleting an event
+
+On the weekly order page, each event card has a **...** menu with **Edit**
+and **Delete**. On the event page you can also use the pencil (**Edit
+event details**) beside the event name.
+
+**Edit Event Details** lets you change **Event Name**, **Event Date**,
+**Event Location** and **Price Markup for this Event**, then **Save
+Changes**. The date is only checked when you change it (it must be
+tomorrow or later), so renaming an event never moves it. If a new date
+falls in another week, the event moves to that week's order and opens
+there.
+
+**Delete** asks you to confirm and cannot be undone. The menu disappears
+once the event has been sent.
+
+<Aside type="tip">
+On a phone, tap **Add event** in the bar at the bottom of an order to add
+an event to it.
 </Aside>
-
-## Event types: event vs retail
-
-Events default to **event type**, used for one-off occasions. There's
-also **retail** — for regular weekly inventory you keep in-store. Most
-florists use *event* the majority of the time.
-
-| Type | When to use |
-|---|---|
-| **Event** | Specific occasion: wedding, corporate gig, funeral, party |
-| **Retail** | Standing weekly inventory for walk-ins and daily sales |
-
-You can mix both types in the same week.
 
 ## Next
 
